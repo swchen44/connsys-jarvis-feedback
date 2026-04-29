@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Session Report — 151b2638-d0a6-46</title>
+<style>
+:root {
+  --bg: #f8fafc; --card-bg: #ffffff; --border: #e2e8f0;
+  --text: #1e293b; --text-secondary: #64748b; --radius: 12px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg); color: var(--text); line-height: 1.6;
+  max-width: 1200px; margin: 0 auto; padding: 24px;
+}
+h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+h2 { font-size: 20px; font-weight: 600; margin-bottom: 16px; color: #334155; border-bottom: 2px solid var(--border); padding-bottom: 8px; }
+h3 { font-size: 16px; font-weight: 600; margin-bottom: 10px; color: #475569; }
+.header { margin-bottom: 32px; }
+.header-sub { color: var(--text-secondary); font-size: 14px; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 16px; margin-bottom: 32px; }
+.card {
+  background: var(--card-bg); border-radius: var(--radius); padding: 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08); border: 1px solid var(--border);
+}
+.card-title { font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-secondary); margin-bottom: 4px; }
+.card-value { font-size: 28px; font-weight: 700; line-height: 1.2; }
+.card-subtitle { font-size: 12px; color: var(--text-secondary); margin-top: 4px; }
+.summary-box {
+  background: linear-gradient(135deg, #eff6ff 0%, #f0fdf4 100%);
+  border: 1px solid #bfdbfe; border-radius: var(--radius); padding: 20px; margin-bottom: 32px;
+}
+.summary-box h3 { color: #1e40af; margin-bottom: 10px; }
+.summary-box ul { padding-left: 20px; }
+.summary-box li { margin-bottom: 6px; font-size: 14px; color: #334155; }
+.report-section {
+  background: var(--card-bg); border-radius: var(--radius); padding: 24px;
+  margin-bottom: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  border: 1px solid var(--border);
+}
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th { text-align: left; padding: 10px 12px; background: #f1f5f9; color: #475569; font-weight: 600; border-bottom: 2px solid var(--border); }
+td { padding: 8px 12px; border-bottom: 1px solid var(--border); }
+tr:hover { background: #f8fafc; }
+td.highlight { font-weight: 600; }
+code { background: #f1f5f9; padding: 2px 6px; border-radius: 4px; font-size: 12px; color: #6366f1; }
+.chart-row { display: flex; gap: 24px; align-items: flex-start; flex-wrap: wrap; }
+.chart-container { flex-shrink: 0; text-align: center; }
+.chart-table { flex: 1; min-width: 300px; overflow-x: auto; }
+.legend { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 12px; justify-content: center; }
+.legend-item { display: flex; align-items: center; gap: 4px; font-size: 12px; color: var(--text-secondary); }
+.legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.stacked-bar { display: flex; height: 40px; border-radius: 8px; overflow: hidden; margin-bottom: 8px; box-shadow: inset 0 1px 2px rgba(0,0,0,0.1); }
+.phase-segment { display: flex; align-items: center; justify-content: center; color: white; font-size: 11px; font-weight: 600; cursor: default; transition: opacity 0.2s; }
+.phase-segment:hover { opacity: 0.85; }
+.progress-bar { background: #e2e8f0; border-radius: 6px; height: 20px; position: relative; overflow: hidden; min-width: 120px; }
+.progress-fill { height: 100%; border-radius: 6px; transition: width 0.3s; }
+.progress-label { position: absolute; right: 6px; top: 50%; transform: translateY(-50%); font-size: 11px; font-weight: 600; color: #334155; }
+.nav { position: sticky; top: 0; background: var(--bg); padding: 12px 0; z-index: 10; margin-bottom: 16px; display: flex; gap: 8px; flex-wrap: wrap; }
+.nav a { padding: 6px 14px; border-radius: 8px; font-size: 13px; color: #475569; text-decoration: none; background: var(--card-bg); border: 1px solid var(--border); transition: all 0.2s; }
+.nav a:hover { background: #6366f1; color: white; border-color: #6366f1; }
+@media (max-width: 768px) { .chart-row { flex-direction: column; } .card-grid { grid-template-columns: repeat(2, 1fr); } }
+.footer { text-align: center; color: var(--text-secondary); font-size: 12px; padding: 24px 0; }
+.formula-box { background: #fefce8; border: 1px solid #fde68a; border-radius: var(--radius); padding: 20px; margin-bottom: 16px; }
+.formula-box h3 { color: #92400e; margin-bottom: 12px; }
+.formula-table { font-size: 13px; }
+.formula-table td { padding: 8px 12px; vertical-align: middle; }
+.formula-table td:first-child { font-weight: 600; white-space: nowrap; width: 160px; }
+.formula-table code { font-size: 12px; }
+.info-box { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 16px; color: #1e40af; font-size: 14px; }
+.section-divider { border: none; border-top: 3px solid #6366f1; margin: 40px 0 32px; opacity: 0.3; }
+.detail-header { color: #6366f1; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; margin-bottom: 16px; }
+details { margin-bottom: 8px; }
+details summary { cursor: pointer; padding: 8px 12px; background: #f1f5f9; border-radius: 8px; font-size: 13px; font-weight: 600; color: #475569; user-select: none; transition: background 0.2s; }
+details summary:hover { background: #e2e8f0; }
+details[open] summary { background: #e0e7ff; color: #4338ca; border-radius: 8px 8px 0 0; }
+details .collapsible-content { border: 1px solid var(--border); border-top: none; border-radius: 0 0 8px 8px; padding: 12px; background: var(--card-bg); }
+</style>
+</head>
+<body>
+<div class="header">
+          <h1>Session Analysis Report</h1>
+          <div class="header-sub">Session 151b2638-d0a6-46... &mdash; 2026-04-24T22:27:04</div>
+        </div><nav class="nav"><a href="#summary">Summary</a><a href="#tokens">Tokens</a><a href="#models">Models</a><a href="#tools">Tools</a><a href="#tool-quality">Quality</a><a href="#behavior">Behavior</a><a href="#text-signals">Signals</a><a href="#sentiment">Sentiment</a><a href="#efficiency">Efficiency</a><a href="#errors">Errors</a><a href="#thinking-depth">Thinking</a><a href="#tool-detail">Tool Detail</a><a href="#skill-detail">Skill Detail</a><a href="#formula">Formulas</a><a href="#api-detail">API Detail</a><a href="#error-detail">Error Detail</a><a href="#files">Files</a><a href="#agg-stats">Aggregated</a><a href="#speculation">Speculation</a><a href="#subagent-files">Subagents</a><a href="#info">Info</a></nav><div class="card-grid">
+    <div class="card">
+      <div class="card-title">Total Tokens</div>
+      <div class="card-value" style="color:#6366f1">164,270,987</div>
+      <div class="card-subtitle">$112.1569 estimated</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Cache Hit</div>
+      <div class="card-value" style="color:#22c55e">98.1%</div>
+      <div class="card-subtitle">cache_read / total_input</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Effective</div>
+      <div class="card-value" style="color:#22c55e">98.9%</div>
+      <div class="card-subtitle">non-wasted tokens</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Duration</div>
+      <div class="card-value" style="color:#3b82f6">6574.9 min</div>
+      <div class="card-subtitle">394493 seconds</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Tool Calls</div>
+      <div class="card-value" style="color:#94a3b8">925</div>
+      <div class="card-subtitle">27 errors (3%)</div>
+    </div>
+    <div class="card">
+      <div class="card-title">API Errors</div>
+      <div class="card-value" style="color:#ef4444">13</div>
+      <div class="card-subtitle">7 compactions</div>
+    </div></div><div id="summary"><div class="summary-box"><h3>Session Summary</h3><ul><li>Session consumed <strong>164,270,987</strong> tokens (~$112.16) over <strong>6574.9 minutes</strong>.</li><li>Models used: <code>&lt;synthetic&gt;</code>, <code>claude-opus-4-6</code>, <code>claude-sonnet-4-6</code>.</li><li>Excellent cache efficiency at <strong>98.1%</strong> — prompt cache is well utilized.</li><li>AI spent <strong>68%</strong> of tokens on <em>implementing</em>.</li><li>Minor token waste (1.1%) — within acceptable range.</li><li><span style="color:#ef4444">27 tool errors detected. Check the Tool Statistics table for details.</span></li></ul></div></div>
+    <section class="report-section" id="tokens">
+      <h2>Token Distribution</h2>
+      
+    <div class="chart-row">
+      <div class="chart-container"><svg width="200" height="200" viewBox="0 0 200 200"><path d="M 100.0 5.0 A 95.0 95.0 0 0 1 100.1 5.0 L 100.0 43.0 A 57.0 57.0 0 0 0 100.0 43.0 Z" fill="#6366f1" stroke="white" stroke-width="1.5"><title>Input: 14,107 (0.0%)</title></path><path d="M 100.1 5.0 A 95.0 95.0 0 0 1 101.9 5.0 L 101.1 43.0 A 57.0 57.0 0 0 0 100.0 43.0 Z" fill="#22c55e" stroke="white" stroke-width="1.5"><title>Output: 502,877 (0.3%)</title></path><path d="M 101.9 5.0 A 95.0 95.0 0 0 1 113.0 5.9 L 107.8 43.5 A 57.0 57.0 0 0 0 101.1 43.0 Z" fill="#f59e0b" stroke="white" stroke-width="1.5"><title>Cache Create: 3,067,384 (1.9%)</title></path><path d="M 113.0 5.9 A 95.0 95.0 0 1 1 100.0 5.0 L 100.0 43.0 A 57.0 57.0 0 1 0 107.8 43.5 Z" fill="#ef4444" stroke="white" stroke-width="1.5"><title>Cache Read: 160,686,619 (97.8%)</title></path></svg><div class="legend"><span class="legend-item"><span class="legend-dot" style="background:#6366f1"></span>Input</span><span class="legend-item"><span class="legend-dot" style="background:#22c55e"></span>Output</span><span class="legend-item"><span class="legend-dot" style="background:#f59e0b"></span>Cache Create</span><span class="legend-item"><span class="legend-dot" style="background:#ef4444"></span>Cache Read</span></div></div>
+      <div class="chart-table"><table><thead><tr><th>Category</th><th>Tokens</th><th>Ratio</th></tr></thead><tbody><tr><td>Input</td><td>14,107</td><td>0.0%</td></tr><tr><td>Output</td><td>502,877</td><td>0.3%</td></tr><tr><td>Cache Create</td><td>3,067,384</td><td>1.9%</td></tr><tr><td>Cache Read</td><td>160,686,619</td><td>97.8%</td></tr></tbody></table></div>
+    </div>
+    </section>
+    <section class="report-section" id="models">
+      <h2>Model Usage</h2>
+      <div class="chart-row"><div class="chart-container"><svg width="500" height="118" viewBox="0 0 500 118"><text x="132" y="23.0" text-anchor="end" font-size="12" fill="#475569">opus</text><rect x="140" y="5" width="280.0" height="28" rx="4" fill="#6366f1" opacity="0.85"><title>opus: 164,237,415</title></rect><text x="426.0" y="23.0" font-size="11" fill="#64748b">164,237,415</text><text x="132" y="59.0" text-anchor="end" font-size="12" fill="#475569">sonnet</text><rect x="140" y="41" width="2.0" height="28" rx="4" fill="#22c55e" opacity="0.85"><title>sonnet: 33,572</title></rect><text x="146.1" y="59.0" font-size="11" fill="#64748b">33,572</text><text x="132" y="95.0" text-anchor="end" font-size="12" fill="#475569">&lt;synthetic&gt;</text><rect x="140" y="77" width="2.0" height="28" rx="4" fill="#f59e0b" opacity="0.85"><title>&lt;synthetic&gt;: 0</title></rect><text x="146.0" y="95.0" font-size="11" fill="#64748b">0</text></svg></div><div class="chart-table"><table><thead><tr><th>Model</th><th>Tokens</th><th>Cost</th></tr></thead><tbody><tr><td><code>claude-opus-4-6</code></td><td>164,237,415</td><td>$112.0072</td></tr><tr><td><code>claude-sonnet-4-6</code></td><td>33,572</td><td>$0.0898</td></tr><tr><td><code>&lt;synthetic&gt;</code></td><td>0</td><td>$0.0000</td></tr></tbody></table></div></div>
+    </section>
+    <section class="report-section" id="tools">
+      <h2>Tool Statistics</h2>
+      <div class="chart-row"><div class="chart-container"><svg width="500" height="442" viewBox="0 0 500 442"><text x="132" y="23.0" text-anchor="end" font-size="12" fill="#475569">Edit</text><rect x="140" y="5" width="280.0" height="28" rx="4" fill="#6366f1" opacity="0.85"><title>Edit: 243</title></rect><text x="426.0" y="23.0" font-size="11" fill="#64748b">243</text><text x="132" y="59.0" text-anchor="end" font-size="12" fill="#475569">Bash</text><rect x="140" y="41" width="229.3" height="28" rx="4" fill="#22c55e" opacity="0.85"><title>Bash: 199</title></rect><text x="375.3" y="59.0" font-size="11" fill="#64748b">199</text><text x="132" y="95.0" text-anchor="end" font-size="12" fill="#475569">Read</text><rect x="140" y="77" width="262.7" height="28" rx="4" fill="#f59e0b" opacity="0.85"><title>Read: 228</title></rect><text x="408.7" y="95.0" font-size="11" fill="#64748b">228</text><text x="132" y="131.0" text-anchor="end" font-size="12" fill="#475569">Grep</text><rect x="140" y="113" width="85.3" height="28" rx="4" fill="#ef4444" opacity="0.85"><title>Grep: 74</title></rect><text x="231.3" y="131.0" font-size="11" fill="#64748b">74</text><text x="132" y="167.0" text-anchor="end" font-size="12" fill="#475569">TaskUpdate</text><rect x="140" y="149" width="56.5" height="28" rx="4" fill="#3b82f6" opacity="0.85"><title>TaskUpdate: 49</title></rect><text x="202.5" y="167.0" font-size="11" fill="#64748b">49</text><text x="132" y="203.0" text-anchor="end" font-size="12" fill="#475569">Write</text><rect x="140" y="185" width="42.6" height="28" rx="4" fill="#8b5cf6" opacity="0.85"><title>Write: 37</title></rect><text x="188.6" y="203.0" font-size="11" fill="#64748b">37</text><text x="132" y="239.0" text-anchor="end" font-size="12" fill="#475569">ExitPlanMode</text><rect x="140" y="221" width="28.8" height="28" rx="4" fill="#ec4899" opacity="0.85"><title>ExitPlanMode: 25</title></rect><text x="174.8" y="239.0" font-size="11" fill="#64748b">25</text><text x="132" y="275.0" text-anchor="end" font-size="12" fill="#475569">ToolSearch</text><rect x="140" y="257" width="31.1" height="28" rx="4" fill="#14b8a6" opacity="0.85"><title>ToolSearch: 27</title></rect><text x="177.1" y="275.0" font-size="11" fill="#64748b">27</text><text x="132" y="311.0" text-anchor="end" font-size="12" fill="#475569">TaskCreate</text><rect x="140" y="293" width="11.5" height="28" rx="4" fill="#f97316" opacity="0.85"><title>TaskCreate: 10</title></rect><text x="157.5" y="311.0" font-size="11" fill="#64748b">10</text><text x="132" y="347.0" text-anchor="end" font-size="12" fill="#475569">Agent</text><rect x="140" y="329" width="16.1" height="28" rx="4" fill="#64748b" opacity="0.85"><title>Agent: 14</title></rect><text x="162.1" y="347.0" font-size="11" fill="#64748b">14</text><text x="132" y="383.0" text-anchor="end" font-size="12" fill="#475569">Skill</text><rect x="140" y="365" width="3.5" height="28" rx="4" fill="#a855f7" opacity="0.85"><title>Skill: 3</title></rect><text x="149.5" y="383.0" font-size="11" fill="#64748b">3</text><text x="132" y="419.0" text-anchor="end" font-size="12" fill="#475569">AskUserQuestion</text><rect x="140" y="401" width="6.9" height="28" rx="4" fill="#06b6d4" opacity="0.85"><title>AskUserQuestion: 6</title></rect><text x="152.9" y="419.0" font-size="11" fill="#64748b">6</text></svg></div><div class="chart-table" style="flex:1.5"><table><thead><tr><th>Tool</th><th>Calls</th><th>OK</th><th>Err</th><th>Err%</th><th>Tokens</th><th>Share</th></tr></thead><tbody><tr><td><code>Edit</code></td><td>243</td><td>227</td><td><span>0</span></td><td>0%</td><td>39,595,271</td><td>26.3%</td></tr><tr><td><code>Bash</code></td><td>199</td><td>189</td><td><span style="color:#ef4444;font-weight:600">9</span></td><td>4%</td><td>37,219,715</td><td>21.5%</td></tr><tr><td><code>Read</code></td><td>228</td><td>199</td><td><span>0</span></td><td>0%</td><td>36,437,758</td><td>24.6%</td></tr><tr><td><code>Grep</code></td><td>74</td><td>66</td><td><span>0</span></td><td>0%</td><td>12,550,907</td><td>8.0%</td></tr><tr><td><code>TaskUpdate</code></td><td>49</td><td>49</td><td><span>0</span></td><td>0%</td><td>9,160,987</td><td>5.3%</td></tr></tbody></table><details><summary>Show all 15 tools...</summary><div class="collapsible-content"><table><thead><tr><th>Tool</th><th>Calls</th><th>OK</th><th>Err</th><th>Err%</th><th>Tokens</th><th>Share</th></tr></thead><tbody><tr><td><code>Write</code></td><td>37</td><td>37</td><td><span>0</span></td><td>0%</td><td>6,718,298</td><td>4.0%</td></tr><tr><td><code>ExitPlanMode</code></td><td>25</td><td>12</td><td><span style="color:#ef4444;font-weight:600">13</span></td><td>52%</td><td>3,897,604</td><td>2.7%</td></tr><tr><td><code>ToolSearch</code></td><td>27</td><td>27</td><td><span>0</span></td><td>0%</td><td>3,080,419</td><td>2.9%</td></tr><tr><td><code>TaskCreate</code></td><td>10</td><td>10</td><td><span>0</span></td><td>0%</td><td>1,620,091</td><td>1.1%</td></tr><tr><td><code>Agent</code></td><td>14</td><td>13</td><td><span style="color:#ef4444;font-weight:600">1</span></td><td>7%</td><td>1,560,539</td><td>1.5%</td></tr><tr><td><code>Skill</code></td><td>3</td><td>1</td><td><span style="color:#ef4444;font-weight:600">2</span></td><td>67%</td><td>995,971</td><td>0.3%</td></tr><tr><td><code>AskUserQuestion</code></td><td>6</td><td>5</td><td><span style="color:#ef4444;font-weight:600">1</span></td><td>17%</td><td>587,808</td><td>0.6%</td></tr><tr><td><code>Glob</code></td><td>3</td><td>3</td><td><span>0</span></td><td>0%</td><td>309,703</td><td>0.3%</td></tr><tr><td><code>WebFetch</code></td><td>3</td><td>2</td><td><span style="color:#ef4444;font-weight:600">1</span></td><td>33%</td><td>301,838</td><td>0.3%</td></tr><tr><td><code>mcp__plugin_github_github__get_file_contents</code></td><td>4</td><td>4</td><td><span>0</span></td><td>0%</td><td>235,411</td><td>0.4%</td></tr></tbody></table></div></details></div></div>
+    </section>
+    <section class="report-section" id="tool-quality">
+      <h2>Tool Quality Metrics</h2>
+      <div class="card-grid">
+    <div class="card">
+      <div class="card-title">Read:Edit Ratio</div>
+      <div class="card-value" style="color:#ef4444">0.9</div>
+      <div class="card-subtitle">Degraded</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Blind Edit %</div>
+      <div class="card-value" style="color:#f59e0b">26%</div>
+      <div class="card-subtitle">Warning</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Write %</div>
+      <div class="card-value" style="color:#f59e0b">13%</div>
+      <div class="card-subtitle">Warning</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Repeated Edits</div>
+      <div class="card-value" style="color:#6366f1">43</div>
+      <div class="card-subtitle">3+ same file in 10 TC</div>
+    </div></div><div class="chart-row"><div class="chart-container"><svg width="400" height="226" viewBox="0 0 400 226"><text x="132" y="23.0" text-anchor="end" font-size="12" fill="#475569">Read</text><rect x="140" y="5" width="168.9" height="28" rx="4" fill="#3b82f6" opacity="0.85"><title>Read: 228</title></rect><text x="314.9" y="23.0" font-size="11" fill="#64748b">228</text><text x="132" y="59.0" text-anchor="end" font-size="12" fill="#475569">Edit</text><rect x="140" y="41" width="180.0" height="28" rx="4" fill="#f59e0b" opacity="0.85"><title>Edit: 243</title></rect><text x="326.0" y="59.0" font-size="11" fill="#64748b">243</text><text x="132" y="95.0" text-anchor="end" font-size="12" fill="#475569">Write</text><rect x="140" y="77" width="27.4" height="28" rx="4" fill="#ef4444" opacity="0.85"><title>Write: 37</title></rect><text x="173.4" y="95.0" font-size="11" fill="#64748b">37</text><text x="132" y="131.0" text-anchor="end" font-size="12" fill="#475569">Grep</text><rect x="140" y="113" width="54.8" height="28" rx="4" fill="#22c55e" opacity="0.85"><title>Grep: 74</title></rect><text x="200.8" y="131.0" font-size="11" fill="#64748b">74</text><text x="132" y="167.0" text-anchor="end" font-size="12" fill="#475569">Glob</text><rect x="140" y="149" width="2.2" height="28" rx="4" fill="#14b8a6" opacity="0.85"><title>Glob: 3</title></rect><text x="148.2" y="167.0" font-size="11" fill="#64748b">3</text><text x="132" y="203.0" text-anchor="end" font-size="12" fill="#475569">Agent</text><rect x="140" y="185" width="10.4" height="28" rx="4" fill="#6366f1" opacity="0.85"><title>Agent: 14</title></rect><text x="156.4" y="203.0" font-size="11" fill="#64748b">14</text></svg></div><div class="chart-table" style="flex:2"><table><thead><tr><th>Metric</th><th>Value</th><th>Assessment</th><th>Benchmark (#42796)</th></tr></thead><tbody><tr><td>Read:Edit Ratio</td><td>0.94</td><td><span style="background:#ef4444;color:#fff;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:600">Degraded</span></td><td>Good: &gt;4.0 / Degraded: &lt;2.0</td></tr><tr><td>Research:Mutation</td><td>1.09</td><td></td><td>Good: &gt;6.0 / Degraded: &lt;3.0</td></tr><tr><td>Write % of Mutations</td><td>13.2%</td><td><span style="background:#f59e0b;color:#fff;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:600">Warning</span></td><td>Good: &lt;8% / Degraded: &gt;15%</td></tr><tr><td>Edits without Read</td><td>62/243 (25.5%)</td><td><span style="background:#f59e0b;color:#fff;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:600">Warning</span></td><td>Good: &lt;15% / Degraded: &gt;30%</td></tr><tr><td>Repeated Edits (3+)</td><td>43</td><td></td><td>Lower is better</td></tr><tr><td>Subagent Ratio</td><td>1.5%</td><td></td><td></td></tr></tbody></table></div></div>
+    </section>
+    <section class="report-section" id="behavior">
+      <h2>Behavior Phases</h2>
+      <div class="stacked-bar"><div class="phase-segment" style="width:67.8%;background:#22c55e" title="implementing: 111,339,699 tokens (67.8%)"><span>impl</span></div><div class="phase-segment" style="width:31.1%;background:#3b82f6" title="exploring: 51,160,745 tokens (31.1%)"><span>expl</span></div><div class="phase-segment" style="width:1.1%;background:#ef4444" title="debugging: 1,770,543 tokens (1.1%)"></div></div><div class="legend"><span class="legend-item"><span class="legend-dot" style="background:#22c55e"></span>implementing</span><span class="legend-item"><span class="legend-dot" style="background:#3b82f6"></span>exploring</span><span class="legend-item"><span class="legend-dot" style="background:#ef4444"></span>debugging</span></div><div style="margin-top:16px"><table><thead><tr><th>Phase</th><th>Messages</th><th>Tokens</th><th>Distribution</th></tr></thead><tbody><tr><td><span style="color:#22c55e;font-weight:600">implementing</span></td><td>661</td><td>111,339,699</td><td><div class="progress-bar"><div class="progress-fill" style="width:67.8%;background:#22c55e"></div><span class="progress-label">67.8%</span></div></td></tr><tr><td><span style="color:#3b82f6;font-weight:600">exploring</span></td><td>322</td><td>51,160,745</td><td><div class="progress-bar"><div class="progress-fill" style="width:31.1%;background:#3b82f6"></div><span class="progress-label">31.1%</span></div></td></tr><tr><td><span style="color:#ef4444;font-weight:600">debugging</span></td><td>8</td><td>1,770,543</td><td><div class="progress-bar"><div class="progress-fill" style="width:1.1%;background:#ef4444"></div><span class="progress-label">1.1%</span></div></td></tr></tbody></table></div>
+    </section>
+    <section class="report-section" id="text-signals">
+      <h2>Text Signals</h2>
+      <div class="chart-row"><div class="chart-container"><svg width="400" height="154" viewBox="0 0 400 154"><text x="132" y="23.0" text-anchor="end" font-size="12" fill="#475569">Reasoning Loops</text><rect x="140" y="5" width="180.0" height="28" rx="4" fill="#22c55e" opacity="0.85"><title>Reasoning Loops: 5</title></rect><text x="326.0" y="23.0" font-size="11" fill="#64748b">5</text><text x="132" y="59.0" text-anchor="end" font-size="12" fill="#475569">Premature Stopping</text><rect x="140" y="41" width="143.3" height="28" rx="4" fill="#f59e0b" opacity="0.85"><title>Premature Stopping: 4</title></rect><text x="289.3" y="59.0" font-size="11" fill="#64748b">4</text><text x="132" y="95.0" text-anchor="end" font-size="12" fill="#475569">&quot;Simplest&quot; Mentali...</text><rect x="140" y="77" width="73.3" height="28" rx="4" fill="#22c55e" opacity="0.85"><title>&quot;Simplest&quot; Mentality: 2</title></rect><text x="219.3" y="95.0" font-size="11" fill="#64748b">2</text><text x="132" y="131.0" text-anchor="end" font-size="12" fill="#475569">Self-Admitted Erro...</text><rect x="140" y="113" width="36.7" height="28" rx="4" fill="#94a3b8" opacity="0.85"><title>Self-Admitted Errors: 1</title></rect><text x="182.7" y="131.0" font-size="11" fill="#64748b">1</text></svg></div><div class="chart-table" style="flex:2"><table><thead><tr><th>Signal</th><th>Count</th><th>Per 1K TC</th><th>Assessment</th></tr></thead><tbody><tr><td>Reasoning Loops</td><td>5</td><td>5.4</td><td><span style="background:#22c55e;color:#fff;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:600">Good</span></td></tr><tr><td>Premature Stopping</td><td>4</td><td>4.3</td><td><span style="background:#f59e0b;color:#fff;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:600">Warning</span></td></tr><tr><td>"Simplest" Mentality</td><td>2</td><td>2.2</td><td><span style="background:#22c55e;color:#fff;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:600">Good</span></td></tr><tr><td>Self-Admitted Errors</td><td>1</td><td>1.1</td><td></td></tr></tbody></table></div></div><div style="margin-top:12px;padding:12px;background:#f1f5f9;border-radius:8px;font-size:13px"><strong>Benchmarks</strong> (anthropics/claude-code#42796):<br>Reasoning loops — Good: &lt;10, Warning: 10-20, Degraded: &gt;20<br>Premature stop — Good: &lt;2, Warning: 2-5, Degraded: &gt;5<br>"Simplest" — Good: &lt;3, Warning: 3-5, Degraded: &gt;5</div>
+    </section>
+    <section class="report-section" id="sentiment">
+      <h2>User Sentiment</h2>
+      <div class="card-grid">
+    <div class="card">
+      <div class="card-title">User Prompts</div>
+      <div class="card-value" style="color:#6366f1">235</div>
+      <div class="card-subtitle"></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Interrupts</div>
+      <div class="card-value" style="color:#22c55e">0 (0.0/1K)</div>
+      <div class="card-subtitle">Good</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Frustration</div>
+      <div class="card-value" style="color:#22c55e">0%</div>
+      <div class="card-subtitle">Good</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Sentiment</div>
+      <div class="card-value" style="color:#ef4444">0.0:1</div>
+      <div class="card-subtitle">Degraded (low)</div>
+    </div></div><div style="background:#fef3c7;border:1px solid #f59e0b;border-radius:8px;padding:12px;margin:12px 0;font-size:13px">&#9888; <strong>Warning:</strong> Keyword sentiment analysis is unreliable in technical contexts. Check sample_hits to verify. High-FP words (broken, wrong, lazy, bad, good, no) have been excluded.</div><h3>Sentiment Sample Hits (for human review)</h3><table><thead><tr><th>#</th><th>Keyword</th><th>Polarity</th><th>Len</th><th>Valid</th><th>Text Excerpt</th></tr></thead><tbody><tr><td>1</td><td><code>很好</code></td><td>positive</td><td>2212</td><td>&#x274C;</td><td><span style="font-size:12px">現在我想加一個功能。一起 Brainstorming也可以搜尋一下網路上目前這是怎麼實作的，有沒有好的案例或是簡單的版本可以學習或抄襲，拿回來改成自己的版本。
+</span></td></tr><tr><td>2</td><td><code>很好</code></td><td>positive</td><td>2212</td><td>&#x274C;</td><td><span style="font-size:12px">現在我想加一個功能。一起 Brainstorming也可以搜尋一下網路上目前這是怎麼實作的，有沒有好的案例或是簡單的版本可以學習或抄襲，拿回來改成自己的版本。
+</span></td></tr><tr><td>3</td><td><code>很好</code></td><td>positive</td><td>2218</td><td>&#x274C;</td><td><span style="font-size:12px">
+  
+  現在我想加一個功能。一起 Brainstorming也可以搜尋一下網路上目前這是怎麼實作的，有沒有好的案例或是簡單的版本可以學習或抄襲，拿回來改成自</span></td></tr><tr><td>4</td><td><code>很好</code></td><td>positive</td><td>2218</td><td>&#x274C;</td><td><span style="font-size:12px">
+  
+  現在我想加一個功能。一起 Brainstorming也可以搜尋一下網路上目前這是怎麼實作的，有沒有好的案例或是簡單的版本可以學習或抄襲，拿回來改成自</span></td></tr></tbody></table>
+    </section>
+    <section class="report-section" id="efficiency">
+      <h2>Token Efficiency</h2>
+      
+    <div class="chart-row">
+      <div class="chart-container">
+        <svg width="160" height="160" viewBox="0 0 160 160"><path d="M 80.0 5.0 A 75.0 75.0 0 1 1 74.9 5.2 L 76.7 31.4 A 48.8 48.8 0 1 0 80.0 31.2 Z" fill="#22c55e" stroke="white" stroke-width="1.5"><title>Effective: 162,500,444 (98.9%)</title></path><path d="M 74.9 5.2 A 75.0 75.0 0 0 1 80.0 5.0 L 80.0 31.2 A 48.8 48.8 0 0 0 76.7 31.4 Z" fill="#ef4444" stroke="white" stroke-width="1.5"><title>Wasted: 1,770,543 (1.1%)</title></path></svg><div class="legend"><span class="legend-item"><span class="legend-dot" style="background:#22c55e"></span>Effective</span><span class="legend-item"><span class="legend-dot" style="background:#ef4444"></span>Wasted</span></div>
+        <div style="text-align:center;margin-top:8px;font-size:14px;color:#64748b">
+          162,500,444 effective / 1,770,543 wasted
+        </div>
+      </div>
+      <div class="chart-table"><h3 style="margin-top:20px">Waste Details</h3><table><thead><tr><th>Type</th><th>Description</th><th>Tokens</th></tr></thead><tbody><tr><td>error_retry</td><td>Retry Bash after error</td><td>196,423</td></tr><tr><td>error_retry</td><td>Retry Bash after error</td><td>210,794</td></tr><tr><td>error_retry</td><td>Retry Bash after error</td><td>259,348</td></tr><tr><td>error_retry</td><td>Retry Bash after error</td><td>148,275</td></tr><tr><td>error_retry</td><td>Retry Bash after error</td><td>185,471</td></tr><tr><td>error_retry</td><td>Retry Bash after error</td><td>203,723</td></tr><tr><td>error_retry</td><td>Retry Bash after error</td><td>244,554</td></tr><tr><td>error_retry</td><td>Retry Skill after error</td><td>321,955</td></tr></tbody></table></div>
+    </div>
+    </section>
+    <section class="report-section" id="errors">
+      <h2>Errors &amp; Hooks</h2>
+      <h3>API Errors (13 total, 13 retries)</h3><table><thead><tr><th>Error Code</th><th>Count</th></tr></thead><tbody><tr><td>FailedToOpenSocket</td><td>7</td></tr><tr><td>ConnectionRefused</td><td>5</td></tr><tr><td></td><td>1</td></tr></tbody></table><h3>Hook Execution</h3><table><thead><tr><th>Event</th><th>Count</th><th>Avg Duration</th><th>Exit Codes</th></tr></thead><tbody><tr><td>PreToolUse</td><td>21</td><td>109ms</td><td>{'0': 21}</td></tr><tr><td>SessionStart</td><td>18</td><td>205ms</td><td>{'0': 18}</td></tr></tbody></table><h3>Stop Reasons</h3><table><thead><tr><th>Reason</th><th>Count</th></tr></thead><tbody><tr><td>stop_sequence</td><td>12</td></tr><tr><td>tool_use</td><td>925</td></tr><tr><td>end_turn</td><td>52</td></tr></tbody></table>
+    </section><hr class="section-divider"><div class="detail-header">Detailed Analysis</div>
+    <section class="report-section" id="thinking-depth">
+      <h2>Thinking Depth</h2>
+      <div class="card-grid">
+    <div class="card">
+      <div class="card-title">Thinking Blocks</div>
+      <div class="card-value" style="color:#6366f1">1</div>
+      <div class="card-subtitle"></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Redacted</div>
+      <div class="card-value" style="color:#f59e0b">100%</div>
+      <div class="card-subtitle">1 of 1</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Sig Length (median)</div>
+      <div class="card-value" style="color:#6366f1">964</div>
+      <div class="card-subtitle"></div>
+    </div></div><div class="chart-row"><div class="chart-container"><svg width="150" height="150" viewBox="0 0 150 150"><path d="M 75.0 5.0 A 70.0 70.0 0 1 1 75.0 5.0 L 75.0 33.0 A 42.0 42.0 0 1 0 75.0 33.0 Z" fill="#f59e0b" stroke="white" stroke-width="1.5"><title>Redacted: 1 (100.0%)</title></path></svg></div><div class="chart-table" style="flex:2"><table><thead><tr><th>Metric</th><th>Value</th></tr></thead><tbody><tr><td>Total Blocks</td><td>1</td></tr><tr><td>Visible (with content)</td><td>0 (0.0%)</td></tr><tr><td>Redacted (empty)</td><td>1 (100.0%)</td></tr><tr><td>Signature Length (median)</td><td>964</td></tr><tr><td>Signature Length (mean)</td><td>964</td></tr><tr><td>Signature Length (p25)</td><td>N/A</td></tr><tr><td>Signature Length (p75)</td><td>N/A</td></tr></tbody></table></div></div>
+    </section>
+    <section class="report-section" id="tool-detail">
+      <h2>Tool Deep Dive</h2>
+      
+    <div class="card-grid" style="grid-template-columns: repeat(4, 1fr); margin-bottom:20px">
+      
+    <div class="card">
+      <div class="card-title">Unique Tools</div>
+      <div class="card-value" style="color:#6366f1">15</div>
+      <div class="card-subtitle">out of 925 total calls</div>
+    </div>
+      
+    <div class="card">
+      <div class="card-title">Total Success</div>
+      <div class="card-value" style="color:#22c55e">844</div>
+      <div class="card-subtitle">91.2% success rate</div>
+    </div>
+      
+    <div class="card">
+      <div class="card-title">Total Errors</div>
+      <div class="card-value" style="color:#ef4444">27</div>
+      <div class="card-subtitle">2.9% error rate</div>
+    </div>
+      
+    <div class="card">
+      <div class="card-title">Avg Calls/Tool</div>
+      <div class="card-value" style="color:#6366f1">61.7</div>
+      <div class="card-subtitle">calls per unique tool</div>
+    </div>
+    </div><h3>Tool Reliability Ranking (worst first)</h3><table><thead><tr><th>Tool</th><th>Calls</th><th>OK</th><th>Errors</th><th>Success Rate</th><th>Tokens</th></tr></thead><tbody><tr><td><code>Skill</code></td><td>3</td><td><span style="color:#22c55e">1</span></td><td><span style="color:#ef4444">2</span></td><td><div class="progress-bar"><div class="progress-fill" style="width:33.3%;background:#ef4444"></div><span class="progress-label">33%</span></div></td><td>995,971</td></tr><tr><td><code>ExitPlanMode</code></td><td>25</td><td><span style="color:#22c55e">12</span></td><td><span style="color:#ef4444">13</span></td><td><div class="progress-bar"><div class="progress-fill" style="width:48.0%;background:#ef4444"></div><span class="progress-label">48%</span></div></td><td>3,897,604</td></tr><tr><td><code>WebFetch</code></td><td>3</td><td><span style="color:#22c55e">2</span></td><td><span style="color:#ef4444">1</span></td><td><div class="progress-bar"><div class="progress-fill" style="width:66.7%;background:#ef4444"></div><span class="progress-label">67%</span></div></td><td>301,838</td></tr><tr><td><code>AskUserQuestion</code></td><td>6</td><td><span style="color:#22c55e">5</span></td><td><span style="color:#ef4444">1</span></td><td><div class="progress-bar"><div class="progress-fill" style="width:83.3%;background:#f59e0b"></div><span class="progress-label">83%</span></div></td><td>587,808</td></tr><tr><td><code>Read</code></td><td>228</td><td><span style="color:#22c55e">199</span></td><td><span style="color:#ef4444">0</span></td><td><div class="progress-bar"><div class="progress-fill" style="width:87.3%;background:#f59e0b"></div><span class="progress-label">87%</span></div></td><td>36,437,758</td></tr></tbody></table><details><summary>Show all 15 tools...</summary><div class="collapsible-content"><table><thead><tr><th>Tool</th><th>Calls</th><th>OK</th><th>Errors</th><th>Success Rate</th><th>Tokens</th></tr></thead><tbody><tr><td><code>Grep</code></td><td>74</td><td><span style="color:#22c55e">66</span></td><td><span style="color:#ef4444">0</span></td><td><div class="progress-bar"><div class="progress-fill" style="width:89.2%;background:#f59e0b"></div><span class="progress-label">89%</span></div></td><td>12,550,907</td></tr><tr><td><code>Agent</code></td><td>14</td><td><span style="color:#22c55e">13</span></td><td><span style="color:#ef4444">1</span></td><td><div class="progress-bar"><div class="progress-fill" style="width:92.9%;background:#22c55e"></div><span class="progress-label">93%</span></div></td><td>1,560,539</td></tr><tr><td><code>Edit</code></td><td>243</td><td><span style="color:#22c55e">227</span></td><td><span style="color:#ef4444">0</span></td><td><div class="progress-bar"><div class="progress-fill" style="width:93.4%;background:#22c55e"></div><span class="progress-label">93%</span></div></td><td>39,595,271</td></tr><tr><td><code>Bash</code></td><td>199</td><td><span style="color:#22c55e">189</span></td><td><span style="color:#ef4444">9</span></td><td><div class="progress-bar"><div class="progress-fill" style="width:95.0%;background:#22c55e"></div><span class="progress-label">95%</span></div></td><td>37,219,715</td></tr><tr><td><code>TaskUpdate</code></td><td>49</td><td><span style="color:#22c55e">49</span></td><td><span style="color:#ef4444">0</span></td><td><div class="progress-bar"><div class="progress-fill" style="width:100.0%;background:#22c55e"></div><span class="progress-label">100%</span></div></td><td>9,160,987</td></tr><tr><td><code>Write</code></td><td>37</td><td><span style="color:#22c55e">37</span></td><td><span style="color:#ef4444">0</span></td><td><div class="progress-bar"><div class="progress-fill" style="width:100.0%;background:#22c55e"></div><span class="progress-label">100%</span></div></td><td>6,718,298</td></tr><tr><td><code>ToolSearch</code></td><td>27</td><td><span style="color:#22c55e">27</span></td><td><span style="color:#ef4444">0</span></td><td><div class="progress-bar"><div class="progress-fill" style="width:100.0%;background:#22c55e"></div><span class="progress-label">100%</span></div></td><td>3,080,419</td></tr><tr><td><code>TaskCreate</code></td><td>10</td><td><span style="color:#22c55e">10</span></td><td><span style="color:#ef4444">0</span></td><td><div class="progress-bar"><div class="progress-fill" style="width:100.0%;background:#22c55e"></div><span class="progress-label">100%</span></div></td><td>1,620,091</td></tr><tr><td><code>Glob</code></td><td>3</td><td><span style="color:#22c55e">3</span></td><td><span style="color:#ef4444">0</span></td><td><div class="progress-bar"><div class="progress-fill" style="width:100.0%;background:#22c55e"></div><span class="progress-label">100%</span></div></td><td>309,703</td></tr><tr><td><code>mcp__plugin_github_github__get_file_contents</code></td><td>4</td><td><span style="color:#22c55e">4</span></td><td><span style="color:#ef4444">0</span></td><td><div class="progress-bar"><div class="progress-fill" style="width:100.0%;background:#22c55e"></div><span class="progress-label">100%</span></div></td><td>235,411</td></tr></tbody></table></div></details><h3 style="margin-top:24px">Tool Call Distribution</h3><div style="text-align:center"><svg width="200" height="200" viewBox="0 0 200 200"><path d="M 100.0 5.0 A 95.0 95.0 0 0 1 194.7 107.6 L 156.8 104.5 A 57.0 57.0 0 0 0 100.0 43.0 Z" fill="#6366f1" stroke="white" stroke-width="1.5"><title>Edit: 243 (26.3%)</title></path><path d="M 194.7 107.6 A 95.0 95.0 0 0 1 113.2 194.1 L 107.9 156.4 A 57.0 57.0 0 0 0 156.8 104.5 Z" fill="#22c55e" stroke="white" stroke-width="1.5"><title>Bash: 199 (21.5%)</title></path><path d="M 113.2 194.1 A 95.0 95.0 0 0 1 6.2 115.3 L 43.7 109.2 A 57.0 57.0 0 0 0 107.9 156.4 Z" fill="#f59e0b" stroke="white" stroke-width="1.5"><title>Read: 228 (24.6%)</title></path><path d="M 6.2 115.3 A 95.0 95.0 0 0 1 10.5 68.2 L 46.3 80.9 A 57.0 57.0 0 0 0 43.7 109.2 Z" fill="#ef4444" stroke="white" stroke-width="1.5"><title>Grep: 74 (8.0%)</title></path><path d="M 10.5 68.2 A 95.0 95.0 0 0 1 25.8 40.7 L 55.5 64.4 A 57.0 57.0 0 0 0 46.3 80.9 Z" fill="#3b82f6" stroke="white" stroke-width="1.5"><title>TaskUpdate: 49 (5.3%)</title></path><path d="M 25.8 40.7 A 95.0 95.0 0 0 1 42.9 24.1 L 65.7 54.5 A 57.0 57.0 0 0 0 55.5 64.4 Z" fill="#8b5cf6" stroke="white" stroke-width="1.5"><title>Write: 37 (4.0%)</title></path><path d="M 42.9 24.1 A 95.0 95.0 0 0 1 56.5 15.5 L 73.9 49.3 A 57.0 57.0 0 0 0 65.7 54.5 Z" fill="#ec4899" stroke="white" stroke-width="1.5"><title>ExitPlanMode: 25 (2.7%)</title></path><path d="M 56.5 15.5 A 95.0 95.0 0 0 1 72.6 9.0 L 83.6 45.4 A 57.0 57.0 0 0 0 73.9 49.3 Z" fill="#14b8a6" stroke="white" stroke-width="1.5"><title>ToolSearch: 27 (2.9%)</title></path><path d="M 72.6 9.0 A 95.0 95.0 0 0 1 100.0 5.0 L 100.0 43.0 A 57.0 57.0 0 0 0 83.6 45.4 Z" fill="#94a3b8" stroke="white" stroke-width="1.5"><title>Others: 43 (4.6%)</title></path></svg><div class="legend"><span class="legend-item"><span class="legend-dot" style="background:#6366f1"></span>Edit</span><span class="legend-item"><span class="legend-dot" style="background:#22c55e"></span>Bash</span><span class="legend-item"><span class="legend-dot" style="background:#f59e0b"></span>Read</span><span class="legend-item"><span class="legend-dot" style="background:#ef4444"></span>Grep</span><span class="legend-item"><span class="legend-dot" style="background:#3b82f6"></span>TaskUpdate</span><span class="legend-item"><span class="legend-dot" style="background:#8b5cf6"></span>Write</span><span class="legend-item"><span class="legend-dot" style="background:#ec4899"></span>ExitPlanMode</span><span class="legend-item"><span class="legend-dot" style="background:#14b8a6"></span>ToolSearch</span><span class="legend-item"><span class="legend-dot" style="background:#94a3b8"></span>Others</span></div></div>
+    </section>
+    <section class="report-section" id="skill-detail">
+      <h2>Skill Deep Dive</h2>
+      
+    <div class="card-grid" style="grid-template-columns: repeat(4, 1fr); margin-bottom:20px">
+      
+    <div class="card">
+      <div class="card-title">Unique Skills</div>
+      <div class="card-value" style="color:#6366f1">3</div>
+      <div class="card-subtitle">3 total invocations</div>
+    </div>
+      
+    <div class="card">
+      <div class="card-title">Unique Tools</div>
+      <div class="card-value" style="color:#3b82f6">15</div>
+      <div class="card-subtitle">925 total calls</div>
+    </div>
+      
+    <div class="card">
+      <div class="card-title">Skill/Tool Ratio</div>
+      <div class="card-value" style="color:#6366f1">3/925</div>
+      <div class="card-subtitle">0.3% of calls are Skills</div>
+    </div>
+      
+    <div class="card">
+      <div class="card-title">Avg Calls/Skill</div>
+      <div class="card-value" style="color:#6366f1">1.0</div>
+      <div class="card-subtitle">invocations per unique skill</div>
+    </div>
+    </div><h3>Skill Invocation Distribution</h3><div style="margin-bottom:16px"><svg width="600" height="118" viewBox="0 0 600 118"><text x="132" y="23.0" text-anchor="end" font-size="12" fill="#475569">framework-skill-cr...</text><rect x="140" y="5" width="380.0" height="28" rx="4" fill="#6366f1" opacity="0.85"><title>framework-skill-create-flow: 1</title></rect><text x="526.0" y="23.0" font-size="11" fill="#64748b">1</text><text x="132" y="59.0" text-anchor="end" font-size="12" fill="#475569">skill-creator:skil...</text><rect x="140" y="41" width="380.0" height="28" rx="4" fill="#22c55e" opacity="0.85"><title>skill-creator:skill-creator: 1</title></rect><text x="526.0" y="59.0" font-size="11" fill="#64748b">1</text><text x="132" y="95.0" text-anchor="end" font-size="12" fill="#475569">framework-feedback...</text><rect x="140" y="77" width="380.0" height="28" rx="4" fill="#f59e0b" opacity="0.85"><title>framework-feedback-report-flow: 1</title></rect><text x="526.0" y="95.0" font-size="11" fill="#64748b">1</text></svg></div><table><thead><tr><th>Skill Name</th><th>Calls</th><th>OK</th><th>Errors</th><th>Rate</th><th>Tokens</th></tr></thead><tbody><tr><td><code>framework-skill-create-flow</code></td><td>1</td><td>0</td><td>0</td><td><span style="color:#22c55e;font-weight:600">100%</span></td><td>0</td></tr><tr><td><code>skill-creator:skill-creator</code></td><td>1</td><td>0</td><td>0</td><td><span style="color:#22c55e;font-weight:600">100%</span></td><td>0</td></tr><tr><td><code>framework-feedback-report-flow</code></td><td>1</td><td>0</td><td>0</td><td><span style="color:#22c55e;font-weight:600">100%</span></td><td>0</td></tr></tbody></table>
+    </section>
+    <section class="report-section" id="formula">
+      <h2>Efficiency Formulas &amp; Cache</h2>
+      
+    <div class="formula-box">
+      <h3>Calculation Formulas</h3>
+      <table class="formula-table">
+        <tr>
+          <td><strong>Effective Ratio</strong></td>
+          <td><code>(total_tokens - wasted_tokens) / total_tokens</code></td>
+          <td><code>(164,270,987 - 1,770,543) / 164,270,987 = <strong>98.9%</strong></code></td>
+        </tr>
+        <tr>
+          <td><strong>Wasted Tokens</strong></td>
+          <td><code>sum(error_retry + edit_mismatch + timeout_retry)</code></td>
+          <td><code>1,770,543 tokens detected</code></td>
+        </tr>
+        <tr>
+          <td><strong>Cache Hit Ratio</strong></td>
+          <td><code>cache_read_tokens / (input + cache_creation + cache_read)</code></td>
+          <td><code>98.1%</code></td>
+        </tr>
+        <tr>
+          <td><strong>Estimated Cost</strong></td>
+          <td><code>(input * rate + output * rate + cache_read * rate + cache_create * rate) / 1M</code></td>
+          <td><code>$112.1569</code></td>
+        </tr>
+      </table>
+    </div><h3 style="margin-top:20px">Cache TTL Distribution</h3><div style="text-align:center"><svg width="160" height="160" viewBox="0 0 160 160"><path d="M 80.0 5.0 A 75.0 75.0 0 1 1 80.0 5.0 L 80.0 35.0 A 45.0 45.0 0 1 0 80.0 35.0 Z" fill="#22c55e" stroke="white" stroke-width="1.5"><title>1-hour ephemeral: 3,067,384 (100.0%)</title></path></svg><div class="legend"><span class="legend-item"><span class="legend-dot" style="background:#6366f1"></span>5-min ephemeral</span><span class="legend-item"><span class="legend-dot" style="background:#22c55e"></span>1-hour ephemeral</span></div></div>
+    </section>
+    <section class="report-section" id="api-detail">
+      <h2>API Error Analysis</h2>
+      
+    <div class="card-grid" style="grid-template-columns: repeat(4, 1fr); margin-bottom:20px">
+      
+    <div class="card">
+      <div class="card-title">Total Errors</div>
+      <div class="card-value" style="color:#ef4444">13</div>
+      <div class="card-subtitle">API failures detected</div>
+    </div>
+      
+    <div class="card">
+      <div class="card-title">Retries</div>
+      <div class="card-value" style="color:#f59e0b">13</div>
+      <div class="card-subtitle">100% of errors retried</div>
+    </div>
+      
+    <div class="card">
+      <div class="card-title">Avg Wait</div>
+      <div class="card-value" style="color:#3b82f6">6.9s</div>
+      <div class="card-subtitle">89.6s total wait</div>
+    </div>
+      
+    <div class="card">
+      <div class="card-title">Error Types</div>
+      <div class="card-value" style="color:#6366f1">3</div>
+      <div class="card-subtitle">unique error codes</div>
+    </div>
+    </div><h3>Error Code Distribution</h3><div class="chart-row"><div class="chart-container"><svg width="180" height="180" viewBox="0 0 180 180"><path d="M 90.0 5.0 A 85.0 85.0 0 1 1 69.7 172.5 L 77.8 139.5 A 51.0 51.0 0 1 0 90.0 39.0 Z" fill="#6366f1" stroke="white" stroke-width="1.5"><title>FailedToOpenSocket: 7 (53.8%)</title></path><path d="M 69.7 172.5 A 85.0 85.0 0 0 1 50.5 14.7 L 66.3 44.8 A 51.0 51.0 0 0 0 77.8 139.5 Z" fill="#22c55e" stroke="white" stroke-width="1.5"><title>ConnectionRefused: 5 (38.5%)</title></path><path d="M 50.5 14.7 A 85.0 85.0 0 0 1 90.0 5.0 L 90.0 39.0 A 51.0 51.0 0 0 0 66.3 44.8 Z" fill="#f59e0b" stroke="white" stroke-width="1.5"><title>: 1 (7.7%)</title></path></svg><div class="legend"><span class="legend-item"><span class="legend-dot" style="background:#6366f1"></span>FailedToOpenSocket</span><span class="legend-item"><span class="legend-dot" style="background:#22c55e"></span>ConnectionRefused</span><span class="legend-item"><span class="legend-dot" style="background:#f59e0b"></span></span></div></div><div class="chart-table"><table><thead><tr><th>Error Code</th><th>Count</th><th>Proportion</th></tr></thead><tbody><tr><td><code>FailedToOpenSocket</code></td><td>7</td><td><div class="progress-bar"><div class="progress-fill" style="width:53.8%;background:#ef4444"></div><span class="progress-label">54%</span></div></td></tr><tr><td><code>ConnectionRefused</code></td><td>5</td><td><div class="progress-bar"><div class="progress-fill" style="width:38.5%;background:#ef4444"></div><span class="progress-label">38%</span></div></td></tr><tr><td><code></code></td><td>1</td><td><div class="progress-bar"><div class="progress-fill" style="width:7.7%;background:#ef4444"></div><span class="progress-label">8%</span></div></td></tr></tbody></table></div></div><h3 style="margin-top:20px">Error Timeline</h3><table><thead><tr><th>Time</th><th>Code</th><th>Retry</th><th>Wait</th><th>Recovered</th><th>Message</th></tr></thead><tbody><tr><td>2026-04-28T10:10:43</td><td><code>FailedToOpenSocket</code></td><td>1/10</td><td>0.5s</td><td><span style="color:#22c55e">Yes</span></td><td></td></tr><tr><td>2026-04-28T10:10:44</td><td><code>ConnectionRefused</code></td><td>2/10</td><td>1.1s</td><td><span style="color:#22c55e">Yes</span></td><td></td></tr><tr><td>2026-04-28T10:10:45</td><td><code>FailedToOpenSocket</code></td><td>3/10</td><td>2.2s</td><td><span style="color:#22c55e">Yes</span></td><td></td></tr><tr><td>2026-04-28T10:10:47</td><td><code>ConnectionRefused</code></td><td>4/10</td><td>4.3s</td><td><span style="color:#22c55e">Yes</span></td><td></td></tr><tr><td>2026-04-28T10:10:51</td><td><code>FailedToOpenSocket</code></td><td>5/10</td><td>8.5s</td><td><span style="color:#22c55e">Yes</span></td><td></td></tr></tbody></table><details><summary>Show all 13 API errors...</summary><div class="collapsible-content"><table><thead><tr><th>Time</th><th>Code</th><th>Retry</th><th>Wait</th><th>Recovered</th><th>Message</th></tr></thead><tbody><tr><td>2026-04-28T10:11:00</td><td><code>ConnectionRefused</code></td><td>6/10</td><td>19.2s</td><td><span style="color:#22c55e">Yes</span></td><td></td></tr><tr><td>2026-04-28T10:11:19</td><td><code>ConnectionRefused</code></td><td>7/10</td><td>35.9s</td><td><span style="color:#22c55e">Yes</span></td><td></td></tr><tr><td>2026-04-28T10:49:51</td><td><code>FailedToOpenSocket</code></td><td>1/10</td><td>0.5s</td><td><span style="color:#22c55e">Yes</span></td><td></td></tr><tr><td>2026-04-29T07:29:02</td><td><code></code></td><td>1/10</td><td>0.6s</td><td><span style="color:#22c55e">Yes</span></td><td></td></tr><tr><td>2026-04-29T07:29:03</td><td><code>ConnectionRefused</code></td><td>2/10</td><td>1.0s</td><td><span style="color:#22c55e">Yes</span></td><td></td></tr><tr><td>2026-04-29T07:29:04</td><td><code>FailedToOpenSocket</code></td><td>3/10</td><td>2.4s</td><td><span style="color:#22c55e">Yes</span></td><td></td></tr><tr><td>2026-04-29T07:29:07</td><td><code>FailedToOpenSocket</code></td><td>4/10</td><td>4.7s</td><td><span style="color:#22c55e">Yes</span></td><td></td></tr><tr><td>2026-04-29T07:29:11</td><td><code>FailedToOpenSocket</code></td><td>5/10</td><td>8.8s</td><td><span style="color:#22c55e">Yes</span></td><td></td></tr></tbody></table></div></details>
+    </section>
+    <section class="report-section" id="error-detail">
+      <h2>Tool Error Detail</h2>
+      
+    <div class="card-grid" style="grid-template-columns: repeat(4, 1fr); margin-bottom:20px">
+      
+    <div class="card">
+      <div class="card-title">Total Errors</div>
+      <div class="card-value" style="color:#ef4444">198</div>
+      <div class="card-subtitle">with detailed context</div>
+    </div>
+      
+    <div class="card">
+      <div class="card-title">Error Categories</div>
+      <div class="card-value" style="color:#f59e0b">5</div>
+      <div class="card-subtitle">most common: other_error</div>
+    </div>
+      
+    <div class="card">
+      <div class="card-title">Unique Targets</div>
+      <div class="card-value" style="color:#6366f1">15</div>
+      <div class="card-subtitle">distinct file/cmd/URL failures</div>
+    </div>
+      
+    <div class="card">
+      <div class="card-title">Top Offender</div>
+      <div class="card-value" style="color:#ef4444">20x</div>
+      <div class="card-subtitle">plan approval</div>
+    </div>
+    </div><h3>Error Category Distribution</h3><div class="chart-row"><div class="chart-container"><svg width="180" height="180" viewBox="0 0 180 180"><path d="M 90.0 5.0 A 85.0 85.0 0 1 1 15.1 49.9 L 45.0 65.9 A 51.0 51.0 0 1 0 90.0 39.0 Z" fill="#6366f1" stroke="white" stroke-width="1.5"><title>Other: 164 (82.8%)</title></path><path d="M 15.1 49.9 A 85.0 85.0 0 0 1 37.5 23.2 L 58.5 49.9 A 51.0 51.0 0 0 0 45.0 65.9 Z" fill="#22c55e" stroke="white" stroke-width="1.5"><title>User Rejected: 13 (6.6%)</title></path><path d="M 37.5 23.2 A 85.0 85.0 0 0 1 55.9 12.1 L 69.6 43.3 A 51.0 51.0 0 0 0 58.5 49.9 Z" fill="#f59e0b" stroke="white" stroke-width="1.5"><title>Command Failed: 8 (4.0%)</title></path><path d="M 55.9 12.1 A 85.0 85.0 0 0 1 76.6 6.1 L 81.9 39.6 A 51.0 51.0 0 0 0 69.6 43.3 Z" fill="#ef4444" stroke="white" stroke-width="1.5"><title>Timeout: 8 (4.0%)</title></path><path d="M 76.6 6.1 A 85.0 85.0 0 0 1 90.0 5.0 L 90.0 39.0 A 51.0 51.0 0 0 0 81.9 39.6 Z" fill="#3b82f6" stroke="white" stroke-width="1.5"><title>File Not Found: 5 (2.5%)</title></path></svg><div class="legend"><span class="legend-item"><span class="legend-dot" style="background:#6366f1"></span>Other</span><span class="legend-item"><span class="legend-dot" style="background:#22c55e"></span>User Rejected</span><span class="legend-item"><span class="legend-dot" style="background:#f59e0b"></span>Command Failed</span><span class="legend-item"><span class="legend-dot" style="background:#ef4444"></span>Timeout</span><span class="legend-item"><span class="legend-dot" style="background:#3b82f6"></span>File Not Found</span></div></div><div class="chart-table"><table><thead><tr><th>Category</th><th>Count &amp; Proportion</th></tr></thead><tbody><tr><td>Other</td><td><div class="progress-bar"><div class="progress-fill" style="width:82.8%;background:#ef4444"></div><span class="progress-label">164x (83%)</span></div></td></tr><tr><td>User Rejected</td><td><div class="progress-bar"><div class="progress-fill" style="width:6.6%;background:#ef4444"></div><span class="progress-label">13x (7%)</span></div></td></tr><tr><td>Command Failed</td><td><div class="progress-bar"><div class="progress-fill" style="width:4.0%;background:#ef4444"></div><span class="progress-label">8x (4%)</span></div></td></tr><tr><td>Timeout</td><td><div class="progress-bar"><div class="progress-fill" style="width:4.0%;background:#ef4444"></div><span class="progress-label">8x (4%)</span></div></td></tr><tr><td>File Not Found</td><td><div class="progress-bar"><div class="progress-fill" style="width:2.5%;background:#ef4444"></div><span class="progress-label">5x (3%)</span></div></td></tr></tbody></table></div></div><h3 style="margin-top:24px">Top Error Targets (most frequent first)</h3><table><thead><tr><th>Count</th><th>Tool</th><th>Target</th><th>Category</th><th>Sample Error</th></tr></thead><tbody><tr><td><span style="color:#ef4444;font-weight:700">20x</span></td><td><code>ExitPlanMode</code></td><td><code style="font-size:11px">plan approval</code></td><td>user_rejected</td><td><span style="font-size:11px;color:#94a3b8">The user doesn&#x27;t want to proceed with this tool use. The too</span></td></tr><tr><td><span style="color:#ef4444;font-weight:700">16x</span></td><td><code>Read</code></td><td><code style="font-size:11px">/Users/swchen.tw/git/workspace_jarvis/connsys-jarvis/fram...</code></td><td>other_error</td><td><span style="font-size:11px;color:#94a3b8">0	#!/usr/bin/env python3
+1	&quot;&quot;&quot;Claude Code Session JSONL Anal</span></td></tr><tr><td><span style="color:#ef4444;font-weight:700">10x</span></td><td><code>ToolSearch</code></td><td><code style="font-size:11px">select:ExitPlanMode</code></td><td>other_error</td><td><span style="font-size:11px;color:#94a3b8"></span></td></tr><tr><td><span style="color:#ef4444;font-weight:700">9x</span></td><td><code>Read</code></td><td><code style="font-size:11px">/Users/swchen.tw/git/workspace_jarvis/connsys-jarvis/test...</code></td><td>other_error</td><td><span style="font-size:11px;color:#94a3b8">1	&quot;&quot;&quot;Assertion library for integration test verification.
+2	</span></td></tr><tr><td><span style="color:#ef4444;font-weight:700">8x</span></td><td><code>Read</code></td><td><code style="font-size:11px">/Users/swchen.tw/git/workspace_jarvis/connsys-jarvis/test...</code></td><td>other_error</td><td><span style="font-size:11px;color:#94a3b8">1	&quot;&quot;&quot;CLI entry point for the integration test framework.
+2	
+</span></td></tr></tbody></table><details><summary>Show all 15 error targets...</summary><div class="collapsible-content"><table><thead><tr><th>Count</th><th>Tool</th><th>Target</th><th>Category</th><th>Sample Error</th></tr></thead><tbody><tr><td><span style="color:#ef4444;font-weight:700">6x</span></td><td><code>ToolSearch</code></td><td><code style="font-size:11px">select:AskUserQuestion</code></td><td>other_error</td><td><span style="font-size:11px;color:#94a3b8"></span></td></tr><tr><td><span style="color:#ef4444;font-weight:700">5x</span></td><td><code>Read</code></td><td><code style="font-size:11px">/Users/swchen.tw/git/workspace_jarvis/connsys-jarvis/scri...</code></td><td>other_error</td><td><span style="font-size:11px;color:#94a3b8">1680	                    if skill_md.exists():
+1681	        </span></td></tr><tr><td><span style="color:#ef4444;font-weight:700">5x</span></td><td><code>Read</code></td><td><code style="font-size:11px">/Users/swchen.tw/git/workspace_jarvis/connsys-jarvis/test...</code></td><td>other_error</td><td><span style="font-size:11px;color:#94a3b8">1	# Connsys Jarvis Expert Integration Test
+2	
+3	## Concept
+4</span></td></tr><tr><td><span style="color:#ef4444;font-weight:700">5x</span></td><td><code>Bash</code></td><td><code style="font-size:11px">python3 framework/framework-base-expert/skills/framework-...</code></td><td>other_error</td><td><span style="font-size:11px;color:#94a3b8">  Effective:  4,832,986 (89.4%)
+  Wasted:       573,092 (10.</span></td></tr><tr><td><span style="color:#ef4444;font-weight:700">4x</span></td><td><code>Bash</code></td><td><code style="font-size:11px">uvx pytest scripts/tests/integration/ -v -x 2&gt;&amp;1 | tail -5</code></td><td>other_error</td><td><span style="font-size:11px;color:#94a3b8">Done! Expert &#x27;framework-base-expert&#x27; installed.
+============</span></td></tr><tr><td><span style="color:#ef4444;font-weight:700">4x</span></td><td><code>Bash</code></td><td><code style="font-size:11px">python3 -m tests.claudecode.cli --expert wifi-bora-base-e...</code></td><td>command_failed</td><td><span style="font-size:11px;color:#94a3b8">Exit code 1
+2026-04-26 22:20:59 [INFO    ] __main__: === Tes</span></td></tr><tr><td><span style="color:#ef4444;font-weight:700">3x</span></td><td><code>Read</code></td><td><code style="font-size:11px">/Users/swchen.tw/git/workspace_jarvis/connsys-jarvis/scri...</code></td><td>file_not_found</td><td><span style="font-size:11px;color:#94a3b8">565	        capsys.readouterr()
+566	        inst.cmd_doctor(</span></td></tr><tr><td><span style="color:#ef4444;font-weight:700">3x</span></td><td><code>Read</code></td><td><code style="font-size:11px">/Users/swchen.tw/git/workspace_jarvis/connsys-jarvis/test...</code></td><td>other_error</td><td><span style="font-size:11px;color:#94a3b8">129	    def generate(
+130	        self, expert_name: str, mo</span></td></tr><tr><td><span style="color:#ef4444;font-weight:700">3x</span></td><td><code>Read</code></td><td><code style="font-size:11px">/Users/swchen.tw/git/workspace_jarvis/connsys-jarvis/test...</code></td><td>other_error</td><td><span style="font-size:11px;color:#94a3b8">161	class HeadlessExecutor(ExecutorBase):
+162	    &quot;&quot;&quot;Execute</span></td></tr><tr><td><span style="color:#ef4444;font-weight:700">3x</span></td><td><code>Read</code></td><td><code style="font-size:11px">/Users/swchen.tw/.claude/plans/virtual-wibbling-peacock.md</code></td><td>timeout</td><td><span style="font-size:11px;color:#94a3b8">1	# Plan: report 改為 markdown 格式 + 重跑測試
+2	
+3	## 修改
+4	1. `repo</span></td></tr></tbody></table></div></details><h3 style="margin-top:24px">Error Log (recent)</h3><table><thead><tr><th>Time</th><th>Tool</th><th>Category</th><th>Target</th><th>Error Message</th></tr></thead><tbody><tr><td>2026-04-28T06:08:32</td><td><code>Agent</code></td><td>other_error</td><td><code style="font-size:11px">Search web for feedback loop systems</code></td><td><span style="font-size:11px">Perfect. Now I have comprehensive search results. Let me compile this into a str</span></td></tr><tr><td>2026-04-28T06:14:41</td><td><code>Agent</code></td><td>other_error</td><td><code style="font-size:11px">Design feedback loop architecture</code></td><td><span style="font-size:11px">I now have sufficient understanding of the codebase. Let me compose the comprehe</span></td></tr><tr><td>2026-04-28T06:17:45</td><td><code>ToolSearch</code></td><td>other_error</td><td><code style="font-size:11px">select:AskUserQuestion</code></td><td><span style="font-size:11px"></span></td></tr><tr><td>2026-04-28T06:27:58</td><td><code>ToolSearch</code></td><td>other_error</td><td><code style="font-size:11px">select:ExitPlanMode</code></td><td><span style="font-size:11px"></span></td></tr><tr><td>2026-04-28T06:52:32</td><td><code>ExitPlanMode</code></td><td>user_rejected</td><td><code style="font-size:11px">plan approval</code></td><td><span style="font-size:11px">The user doesn&#x27;t want to proceed with this tool use. The tool use was rejected (</span></td></tr></tbody></table><details><summary>Show all 30 error log entries...</summary><div class="collapsible-content"><table><thead><tr><th>Time</th><th>Tool</th><th>Category</th><th>Target</th><th>Error Message</th></tr></thead><tbody><tr><td>2026-04-28T06:58:00</td><td><code>ExitPlanMode</code></td><td>user_rejected</td><td><code style="font-size:11px">plan approval</code></td><td><span style="font-size:11px">The user doesn&#x27;t want to proceed with this tool use. The tool use was rejected (</span></td></tr><tr><td>2026-04-28T07:04:42</td><td><code>ExitPlanMode</code></td><td>other_error</td><td><code style="font-size:11px">plan approval</code></td><td><span style="font-size:11px">User has approved your plan. You can now start coding. Start with updating your </span></td></tr><tr><td>2026-04-28T07:28:53</td><td><code>Read</code></td><td>other_error</td><td><code style="font-size:11px">/Users/swchen.tw/git/workspace_jarvis/connsys-j...</code></td><td><span style="font-size:11px">50	| `feedback_collect.py` | script | 3 | 收集引擎 |
+51	| `feedback_autofix.py` | sc</span></td></tr><tr><td>2026-04-28T07:28:59</td><td><code>Read</code></td><td>other_error</td><td><code style="font-size:11px">/Users/swchen.tw/git/workspace_jarvis/connsys-j...</code></td><td><span style="font-size:11px">178	### FR-07：主索引表
+179	
+180	`index.csv` 欄位：
+181	
+182	| 欄位 | 類型 | 說明 |
+183	|-----</span></td></tr><tr><td>2026-04-28T07:30:36</td><td><code>Read</code></td><td>other_error</td><td><code style="font-size:11px">/Users/swchen.tw/git/workspace_jarvis/connsys-j...</code></td><td><span style="font-size:11px">240	6. Top 優秀 Skills — 分數 5 最多的 skills（正面回饋排行）
+241	7. 最近回饋列表 — 最近 20 筆（含評分）
+242	</span></td></tr><tr><td>2026-04-24T22:27:53</td><td><code>Agent</code></td><td>other_error</td><td><code style="font-size:11px">Explore superpowers reference</code></td><td><span style="font-size:11px">I&#x27;ve successfully fetched both files. Here&#x27;s the content from each:
+
+## File 1: </span></td></tr><tr><td>2026-04-24T23:47:48</td><td><code>Agent</code></td><td>other_error</td><td><code style="font-size:11px">Design using-knowhow skill plan</code></td><td><span style="font-size:11px">Interesting -- 4 experts have no skills directory at all. Creating a using-knowh</span></td></tr><tr><td>2026-04-24T23:48:06</td><td><code>ToolSearch</code></td><td>other_error</td><td><code style="font-size:11px">select:AskUserQuestion</code></td><td><span style="font-size:11px"></span></td></tr><tr><td>2026-04-24T23:51:32</td><td><code>ToolSearch</code></td><td>other_error</td><td><code style="font-size:11px">select:ExitPlanMode</code></td><td><span style="font-size:11px"></span></td></tr><tr><td>2026-04-24T23:57:54</td><td><code>ExitPlanMode</code></td><td>user_rejected</td><td><code style="font-size:11px">plan approval</code></td><td><span style="font-size:11px">The user doesn&#x27;t want to proceed with this tool use. The tool use was rejected (</span></td></tr><tr><td>2026-04-25T00:29:38</td><td><code>ExitPlanMode</code></td><td>user_rejected</td><td><code style="font-size:11px">plan approval</code></td><td><span style="font-size:11px">The user doesn&#x27;t want to proceed with this tool use. The tool use was rejected (</span></td></tr><tr><td>2026-04-25T00:36:25</td><td><code>Read</code></td><td>other_error</td><td><code style="font-size:11px">/Users/swchen.tw/.claude/projects/-Users-swchen...</code></td><td><span style="font-size:11px">1	scripts/tests/integration/test_integration.py-571-    def test_include_target_</span></td></tr><tr><td>2026-04-25T00:36:35</td><td><code>Read</code></td><td>other_error</td><td><code style="font-size:11px">/Users/swchen.tw/git/workspace_jarvis/connsys-j...</code></td><td><span style="font-size:11px">1680	                    if skill_md.exists():
+1681	                        prin</span></td></tr><tr><td>2026-04-25T21:52:11</td><td><code>ExitPlanMode</code></td><td>user_rejected</td><td><code style="font-size:11px">plan approval</code></td><td><span style="font-size:11px">The user doesn&#x27;t want to proceed with this tool use. The tool use was rejected (</span></td></tr><tr><td>2026-04-25T21:56:19</td><td><code>ExitPlanMode</code></td><td>other_error</td><td><code style="font-size:11px">plan approval</code></td><td><span style="font-size:11px">User has approved your plan. You can now start coding. Start with updating your </span></td></tr><tr><td>2026-04-25T21:56:25</td><td><code>ToolSearch</code></td><td>other_error</td><td><code style="font-size:11px">select:TaskCreate,TaskUpdate</code></td><td><span style="font-size:11px"></span></td></tr><tr><td>2026-04-25T22:05:09</td><td><code>Read</code></td><td>file_not_found</td><td><code style="font-size:11px">/Users/swchen.tw/git/workspace_jarvis/connsys-j...</code></td><td><span style="font-size:11px">565	        capsys.readouterr()
+566	        inst.cmd_doctor(workspace)
+567	     </span></td></tr><tr><td>2026-04-25T22:05:13</td><td><code>Read</code></td><td>other_error</td><td><code style="font-size:11px">/Users/swchen.tw/git/workspace_jarvis/connsys-j...</code></td><td><span style="font-size:11px">555	
+556	    def test_correct_claude_md_shows_ok(self, workspace, capsys):
+557	 </span></td></tr><tr><td>2026-04-25T22:06:09</td><td><code>Read</code></td><td>other_error</td><td><code style="font-size:11px">/Users/swchen.tw/git/workspace_jarvis/connsys-j...</code></td><td><span style="font-size:11px">940	class TestDoctorClaudeMd:
+941	    &quot;&quot;&quot;TC-U19: --doctor 區段 D — CLAUDE.md 內容驗證&quot;</span></td></tr><tr><td>2026-04-25T22:06:49</td><td><code>Bash</code></td><td>other_error</td><td><code style="font-size:11px">uvx pytest scripts/tests/test_setup.py -v -x 2&gt;...</code></td><td><span style="font-size:11px">scripts/tests/test_setup.py::TestWriteEnvFile::test_agent_first_codespace_path_h</span></td></tr><tr><td>2026-04-25T22:07:09</td><td><code>Bash</code></td><td>other_error</td><td><code style="font-size:11px">uvx pytest scripts/tests/test_setup.py -v -x 2&gt;...</code></td><td><span style="font-size:11px">  [=] skills/framework-expert-discovery-knowhow → exists
+  [=] skills/framework-</span></td></tr><tr><td>2026-04-25T22:07:27</td><td><code>Bash</code></td><td>other_error</td><td><code style="font-size:11px">uvx pytest scripts/tests/test_setup.py -v -x 2&gt;...</code></td><td><span style="font-size:11px">  [+] skills/sys-bora-gerrit-commit-flow → created
+  [+] skills/sys-bora-preflig</span></td></tr><tr><td>2026-04-25T22:07:52</td><td><code>Bash</code></td><td>other_error</td><td><code style="font-size:11px">uvx pytest scripts/tests/test_setup.py -v -x 2&gt;...</code></td><td><span style="font-size:11px">  [=] hooks/framework-base-expert-session-start-hook.sh → exists
+  [=] hooks/fra</span></td></tr><tr><td>2026-04-25T22:07:56</td><td><code>Grep</code></td><td>other_error</td><td><code style="font-size:11px">test_add_idempotent_second_call in /Users/swche...</code></td><td><span style="font-size:11px">488-        self._run_add(workspace, &quot;wifi-bora/wifi-bora-memory-slim-expert/exp</span></td></tr><tr><td>2026-04-25T22:08:07</td><td><code>Bash</code></td><td>other_error</td><td><code style="font-size:11px">uvx pytest scripts/tests/test_setup.py -v -x 2&gt;...</code></td><td><span style="font-size:11px">  CLAUDE.md updated: /private/var/folders/wj/3v8944vj0t714p6b5l9lmr_80000gq/T/py</span></td></tr></tbody></table></div></details>
+    </section>
+    <section class="report-section" id="files">
+      <h2>File Changes</h2>
+      
+    <div class="card-grid" style="grid-template-columns: repeat(3, 1fr); margin-bottom:20px">
+      
+    <div class="card">
+      <div class="card-title">Snapshots</div>
+      <div class="card-value" style="color:#6366f1">33</div>
+      <div class="card-subtitle">file-history-snapshot events</div>
+    </div>
+      
+    <div class="card">
+      <div class="card-title">Files Modified</div>
+      <div class="card-value" style="color:#3b82f6">48</div>
+      <div class="card-subtitle">unique files tracked</div>
+    </div>
+      
+    <div class="card">
+      <div class="card-title">Avg Files/Snap</div>
+      <div class="card-value" style="color:#6366f1">1.5</div>
+      <div class="card-subtitle">files per snapshot</div>
+    </div>
+    </div><h3>Modified Files</h3><table><thead><tr><th>File Path</th></tr></thead><tbody><tr><td><code>/Users/swchen.tw/.claude/plans/sprightly-orbiting-stroustrup.md</code></td></tr><tr><td><code>/Users/swchen.tw/.claude/plans/virtual-wibbling-peacock.md</code></td></tr><tr><td><code>README.md</code></td></tr><tr><td><code>doc/agents-design.md</code></td></tr><tr><td><code>framework/framework-base-expert/skills/framework-base-expert-enhance-quality-flow/README.md</code></td></tr></tbody></table><details><summary>Show all 30 modified files...</summary><div class="collapsible-content"><table><thead><tr><th>File Path</th></tr></thead><tbody><tr><td><code>framework/framework-base-expert/skills/framework-base-expert-enhance-quality-flow/SKILL.md</code></td></tr><tr><td><code>framework/framework-base-expert/skills/framework-base-expert-enhance-quality-flow/references/test-case-schema.md</code></td></tr><tr><td><code>framework/framework-base-expert/skills/framework-expert-create-flow/SKILL.md</code></td></tr><tr><td><code>framework/framework-base-expert/skills/framework-feedback-report-flow/README.md</code></td></tr><tr><td><code>framework/framework-base-expert/skills/framework-feedback-report-flow/SKILL.md</code></td></tr><tr><td><code>framework/framework-base-expert/skills/framework-feedback-report-flow/evals/evals.json</code></td></tr><tr><td><code>framework/framework-base-expert/skills/framework-feedback-report-flow/references/bundle-schema.md</code></td></tr><tr><td><code>framework/framework-base-expert/skills/framework-session-analyzer-tool/README.md</code></td></tr><tr><td><code>framework/framework-base-expert/skills/framework-session-analyzer-tool/SKILL.md</code></td></tr><tr><td><code>framework/framework-base-expert/skills/framework-session-analyzer-tool/doc/gap-analysis-vs-claude-session-analyzer.md</code></td></tr><tr><td><code>framework/framework-base-expert/skills/framework-session-analyzer-tool/scripts/analyze_session.py</code></td></tr><tr><td><code>framework/framework-base-expert/skills/framework-session-analyzer-tool/scripts/generate_html_report.py</code></td></tr><tr><td><code>framework/framework-base-expert/skills/framework-skill-create-flow/SKILL.md</code></td></tr><tr><td><code>framework/framework-base-expert/tools/framework-feedback-report/doc/design.md</code></td></tr><tr><td><code>framework/framework-base-expert/tools/framework-feedback-report/doc/plan-feedback-loop-system.md</code></td></tr><tr><td><code>framework/framework-base-expert/tools/framework-feedback-report/doc/requirements.md</code></td></tr><tr><td><code>scripts/setup.py</code></td></tr><tr><td><code>scripts/tests/e2e/test_e2e.py</code></td></tr><tr><td><code>scripts/tests/integration/test_integration.py</code></td></tr><tr><td><code>scripts/tests/run_integration_tests.sh</code></td></tr><tr><td><code>scripts/tests/test_setup.py</code></td></tr><tr><td><code>scripts/tests/unit/test_unit.py</code></td></tr><tr><td><code>tests/claudecode/assertions.py</code></td></tr><tr><td><code>tests/claudecode/cli.py</code></td></tr><tr><td><code>tests/claudecode/config.py</code></td></tr></tbody></table></div></details><p style="color:#94a3b8">... and 18 more files</p>
+    </section>
+    <section class="report-section" id="agg-stats">
+      <h2>Aggregated Statistics</h2>
+      <p style="color:#94a3b8">No collapsed_read_search aggregation entries found.</p>
+    </section>
+    <section class="report-section" id="speculation">
+      <h2>Speculation</h2>
+      
+        <div class="card-grid" style="grid-template-columns: repeat(2, 1fr); margin-bottom:20px">
+          
+    <div class="card">
+      <div class="card-title">Speculation Events</div>
+      <div class="card-value" style="color:#94a3b8">0</div>
+      <div class="card-subtitle">No speculative execution detected</div>
+    </div>
+          
+    <div class="card">
+      <div class="card-title">Time Saved</div>
+      <div class="card-value" style="color:#94a3b8">0s</div>
+      <div class="card-subtitle">No time saved</div>
+    </div>
+        </div>
+        <p style="color:#94a3b8">No SpeculationAcceptMessage entries found. Speculative execution may not be enabled or no speculations were accepted.</p>
+    </section>
+    <section class="report-section" id="subagent-files">
+      <h2>Subagent JSONL Files</h2>
+      
+    <div class="card-grid" style="grid-template-columns: repeat(2, 1fr); margin-bottom:20px">
+      
+    <div class="card">
+      <div class="card-title">Subagent Files</div>
+      <div class="card-value" style="color:#3b82f6">4</div>
+      <div class="card-subtitle">independent JSONL transcripts</div>
+    </div>
+      
+    <div class="card">
+      <div class="card-title">Total Size</div>
+      <div class="card-value" style="color:#6366f1">572.4 KB</div>
+      <div class="card-subtitle">combined size</div>
+    </div>
+    </div><table><thead><tr><th>File</th><th>Size</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>agent-a4bc25511b7506441.jsonl</code></td><td>76.0 KB</td><td>Explore</td><td>Explore current analyze_session.py</td></tr><tr><td><code>agent-a573f30bcbb834b16.jsonl</code></td><td>112.1 KB</td><td>Explore</td><td>Explore feedback system state</td></tr><tr><td><code>agent-a7c677b6ea906eb45.jsonl</code></td><td>142.2 KB</td><td>Explore</td><td>Explore skill-create-flow and session-analyzer</td></tr><tr><td><code>agent-a8ba66e0092b10646.jsonl</code></td><td>242.1 KB</td><td>Explore</td><td>Explore current session analyzer</td></tr></tbody></table>
+    </section>
+    <section class="report-section" id="info">
+      <h2>Session Info</h2>
+      <table><thead><tr><th>Field</th><th>Value</th></tr></thead><tbody><tr><td>Session ID</td><td><code>151b2638-d0a6-46cb-b2d8-...</code></td></tr><tr><td>Claude Code Version</td><td>2.1.108</td></tr><tr><td>Git Branch</td><td><code>main</code></td></tr><tr><td>Working Directory</td><td><code>/Users/swchen.tw/git/workspace_jarvis/connsys-jarvis</code></td></tr><tr><td>Start</td><td>2026-04-24T22:27:04.358Z</td></tr><tr><td>End</td><td>2026-04-29T12:01:57.399Z</td></tr><tr><td>Duration</td><td>6574.9 minutes</td></tr><tr><td>Total JSONL Lines</td><td>3,734</td></tr></tbody></table>
+    </section><div class="footer">Generated by framework-session-analyzer-tool &mdash; connsys-jarvis</div>
+</body>
+</html>

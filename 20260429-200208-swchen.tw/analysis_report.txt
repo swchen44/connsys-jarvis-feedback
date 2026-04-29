@@ -1,0 +1,182 @@
+======================================================================
+  Claude Code Session Analysis Report
+======================================================================
+Session:  151b2638-d0a6-46...
+Branch:   main
+Duration: 394493s (6574.9min)
+Version:  2.1.108
+
+----------------------------------------------------------------------
+  L1: Quality Overview
+----------------------------------------------------------------------
+Total Tokens:    164,270,987
+Estimated Cost:  $ 112.1569
+Grand Total:     $ 112.7334  (incl. advisors + subagents)
+Cache Hit Ratio:     98.1%
+Effective Ratio:     98.9%
+Wasted Ratio:         1.1%
+Models Used:     <synthetic>, claude-opus-4-6, claude-sonnet-4-6
+Tool Calls:      925 (27 errors)
+Skill Calls:     3
+API Errors:      13
+Compactions:     7
+
+----------------------------------------------------------------------
+  L2: Model Usage Distribution
+----------------------------------------------------------------------
+  Model                                        Tokens     Cost
+  ------------------------------------------------------------
+  claude-opus-4-6                          164,237,415 $112.0072
+  claude-sonnet-4-6                            33,572 $ 0.0898
+  <synthetic>                                       0 $ 0.0000
+
+----------------------------------------------------------------------
+  L2: Tool Statistics
+----------------------------------------------------------------------
+  Tool                      Calls    OK  Err  ErrR    Tokens
+  -------------------------------------------------------
+  Edit                        243   227    0   0% 39,595,271
+  Bash                        199   189    9   4% 37,219,715
+  Read                        228   199    0   0% 36,437,758
+  Grep                         74    66    0   0% 12,550,907
+  TaskUpdate                   49    49    0   0% 9,160,987
+  Write                        37    37    0   0% 6,718,298
+  ExitPlanMode                 25    12   13  52% 3,897,604
+  ToolSearch                   27    27    0   0% 3,080,419
+  TaskCreate                   10    10    0   0% 1,620,091
+  Agent                        14    13    1   7% 1,560,539
+  Skill                         3     1    2  67%   995,971
+  AskUserQuestion               6     5    1  17%   587,808
+  Glob                          3     3    0   0%   309,703
+  WebFetch                      3     2    1  33%   301,838
+  mcp__plugin_github_github__get_file_contents     4     4    0   0%   235,411
+
+----------------------------------------------------------------------
+  L2: Tool Quality Metrics
+----------------------------------------------------------------------
+  Read:Edit Ratio:        0.9  [Degraded]
+  Research:Mutation Ratio: 1.1
+  Write % of Mutations:   13.2%  [Warning]
+  Edits without Read:     62/243 (25.5%)  [Warning]
+  Repeated Edits (3+):    43
+  Subagent Ratio:         1.5%
+
+  Benchmarks (from anthropics/claude-code#42796):
+  Read:Edit     — Good: >4.0, Warning: 2.0-4.0, Degraded: <2.0
+  Edits w/o Read — Good: <15%, Warning: 15-30%, Degraded: >30%
+  Write %       — Good: <8%, Warning: 8-15%, Degraded: >15%
+
+----------------------------------------------------------------------
+  L2: Thinking Depth
+----------------------------------------------------------------------
+  Total Thinking Blocks:  1
+  Visible (with content): 0 (0.0%)
+  Redacted (empty):       1 (100.0%)
+  Signature Length:       median=964, mean=964
+
+----------------------------------------------------------------------
+  L2: Skill Statistics
+----------------------------------------------------------------------
+  framework-skill-create-flow: 1 call(s)
+  skill-creator:skill-creator: 1 call(s)
+  framework-feedback-report-flow: 1 call(s)
+
+----------------------------------------------------------------------
+  L2: Subagent File Costs
+----------------------------------------------------------------------
+  agent-a4bc25511b7506441.jsonl: 80,969 tokens, $0.0678 (claude-haiku-4-5-20251001)
+  agent-a573f30bcbb834b16.jsonl: 592,649 tokens, $0.1614 (claude-haiku-4-5-20251001)
+  agent-a7c677b6ea906eb45.jsonl: 616,645 tokens, $0.1641 (claude-haiku-4-5-20251001)
+  agent-a8ba66e0092b10646.jsonl: 679,551 tokens, $0.1832 (claude-haiku-4-5-20251001)
+
+----------------------------------------------------------------------
+  L2: Grand Total Cost Breakdown
+----------------------------------------------------------------------
+  Session:    $ 112.1569
+  Subagents:  $   0.5765
+  Total:      $ 112.7334
+
+----------------------------------------------------------------------
+  L2: API Errors
+----------------------------------------------------------------------
+  Total errors: 13, retries: 13
+  FailedToOpenSocket: 7
+  ConnectionRefused: 5
+  : 1
+
+----------------------------------------------------------------------
+  L2: Hook Execution
+----------------------------------------------------------------------
+  PreToolUse: 21x, avg 109ms
+  SessionStart: 18x, avg 205ms
+
+----------------------------------------------------------------------
+  L3: Behavior Phases
+----------------------------------------------------------------------
+  Phase               Msgs     Tokens  Ratio
+  -----------------------------------------
+  implementing         661 111,339,699 67.8%
+  exploring            322 51,160,745 31.1%
+  debugging              8  1,770,543  1.1%
+
+----------------------------------------------------------------------
+  L3: Token Efficiency
+----------------------------------------------------------------------
+  Effective: 162,500,444 (98.9%)
+  Wasted:     1,770,543 (1.1%)
+  Total:     164,270,987
+
+  Waste Details:
+    [error_retry] Retry Bash after error (196,423 tokens)
+    [error_retry] Retry Bash after error (210,794 tokens)
+    [error_retry] Retry Bash after error (259,348 tokens)
+    [error_retry] Retry Bash after error (148,275 tokens)
+    [error_retry] Retry Bash after error (185,471 tokens)
+    [error_retry] Retry Bash after error (203,723 tokens)
+    [error_retry] Retry Bash after error (244,554 tokens)
+    [error_retry] Retry Skill after error (321,955 tokens)
+
+  Stop Reasons: {'stop_sequence': 12, 'tool_use': 925, 'end_turn': 52}
+
+  Avg Turn Duration: 255841ms (255.8s)
+
+----------------------------------------------------------------------
+  L3: User Sentiment
+----------------------------------------------------------------------
+  Total User Prompts:     235
+  User Interrupts:        0 (0.0/1K TC)  [Good]
+  Frustration Prompts:    0 (0.0%)  [Good]
+  Sentiment Ratio:        0:0 = 0.0:1  [Degraded]  (confidence: low)
+
+  Sentiment Sample Hits (top 10, for human review):
+    # Keyword      Polarity  Len Valid Text Excerpt
+  -----------------------------------------------------------------
+    1 很好           positive 2212     N 現在我想加一個功能。一起 Brainstorming也可以搜尋一下網路上目前這是怎麼實作的，有沒有好的案例或是簡單的版本可以學習或抄襲，拿回來改成自己的版本。
+
+    2 很好           positive 2212     N 現在我想加一個功能。一起 Brainstorming也可以搜尋一下網路上目前這是怎麼實作的，有沒有好的案例或是簡單的版本可以學習或抄襲，拿回來改成自己的版本。
+
+    3 很好           positive 2218     N 
+  
+  現在我想加一個功能。一起 Brainstorming也可以搜尋一下網路上目前這是怎麼實作的，有沒有好的案例或是簡單的版本可以學習或抄襲，拿回來改成自
+    4 很好           positive 2218     N 
+  
+  現在我想加一個功能。一起 Brainstorming也可以搜尋一下網路上目前這是怎麼實作的，有沒有好的案例或是簡單的版本可以學習或抄襲，拿回來改成自
+
+  WARNING: Keyword sentiment analysis is unreliable in technical contexts. Check sample_hits to verify. High-FP words (broken, wrong, lazy, bad, good, no) have been excluded.
+
+----------------------------------------------------------------------
+  L3: Behavioral Text Signals (trilingual)
+----------------------------------------------------------------------
+  Signal                    Count  Per 1K TC Assessment
+  -------------------------------------------------------
+  Reasoning Loops               5        5.4  [Good]
+  Premature Stopping            4        4.3  [Warning]
+  "Simplest" Mentality          2        2.2  [Good]
+  Self-Admitted Errors          1        1.1
+
+  Benchmarks (from anthropics/claude-code#42796):
+  Reasoning loops /1K TC — Good: <10, Warning: 10-20, Degraded: >20
+  Premature stop  /1K TC — Good: <2,  Warning: 2-5,  Degraded: >5
+  "Simplest"      /1K TC — Good: <3,  Warning: 3-5,  Degraded: >5
+
+======================================================================
