@@ -1,0 +1,37 @@
+{
+  "version": "2.2.0",
+
+  "metadata": {
+    "bundle_id": "20260501-102154-swchen.tw-HomeMacBook-Air",
+    "timestamp": "2026-05-01T10:21:54Z",
+    "user_id": "swchen.tw",
+    "hostname": "HomeMacBook-Air",
+    "agent_program": "claude-code"
+  },
+
+  "feedback": {
+    "score": 3,
+    "description": "測試用途，驗證打包流程"
+  },
+
+  "sessions": [
+    {
+      "session_id": "151b2638-d0a6-46cb-b2d8-2155e1a1ac80",
+      "source_path": "/Users/swchen.tw/.claude/projects/-Users-swchen-tw-git-workspace-jarvis-connsys-jarvis/151b2638-d0a6-46cb-b2d8-2155e1a1ac80.jsonl",
+      "subagents": [
+        "agent-aa3e155caa07f396e",
+        "agent-a4bc25511b7506441",
+        "agent-a36873be57f447a1c",
+        "agent-a7c677b6ea906eb45",
+        "agent-ac4503529a0c62176",
+        "agent-a8ba66e0092b10646",
+        "agent-ae4dc5f9ba701f509",
+        "agent-a5f5cb62ae1aae9e8",
+        "agent-a573f30bcbb834b16"
+      ]
+    }
+  ],
+
+  "sessions_archive": "sessions.tar.bz2",
+  "context_archive": "context.tar.bz2"
+}
