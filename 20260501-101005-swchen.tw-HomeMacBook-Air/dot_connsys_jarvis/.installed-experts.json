@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-05-01T02:09:19Z",
+  "experts": [
+    {
+      "name": "wifi-bora-base-expert",
+      "domain": "wifi-bora",
+      "version": "1.0.0",
+      "path": "wifi-bora/wifi-bora-base-expert/expert.json",
+      "installed_at": "2026-04-26T12:19:33Z",
+      "install_order": 1,
+      "is_identity": false,
+      "declared_symlinks": {
+        "skills": [
+          "sys-bora-repo-tool",
+          "sys-bora-gerrit-tool",
+          "wifi-bora-symbolmap-knowhow",
+          "wifi-bora-protocol-knowhow",
+          "wifi-bora-linkerscript-knowhow",
+          "wifi-bora-memory-knowhow",
+          "wifi-bora-build-flow",
+          "wifi-bora-arch-knowhow",
+          "wifi-bora-base-expert-using-knowhow"
+        ],
+        "hooks": [],
+        "agents": [],
+        "commands": [],
+        "rules": []
+      }
+    },
+    {
+      "name": "framework-base-expert",
+      "domain": "framework",
+      "version": "1.1.0",
+      "path": "framework/framework-base-expert/expert.json",
+      "installed_at": "2026-05-01T02:09:19Z",
+      "install_order": 2,
+      "is_identity": true,
+      "declared_symlinks": {
+        "skills": [
+          "framework-base-skill-craftsman-flow",
+          "framework-base-expert-list-cmd",
+          "framework-feedback-report-flow",
+          "framework-skill-create-flow",
+          "framework-memory-tool",
+          "framework-expert-discovery-knowhow",
+          "framework-base-expert-enhance-quality-flow",
+          "framework-expert-create-flow",
+          "framework-session-analyzer-tool"
+        ],
+        "hooks": [
+          "framework-base-expert-session-start-hook.sh",
+          "framework-base-expert-session-end-hook.sh",
+          "framework-base-expert-pre-compact-hook.sh",
+          "framework-base-expert-mid-checkpoint-hook.sh",
+          "framework-base-expert-shared-utils.sh"
+        ],
+        "agents": [],
+        "commands": [],
+        "rules": []
+      }
+    }
+  ]
+}
