@@ -1,0 +1,28 @@
+{
+  "version": "2.2.0",
+
+  "metadata": {
+    "bundle_id": "20260504_223711-swchen.tw-HomeMacBook-Air",
+    "timestamp": "2026-05-05T06:37:11Z",
+    "user_id": "swchen.tw",
+    "hostname": "HomeMacBook-Air",
+    "agent_program": "claude-code"
+  },
+
+  "feedback": {
+    "score": 3,
+    "description": "Integration test - framework-base-expert - FW-003",
+    "expert": "framework-base-expert"
+  },
+
+  "sessions": [
+    {
+      "session_id": "1632a540-4dc2-47de-b418-3dbee559b41e",
+      "source_path": "~/.claude/projects/-Users-swchen-tw-git-workspace-jarvis/1632a540-4dc2-47de-b418-3dbee559b41e.jsonl",
+      "subagents": []
+    }
+  ],
+
+  "sessions_archive": "sessions.tar.bz2",
+  "context_archive": "context.tar.bz2"
+}
