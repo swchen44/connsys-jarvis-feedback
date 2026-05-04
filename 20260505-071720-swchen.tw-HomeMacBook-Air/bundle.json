@@ -1,0 +1,37 @@
+{
+  "version": "2.3.0",
+  "metadata": {
+    "bundle_id": "20260505-071720-swchen.tw-HomeMacBook-Air",
+    "timestamp": "2026-05-05T07:17:20Z",
+    "user_id": "swchen.tw",
+    "hostname": "HomeMacBook-Air",
+    "agent_program": "claude-code"
+  },
+  "feedback": {
+    "score": 3,
+    "description": "Integration test - framework-base-expert - FW-003",
+    "expert": "framework-base-expert",
+    "skill": null
+  },
+  "sessions": [
+    {
+      "session_id": "7183f153-6599-4656-816c-e0464828444a",
+      "source_path": "~/.claude/projects/-Users-swchen-tw-git-workspace-jarvis/7183f153-6599-4656-816c-e0464828444a.jsonl",
+      "subagents": ["agent-a6afb7beb2432a1ff"]
+    }
+  ],
+  "sessions_archive": "sessions.tar.bz2",
+  "context_archive": "context.tar.bz2",
+  "files": {
+    "sessions.tar.bz2": [
+      {"name": "sessions/7183f153-6599-4656-816c-e0464828444a.jsonl", "description": "main session JSONL"},
+      {"name": "sessions/7183f153-6599-4656-816c-e0464828444a/subagents/agent-a6afb7beb2432a1ff.jsonl", "description": "subagent Explore log"}
+    ],
+    "context.tar.bz2": [
+      {"name": "context.json", "description": "environment context metadata"},
+      {"name": "claude_md/workspace_jarvis_CLAUDE.md", "description": "CLAUDE.md snapshot"},
+      {"name": "dot_claude/settings.local.json", "description": "project-level Claude settings"},
+      {"name": "dot_connsys_jarvis/log/setup.log", "description": "connsys-jarvis setup log"}
+    ]
+  }
+}
