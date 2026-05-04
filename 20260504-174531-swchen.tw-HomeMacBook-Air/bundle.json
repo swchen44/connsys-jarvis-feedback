@@ -1,0 +1,23 @@
+{
+  "version": "2.2.0",
+  "metadata": {
+    "bundle_id": "20260504-174531-swchen.tw-HomeMacBook-Air",
+    "timestamp": "2026-05-04T17:45:31",
+    "user_id": "swchen.tw",
+    "hostname": "HomeMacBook-Air",
+    "agent_program": "claude-code"
+  },
+  "feedback": {
+    "score": 2,
+    "description": "build-flow 沒有被觸發"
+  },
+  "sessions": [
+    {
+      "session_id": "bbc49a58-2a30-4e35-9e2b-9a8383b1e724",
+      "source_path": "/Users/swchen.tw/.claude/projects/-Users-swchen-tw-git-workspace-jarvis/bbc49a58-2a30-4e35-9e2b-9a8383b1e724.jsonl",
+      "subagents": []
+    }
+  ],
+  "context_archive": "context.tar.bz2",
+  "sessions_archive": "sessions.tar.bz2"
+}
