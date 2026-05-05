@@ -1,0 +1,60 @@
+{
+  "version": "2.3.0",
+
+  "metadata": {
+    "bundle_id": "20260505-193509-swchen.tw-HomeMacBook-Air",
+    "timestamp": "2026-05-05T19:35:09Z",
+    "user_id": "swchen.tw",
+    "hostname": "HomeMacBook-Air",
+    "agent_program": "claude-code"
+  },
+
+  "feedback": {
+    "score": 2,
+    "description": "build-flow 沒有被觸發",
+    "skill": "wifi-bora-build-flow"
+  },
+
+  "sessions": [
+    {
+      "session_id": "a3673bac-c6ed-4826-841b-78ee1c333a2a",
+      "source_path": "~/.claude/projects/-Users-swchen-tw-git-workspace-jarvis/a3673bac-c6ed-4826-841b-78ee1c333a2a.jsonl",
+      "subagents": []
+    }
+  ],
+
+  "sessions_archive": "sessions.tar.bz2",
+  "context_archive": "context.tar.bz2",
+
+  "files": {
+    "sessions.tar.bz2": [
+      {
+        "name": "sessions/a3673bac-c6ed-4826-841b-78ee1c333a2a.jsonl",
+        "description": "Main session JSONL",
+        "size": 71879
+      }
+    ],
+    "context.tar.bz2": [
+      {
+        "name": "context.json",
+        "description": "Environment metadata snapshot",
+        "size": 22141
+      },
+      {
+        "name": "claude_md/workspace_jarvis_CLAUDE.md",
+        "description": "CLAUDE.md snapshot",
+        "size": 0
+      },
+      {
+        "name": "dot_claude/hooks/framework-base-expert-shared-utils.sh.symlink",
+        "description": "Hook script symlink",
+        "size": 0
+      },
+      {
+        "name": "dot_connsys_jarvis/.installed-experts.json",
+        "description": "Installed experts config",
+        "size": 0
+      }
+    ]
+  }
+}
