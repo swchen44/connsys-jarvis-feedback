@@ -1,0 +1,45 @@
+{
+  "version": "2.3.0",
+
+  "metadata": {
+    "bundle_id": "20260505-125330-swchen.tw-HomeMacBook-Air",
+    "timestamp": "2026-05-05T12:53:30Z",
+    "user_id": "swchen.tw",
+    "hostname": "HomeMacBook-Air",
+    "agent_program": "claude-code"
+  },
+
+  "feedback": {
+    "score": 2,
+    "description": "build-flow 沒有被觸發"
+  },
+
+  "sessions": [
+    {
+      "session_id": "6d468f1c-bd2d-403c-85dd-a45c9018c38a",
+      "source_path": "/Users/swchen.tw/.claude/projects/-Users-swchen-tw-git-workspace-jarvis/6d468f1c-bd2d-403c-85dd-a45c9018c38a.jsonl",
+      "subagents": []
+    }
+  ],
+
+  "sessions_archive": "sessions.tar.bz2",
+  "context_archive": "context.tar.bz2",
+
+  "files": {
+    "sessions.tar.bz2": [
+      {"name": "sessions/6d468f1c-bd2d-403c-85dd-a45c9018c38a.jsonl", "description": "Main session JSONL (sanitized)", "size": 23601}
+    ],
+    "context.tar.bz2": [
+      {"name": "context.json", "description": "Environment metadata snapshot", "size": 22339},
+      {"name": "claude_md/workspace_jarvis_CLAUDE.md", "description": "CLAUDE.md snapshot", "size": 0},
+      {"name": "dot_claude/hooks/framework-base-expert-shared-utils.sh.symlink", "description": "Claude hook symlink", "size": 0},
+      {"name": "dot_claude/hooks/framework-base-expert-session-end-hook.sh.symlink", "description": "Claude hook symlink", "size": 0},
+      {"name": "dot_claude/hooks/framework-base-expert-mid-checkpoint-hook.sh.symlink", "description": "Claude hook symlink", "size": 0},
+      {"name": "dot_claude/hooks/framework-base-expert-session-start-hook.sh.symlink", "description": "Claude hook symlink", "size": 0},
+      {"name": "dot_claude/hooks/framework-base-expert-pre-compact-hook.sh.symlink", "description": "Claude hook symlink", "size": 0},
+      {"name": "dot_connsys_jarvis/.installed-experts.json", "description": "Installed experts config", "size": 0},
+      {"name": "dot_connsys_jarvis/.env", "description": "Connsys Jarvis env config (sanitized)", "size": 0},
+      {"name": "dot_connsys_jarvis/log/setup.log", "description": "Setup log", "size": 0}
+    ]
+  }
+}
