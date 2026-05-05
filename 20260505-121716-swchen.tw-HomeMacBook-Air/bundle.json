@@ -1,0 +1,27 @@
+{
+  "version": "2.3.0",
+  "files": [
+    {"name": "sessions.tar.bz2", "description": "Session JSONL and subagent logs", "size": null},
+    {"name": "context.tar.bz2", "description": "Environment context: context.json, claude_md, dot_claude, dot_connsys_jarvis", "size": null}
+  ],
+  "metadata": {
+    "bundle_id": "20260505-121716-swchen.tw-HomeMacBook-Air",
+    "timestamp": "2026-05-05T12:17:16",
+    "user_id": "swchen.tw",
+    "hostname": "HomeMacBook-Air",
+    "agent_program": "claude-code"
+  },
+  "feedback": {
+    "score": 3,
+    "description": "測試用途，驗證打包流程"
+  },
+  "sessions": [
+    {
+      "session_id": "71573a38-6efe-4362-affd-384845ce39df",
+      "source_path": "/Users/swchen.tw/.claude/projects/-Users-swchen-tw-git-workspace-jarvis/71573a38-6efe-4362-affd-384845ce39df.jsonl",
+      "subagents": []
+    }
+  ],
+  "context_archive": "context.tar.bz2",
+  "sessions_archive": "sessions.tar.bz2"
+}
