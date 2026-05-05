@@ -1,0 +1,39 @@
+{
+  "version": "2.3.0",
+
+  "metadata": {
+    "bundle_id": "20260505-193244-swchen.tw-HomeMacBook-Air",
+    "timestamp": "2026-05-05T19:32:44Z",
+    "user_id": "swchen.tw",
+    "hostname": "HomeMacBook-Air",
+    "agent_program": "claude-code"
+  },
+
+  "feedback": {
+    "score": 2,
+    "description": "build-flow 沒有被觸發"
+  },
+
+  "sessions": [
+    {
+      "session_id": "0f69dba2-af5f-41be-8564-ff5438c7e467",
+      "source_path": "~/.claude/projects/-Users-swchen-tw-git-workspace-jarvis/0f69dba2-af5f-41be-8564-ff5438c7e467.jsonl",
+      "subagents": []
+    }
+  ],
+
+  "sessions_archive": "sessions.tar.bz2",
+  "context_archive": "context.tar.bz2",
+
+  "files": {
+    "sessions.tar.bz2": [
+      {"name": "sessions/0f69dba2-af5f-41be-8564-ff5438c7e467.jsonl", "description": "Main session JSONL", "size": 71712}
+    ],
+    "context.tar.bz2": [
+      {"name": "context.json", "description": "Environment metadata snapshot", "size": 22140},
+      {"name": "claude_md/CLAUDE.md", "description": "CLAUDE.md snapshot", "size": 0},
+      {"name": "dot_claude/", "description": "User-level .claude config snapshot", "size": 0},
+      {"name": "dot_connsys_jarvis/", "description": "Connsys Jarvis config snapshot", "size": 0}
+    ]
+  }
+}
