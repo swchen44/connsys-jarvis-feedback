@@ -1,0 +1,46 @@
+{
+  "version": "2.3.0",
+
+  "metadata": {
+    "bundle_id": "20260506-063517-swchen.tw-HomeMacBook-Air",
+    "timestamp": "2026-05-06T06:35:17Z",
+    "user_id": "swchen.tw",
+    "hostname": "HomeMacBook-Air",
+    "agent_program": "claude-code"
+  },
+
+  "feedback": {
+    "score": 2,
+    "description": "build-flow 沒有被觸發",
+    "skill": "wifi-bora-build-flow"
+  },
+
+  "sessions": [
+    {
+      "session_id": "87687ec2-36da-497e-80e9-e6f51b52c1df",
+      "source_path": "/Users/swchen.tw/.claude/projects/-Users-swchen-tw-git-workspace-jarvis/87687ec2-36da-497e-80e9-e6f51b52c1df.jsonl",
+      "subagents": []
+    }
+  ],
+
+  "sessions_archive": "sessions.tar.bz2",
+  "context_archive": "context.tar.bz2",
+
+  "files": {
+    "sessions.tar.bz2": [
+      {"name": "sessions/87687ec2-36da-497e-80e9-e6f51b52c1df.jsonl", "description": "Main session JSONL", "size": 71269}
+    ],
+    "context.tar.bz2": [
+      {"name": "context.json", "description": "Environment metadata snapshot", "size": 21793},
+      {"name": "claude_md/workspace_jarvis_CLAUDE.md", "description": "CLAUDE.md snapshot", "size": 557},
+      {"name": "dot_claude/hooks/framework-base-expert-shared-utils.sh.symlink", "description": "Hook symlink", "size": 140},
+      {"name": "dot_claude/hooks/framework-base-expert-session-end-hook.sh.symlink", "description": "Hook symlink", "size": 144},
+      {"name": "dot_claude/hooks/framework-base-expert-mid-checkpoint-hook.sh.symlink", "description": "Hook symlink", "size": 147},
+      {"name": "dot_claude/hooks/framework-base-expert-session-start-hook.sh.symlink", "description": "Hook symlink", "size": 146},
+      {"name": "dot_claude/hooks/framework-base-expert-pre-compact-hook.sh.symlink", "description": "Hook symlink", "size": 144},
+      {"name": "dot_connsys_jarvis/.installed-experts.json", "description": "Installed experts config", "size": 1968},
+      {"name": "dot_connsys_jarvis/.env", "description": "Connsys Jarvis env config", "size": 565},
+      {"name": "dot_connsys_jarvis/log/setup.log", "description": "Setup log", "size": 1342230}
+    ]
+  }
+}
