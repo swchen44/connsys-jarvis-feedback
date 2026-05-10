@@ -1,0 +1,41 @@
+{
+  "version": "2.3.0",
+
+  "metadata": {
+    "bundle_id": "20260510-105734-swchen.tw-HomeMacBook-Air",
+    "timestamp": "2026-05-10T10:57:34Z",
+    "user_id": "swchen.tw",
+    "hostname": "HomeMacBook-Air",
+    "agent_program": "claude-code"
+  },
+
+  "feedback": {
+    "score": 3,
+    "description": "測試用途，驗證打包流程"
+  },
+
+  "sessions": [
+    {
+      "session_id": "38a07f47-631f-4227-8560-297c08916aa8",
+      "source_path": "/Users/swchen.tw/.claude/projects/-Users-swchen-tw-git-workspace-jarvis/38a07f47-631f-4227-8560-297c08916aa8.jsonl",
+      "subagents": []
+    }
+  ],
+
+  "sessions_archive": "sessions.tar.bz2",
+  "context_archive": "context.tar.bz2",
+
+  "files": {
+    "sessions.tar.bz2": [
+      {"name": "sessions/38a07f47-631f-4227-8560-297c08916aa8.jsonl", "description": "Main session JSONL", "size": 109471}
+    ],
+    "context.tar.bz2": [
+      {"name": "context.json", "description": "Environment metadata snapshot", "size": 23239},
+      {"name": "claude_md/workspace_jarvis_CLAUDE.md", "description": "CLAUDE.md snapshot", "size": 828},
+      {"name": "dot_claude/hooks/", "description": "Claude hooks symlinks", "size": 0},
+      {"name": "dot_connsys_jarvis/.installed-experts.json", "description": "Installed experts list", "size": 3618},
+      {"name": "dot_connsys_jarvis/.env", "description": "Env config (sanitized)", "size": 572},
+      {"name": "dot_connsys_jarvis/log/setup.log", "description": "Setup log", "size": 2009161}
+    ]
+  }
+}
