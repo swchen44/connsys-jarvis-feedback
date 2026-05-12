@@ -1,0 +1,27 @@
+{
+  "version": "2.3.0",
+  "files": [
+    {"name": "sessions.tar.bz2", "description": "Session and subagent JSONL files (sanitized)", "size": 28602},
+    {"name": "context.tar.bz2", "description": "Context files: CLAUDE.md, .claude/, .connsys-jarvis/", "size": 56961}
+  ],
+  "metadata": {
+    "bundle_id": "20260512-131334-swchen.tw-HomeMacBook-Air",
+    "timestamp": "2026-05-12T13:13:34",
+    "user_id": "swchen.tw",
+    "hostname": "HomeMacBook-Air",
+    "agent_program": "claude-code"
+  },
+  "feedback": {
+    "score": 2,
+    "description": "build-flow 沒有被觸發"
+  },
+  "sessions": [
+    {
+      "session_id": "864aa6bc-4e28-4a80-89fd-3c310fb35f4f",
+      "source_path": "/Users/swchen.tw/.claude/projects/-Users-swchen-tw-git-workspace-jarvis/864aa6bc-4e28-4a80-89fd-3c310fb35f4f.jsonl",
+      "subagents": []
+    }
+  ],
+  "context_archive": "context.tar.bz2",
+  "sessions_archive": "sessions.tar.bz2"
+}
