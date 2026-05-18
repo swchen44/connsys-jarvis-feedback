@@ -1,0 +1,2849 @@
+{
+  "submitter": {
+    "git_user_name": "Shaowei Chen",
+    "git_user_email": "swchen.tw@gmail.com",
+    "os_user": "swchen.tw",
+    "hostname": "HomeMacBook-Air.local",
+    "local_ip": "172.20.10.14",
+    "captured_at": "2026-05-18T04:33:39Z"
+  },
+  "L1": {
+    "expert": "framework-base-expert, wifi-bora-base-expert, wifi-bora-memory-slim-expert",
+    "model": "sonnet",
+    "timestamp": "2026-05-18T04:33:39.176630+00:00",
+    "total_tests": 8,
+    "passed": 7,
+    "failed": 1,
+    "skipped": 0,
+    "pass_rate": 0.88,
+    "skill_coverage": {},
+    "nl_scores_avg": {},
+    "judge_score_avg": 0,
+    "test_results": [
+      {
+        "case_id": "FW-005",
+        "name": "feedback_report_flow_trigger",
+        "status": "pass",
+        "check_results": [
+          {
+            "type": "skills_invoked",
+            "passed": true,
+            "message": "Skill 'framework-feedback-report-flow': invoked"
+          },
+          {
+            "type": "skills_not_invoked",
+            "passed": true,
+            "message": "Skill 'framework-session-analyzer-tool': not invoked (good) — v2.0 不再呼叫分析器"
+          },
+          {
+            "type": "tools_called",
+            "passed": true,
+            "message": "Tool 'Bash': 7 call(s) >= 1 required"
+          },
+          {
+            "type": "tools_called",
+            "passed": true,
+            "message": "Tool 'Write': 1 call(s) >= 1 required"
+          },
+          {
+            "type": "tools_not_called",
+            "passed": true,
+            "message": "Tool 'Bash' (args 'analyze_session') : not called (good) — v2.0 不再呼叫分析器"
+          },
+          {
+            "type": "output_contains",
+            "passed": true,
+            "message": "Output contains: 'bundle'"
+          },
+          {
+            "type": "output_contains",
+            "passed": true,
+            "message": "Output contains: 'score.*[1-5]|[1-5].*score|3.*分|分.*3|[1-5]/5'"
+          },
+          {
+            "type": "output_contains",
+            "passed": true,
+            "message": "Output contains: '/tmp/jarvis-feedback/'"
+          },
+          {
+            "type": "output_not_contains",
+            "passed": true,
+            "message": "Output correctly excludes: 'L1_quality'"
+          },
+          {
+            "type": "output_not_contains",
+            "passed": true,
+            "message": "Output correctly excludes: 'L2_statistics'"
+          },
+          {
+            "type": "output_not_contains",
+            "passed": true,
+            "message": "Output correctly excludes: 'L3_behavior'"
+          },
+          {
+            "type": "output_not_contains",
+            "passed": true,
+            "message": "Output correctly excludes: 'resolution'"
+          },
+          {
+            "type": "output_not_contains",
+            "passed": true,
+            "message": "Output correctly excludes: 'root_cause'"
+          }
+        ],
+        "duration": 101.97113845899003,
+        "token_usage": {
+          "total": 444090,
+          "cost": 0.31
+        },
+        "nl_scores": {},
+        "judge_score": 0.0,
+        "command": "claude -p 我有這個 skills framework-skill-create-flow 嗎？這個 skill 中提到要創建新的 skills 命名規則是什麼？\n\n回答完後，請使用 framework-feedback-report-flow 幫我打包最新的 session 的 feedback。給 3 分，理由是「測試用途，驗證打包流程」。 --output-format stream-json --model claude-sonnet-4-6 --verbose --dangerously-skip-permissions",
+        "log_path": "/Users/swchen.tw/git/workspace_jarvis/connsys-jarvis/tests/claudecode/.results/2026-05-18_12-28-33/framework-base-expert",
+        "kpi_values": {},
+        "efficiency": {
+          "effective": 444090,
+          "wasted": 0,
+          "ratio": 100.0
+        },
+        "phases": {
+          "verifying": 5,
+          "implementing": 18
+        },
+        "verify_cost": 0.0,
+        "feedback_change_url": "",
+        "ai_analysis_tokens": 0,
+        "ai_analysis_cost": 0.0,
+        "analysis_archive": "",
+        "test_log_archive": "",
+        "analysis_source": ""
+      },
+      {
+        "case_id": "FW-001",
+        "name": "skill_create_flow_trigger",
+        "status": "pass",
+        "check_results": [
+          {
+            "type": "skills_invoked",
+            "passed": true,
+            "message": "Skill 'framework-skill-create-flow': invoked"
+          },
+          {
+            "type": "tools_called",
+            "passed": true,
+            "message": "Tool 'Bash': 1 call(s) >= 1 required"
+          },
+          {
+            "type": "output_contains",
+            "passed": true,
+            "message": "Output contains: 'SKILL.md'"
+          },
+          {
+            "type": "output_contains",
+            "passed": true,
+            "message": "Output contains: 'test-demo-skill'"
+          },
+          {
+            "type": "kpi_requirements",
+            "passed": true,
+            "message": "KPI check skipped: no report.json found (analyze_session not run)"
+          }
+        ],
+        "duration": 106.39254741696641,
+        "token_usage": {
+          "total": 264494,
+          "cost": 0.2213
+        },
+        "nl_scores": {},
+        "judge_score": 0.0,
+        "command": "claude -p # Test: Skill Create Flow\n\n請幫我建立一個新的 skill，名稱是 `test-demo-skill`。\n\n這個 skill 的功能是：用來示範 integration test 的 skill 建立流程。\n- 名稱：test-demo-skill\n- 描述：Integration test demo skill\n- 允許的工具：Read, Write, Bash\n\n請按照 connsys-jarvis 的標準流程建立完整的 skill 結構。\n\n完成後只需簡短確認結果（一行即可），不需要產生詳細報告表格。 --output-format stream-json --model claude-sonnet-4-6 --verbose --dangerously-skip-permissions",
+        "log_path": "/Users/swchen.tw/git/workspace_jarvis/connsys-jarvis/tests/claudecode/.results/2026-05-18_12-28-38/framework-base-expert",
+        "kpi_values": {},
+        "efficiency": {
+          "effective": 264494,
+          "wasted": 0,
+          "ratio": 100.0
+        },
+        "phases": {
+          "understanding": 1,
+          "implementing": 6,
+          "verifying": 5,
+          "exploring": 8
+        },
+        "verify_cost": 0.0,
+        "feedback_change_url": "",
+        "ai_analysis_tokens": 0,
+        "ai_analysis_cost": 0.0,
+        "analysis_archive": "",
+        "test_log_archive": "",
+        "analysis_source": ""
+      },
+      {
+        "case_id": "FW-006",
+        "name": "feedback_report_cross_session",
+        "status": "pass",
+        "check_results": [
+          {
+            "type": "skills_invoked",
+            "passed": true,
+            "message": "Skill 'framework-feedback-report-flow': invoked"
+          },
+          {
+            "type": "tools_called",
+            "passed": true,
+            "message": "Tool 'Bash': 7 call(s) >= 1 required"
+          },
+          {
+            "type": "tools_called",
+            "passed": true,
+            "message": "Tool 'Write': 1 call(s) >= 1 required"
+          },
+          {
+            "type": "output_contains",
+            "passed": true,
+            "message": "Output contains: 'bundle'"
+          },
+          {
+            "type": "output_contains",
+            "passed": true,
+            "message": "Output contains: '/tmp/jarvis-feedback/'"
+          }
+        ],
+        "duration": 84.8570506250253,
+        "token_usage": {
+          "total": 304169,
+          "cost": 0.2236
+        },
+        "nl_scores": {},
+        "judge_score": 0.0,
+        "command": "claude -p 使用 framework-feedback-report-flow 打包以下 session 的 feedback。\n給 2 分，理由是「build-flow 沒有被觸發」。\n\nSession 路徑: /Users/swchen.tw/.claude/projects/-Users-swchen-tw-git-workspace-jarvis/6d6927db-8464-4efe-9a87-38bc8eff63fa.jsonl --output-format stream-json --model claude-sonnet-4-6 --verbose --dangerously-skip-permissions",
+        "log_path": "/Users/swchen.tw/git/workspace_jarvis/connsys-jarvis/tests/claudecode/.results/2026-05-18_12-28-48/framework-base-expert",
+        "kpi_values": {},
+        "efficiency": {
+          "effective": 304169,
+          "wasted": 0,
+          "ratio": 100.0
+        },
+        "phases": {
+          "understanding": 2,
+          "implementing": 20,
+          "verifying": 1
+        },
+        "verify_cost": 0.0,
+        "feedback_change_url": "",
+        "ai_analysis_tokens": 0,
+        "ai_analysis_cost": 0.0,
+        "analysis_archive": "",
+        "test_log_archive": "",
+        "analysis_source": ""
+      },
+      {
+        "case_id": "FW-002",
+        "name": "expert_create_flow_trigger",
+        "status": "pass",
+        "check_results": [
+          {
+            "type": "skills_invoked",
+            "passed": true,
+            "message": "Skill 'framework-expert-create-flow': invoked"
+          },
+          {
+            "type": "tools_called",
+            "passed": true,
+            "message": "Tool 'Bash': 8 call(s) >= 1 required"
+          },
+          {
+            "type": "output_contains",
+            "passed": true,
+            "message": "Output contains: 'expert.json'"
+          },
+          {
+            "type": "output_contains",
+            "passed": true,
+            "message": "Output contains: 'test-domain-base-expert'"
+          }
+        ],
+        "duration": 166.33378729200922,
+        "token_usage": {
+          "total": 342681,
+          "cost": 0.2201
+        },
+        "nl_scores": {},
+        "judge_score": 0.0,
+        "command": "claude -p # Test: Expert Create Flow\n\n請幫我建立一個新的 Expert，相關資訊如下：\n\n- Domain: test-domain\n- Expert 名稱: test-domain-base-expert\n- 描述: Integration test demo expert\n- 類型: base expert\n- 無相依性\n\n請按照 connsys-jarvis 的標準流程建立完整的 Expert 結構。\n\n完成後只需簡短確認結果（一行即可），不需要產生詳細報告表格。 --output-format stream-json --model claude-sonnet-4-6 --verbose --dangerously-skip-permissions",
+        "log_path": "/Users/swchen.tw/git/workspace_jarvis/connsys-jarvis/tests/claudecode/.results/2026-05-18_12-29-38/framework-base-expert",
+        "kpi_values": {},
+        "efficiency": {
+          "effective": 342681,
+          "wasted": 0,
+          "ratio": 100.0
+        },
+        "phases": {
+          "understanding": 2,
+          "implementing": 15,
+          "verifying": 4,
+          "exploring": 5
+        },
+        "verify_cost": 0.0,
+        "feedback_change_url": "",
+        "ai_analysis_tokens": 0,
+        "ai_analysis_cost": 0.0,
+        "analysis_archive": "",
+        "test_log_archive": "",
+        "analysis_source": ""
+      },
+      {
+        "case_id": "WB-001",
+        "name": "hello_world_with_size_check",
+        "status": "fail",
+        "check_results": [
+          {
+            "type": "skills_invoked",
+            "passed": true,
+            "message": "Skill 'wifi-bora-base-expert-using-knowhow': invoked"
+          },
+          {
+            "type": "skills_invoked",
+            "passed": true,
+            "message": "Skill 'wifi-bora-build-flow': invoked"
+          },
+          {
+            "type": "skills_invoked",
+            "passed": true,
+            "message": "Skill 'wifi-bora-memory-knowhow': invoked"
+          },
+          {
+            "type": "skills_invoked",
+            "passed": true,
+            "message": "Skill 'wifi-bora-arch-knowhow' (optional): not invoked"
+          },
+          {
+            "type": "skills_not_invoked",
+            "passed": true,
+            "message": "Skill 'wifi-bora-debug-flow': not invoked (good) — hello world 不需要 debug 流程"
+          },
+          {
+            "type": "tools_called",
+            "passed": true,
+            "message": "Tool 'Read': 2 call(s) >= 1 required"
+          },
+          {
+            "type": "tools_called",
+            "passed": false,
+            "message": "Tool 'Write': 0 call(s) < 1 required"
+          },
+          {
+            "type": "tools_called",
+            "passed": true,
+            "message": "Tool 'Bash': 8 call(s) >= 1 required"
+          },
+          {
+            "type": "tools_not_called",
+            "passed": true,
+            "message": "Tool 'Bash' (regex 'rm\\s+-rf') : not called (good) — 不應執行刪除指令"
+          },
+          {
+            "type": "output_contains",
+            "passed": true,
+            "message": "Output contains: 'hello'"
+          }
+        ],
+        "duration": 67.5545414579683,
+        "token_usage": {
+          "total": 331941,
+          "cost": 0.2008
+        },
+        "nl_scores": {},
+        "judge_score": 0.0,
+        "command": "claude -p 寫一個 hello world 並檢查 size in wifi firmware --output-format stream-json --model claude-sonnet-4-6 --verbose --dangerously-skip-permissions",
+        "log_path": "/Users/swchen.tw/git/workspace_jarvis/connsys-jarvis/tests/claudecode/.results/2026-05-18_12-30-45/wifi-bora-base-expert",
+        "kpi_values": {},
+        "efficiency": {
+          "effective": 331941,
+          "wasted": 0,
+          "ratio": 100.0
+        },
+        "phases": {
+          "understanding": 3,
+          "implementing": 20,
+          "exploring": 3
+        },
+        "verify_cost": 0.0,
+        "feedback_change_url": "",
+        "ai_analysis_tokens": 0,
+        "ai_analysis_cost": 0.0,
+        "analysis_archive": "",
+        "test_log_archive": "",
+        "analysis_source": ""
+      },
+      {
+        "case_id": "MEM-004",
+        "name": "cross_dependency_skill_access",
+        "status": "pass",
+        "check_results": [
+          {
+            "type": "skills_invoked",
+            "passed": true,
+            "message": "Skill 'sys-bora-repo-tool' (optional): invoked"
+          },
+          {
+            "type": "output_not_contains",
+            "passed": true,
+            "message": "Output correctly excludes: 'skill not found'"
+          },
+          {
+            "type": "output_not_contains",
+            "passed": true,
+            "message": "Output correctly excludes: 'unknown skill'"
+          }
+        ],
+        "duration": 18.214358625002205,
+        "token_usage": {
+          "total": 97019,
+          "cost": 0.0771
+        },
+        "nl_scores": {},
+        "judge_score": 0.0,
+        "command": "claude -p 請使用 repo 工具幫我查看目前的 manifest 狀態 --output-format stream-json --model claude-sonnet-4-6 --verbose --dangerously-skip-permissions",
+        "log_path": "/Users/swchen.tw/git/workspace_jarvis/connsys-jarvis/tests/claudecode/.results/2026-05-18_12-31-04/wifi-bora-memory-slim-expert",
+        "kpi_values": {},
+        "efficiency": {
+          "effective": 97019,
+          "wasted": 0,
+          "ratio": 100.0
+        },
+        "phases": {
+          "understanding": 2,
+          "implementing": 5
+        },
+        "verify_cost": 0.0,
+        "feedback_change_url": "",
+        "ai_analysis_tokens": 0,
+        "ai_analysis_cost": 0.0,
+        "analysis_archive": "",
+        "test_log_archive": "",
+        "analysis_source": ""
+      },
+      {
+        "case_id": "MEM-003",
+        "name": "lsp_tool_trigger",
+        "status": "pass",
+        "check_results": [
+          {
+            "type": "skills_invoked",
+            "passed": true,
+            "message": "Skill 'wifi-bora-lsp-tool': invoked"
+          },
+          {
+            "type": "tools_called",
+            "passed": true,
+            "message": "Tool 'Read': 1 call(s) >= 1 required"
+          },
+          {
+            "type": "output_contains",
+            "passed": true,
+            "message": "Output contains: 'function'"
+          },
+          {
+            "type": "output_contains",
+            "passed": true,
+            "message": "Output contains: 'call'"
+          }
+        ],
+        "duration": 91.32297062501311,
+        "token_usage": {
+          "total": 270972,
+          "cost": 0.1877
+        },
+        "nl_scores": {},
+        "judge_score": 0.0,
+        "command": "claude -p # Test: LSP Tool\n\n請使用 LSP 工具分析 Wi-Fi driver 中 `wifi_init()` function 的 call graph。\n\n我想知道：\n1. `wifi_init()` 呼叫了哪些 function\n2. 這些 function 各自的大小\n3. 是否有可以精簡的呼叫鏈 --output-format stream-json --model claude-sonnet-4-6 --verbose --dangerously-skip-permissions",
+        "log_path": "/Users/swchen.tw/git/workspace_jarvis/connsys-jarvis/tests/claudecode/.results/2026-05-18_12-32-17/wifi-bora-memory-slim-expert",
+        "kpi_values": {},
+        "efficiency": {
+          "effective": 270972,
+          "wasted": 0,
+          "ratio": 100.0
+        },
+        "phases": {
+          "understanding": 2,
+          "implementing": 12,
+          "verifying": 1,
+          "exploring": 2
+        },
+        "verify_cost": 0.0,
+        "feedback_change_url": "",
+        "ai_analysis_tokens": 0,
+        "ai_analysis_cost": 0.0,
+        "analysis_archive": "",
+        "test_log_archive": "",
+        "analysis_source": ""
+      },
+      {
+        "case_id": "MEM-002",
+        "name": "memslim_flow_trigger",
+        "status": "pass",
+        "check_results": [
+          {
+            "type": "skills_invoked",
+            "passed": true,
+            "message": "Skill 'wifi-bora-memslim-flow': invoked"
+          },
+          {
+            "type": "skills_invoked",
+            "passed": true,
+            "message": "Skill 'wifi-bora-memory-knowhow' (optional): not invoked"
+          },
+          {
+            "type": "skills_invoked",
+            "passed": true,
+            "message": "Skill 'wifi-bora-ast-tool' (optional): not invoked"
+          },
+          {
+            "type": "tools_called",
+            "passed": true,
+            "message": "Tool 'Read': 1 call(s) >= 1 required"
+          },
+          {
+            "type": "tools_called",
+            "passed": true,
+            "message": "Tool 'Bash': 9 call(s) >= 1 required"
+          },
+          {
+            "type": "output_contains",
+            "passed": true,
+            "message": "Output contains: 'ROM'"
+          },
+          {
+            "type": "output_contains",
+            "passed": true,
+            "message": "Output contains: 'RAM'"
+          }
+        ],
+        "duration": 114.84568612504518,
+        "token_usage": {
+          "total": 287467,
+          "cost": 0.2318
+        },
+        "nl_scores": {},
+        "judge_score": 0.0,
+        "command": "claude -p # Test: Memory Slim Flow\n\n請分析目前 Wi-Fi Bora 的 ROM/RAM footprint。\n\n我需要了解：\n1. 目前 ROM 和 RAM 的整體用量分佈\n2. 各 section（.text, .rodata, .data, .bss）的大小\n3. 佔用空間最大的前 10 個 function/symbol\n4. 有哪些可以優化精簡的建議\n\n請使用 memslim 分析流程來完成這個任務。 --output-format stream-json --model claude-sonnet-4-6 --verbose --dangerously-skip-permissions",
+        "log_path": "/Users/swchen.tw/git/workspace_jarvis/connsys-jarvis/tests/claudecode/.results/2026-05-18_12-32-40/wifi-bora-memory-slim-expert",
+        "kpi_values": {},
+        "efficiency": {
+          "effective": 287467,
+          "wasted": 0,
+          "ratio": 100.0
+        },
+        "phases": {
+          "understanding": 2,
+          "implementing": 19,
+          "verifying": 2,
+          "exploring": 1
+        },
+        "verify_cost": 0.0,
+        "feedback_change_url": "",
+        "ai_analysis_tokens": 0,
+        "ai_analysis_cost": 0.0,
+        "analysis_archive": "",
+        "test_log_archive": "",
+        "analysis_source": ""
+      }
+    ],
+    "agent_program": "claude-code",
+    "scope": "full"
+  },
+  "L2": {
+    "by_case": {
+      "fw-005": {
+        "total_tokens": {
+          "total": 444090,
+          "cost": 0.31
+        }
+      },
+      "fw-001": {
+        "total_tokens": {
+          "total": 264494,
+          "cost": 0.2213
+        }
+      },
+      "fw-006": {
+        "total_tokens": {
+          "total": 304169,
+          "cost": 0.2236
+        }
+      },
+      "fw-002": {
+        "total_tokens": {
+          "total": 342681,
+          "cost": 0.2201
+        }
+      },
+      "wb-001": {
+        "total_tokens": {
+          "total": 331941,
+          "cost": 0.2008
+        }
+      },
+      "mem-004": {
+        "total_tokens": {
+          "total": 97019,
+          "cost": 0.0771
+        }
+      },
+      "mem-003": {
+        "total_tokens": {
+          "total": 270972,
+          "cost": 0.1877
+        }
+      },
+      "mem-002": {
+        "total_tokens": {
+          "total": 287467,
+          "cost": 0.2318
+        }
+      }
+    },
+    "total": {
+      "skills": [],
+      "tools": [],
+      "failures": [],
+      "total_tokens": {
+        "input": 104,
+        "output": 26027,
+        "cache_creation": 170085,
+        "cache_read": 2146617,
+        "total": 2342833,
+        "web_search_requests": 0,
+        "estimated_cost_usd": 1.6725,
+        "model_id": "claude-sonnet-4-6"
+      },
+      "verification_tokens": {
+        "by_model": [],
+        "total_tokens": 0,
+        "total_cost_usd": 0
+      },
+      "advisor_costs": [],
+      "subagent_costs": []
+    }
+  },
+  "L3": {
+    "by_case": {
+      "fw-005": {
+        "phases": {
+          "verifying": 5,
+          "implementing": 18
+        },
+        "efficiency": {
+          "effective": 444090,
+          "wasted": 0,
+          "ratio": 100.0
+        }
+      },
+      "fw-001": {
+        "phases": {
+          "understanding": 1,
+          "implementing": 6,
+          "verifying": 5,
+          "exploring": 8
+        },
+        "efficiency": {
+          "effective": 264494,
+          "wasted": 0,
+          "ratio": 100.0
+        }
+      },
+      "fw-006": {
+        "phases": {
+          "understanding": 2,
+          "implementing": 20,
+          "verifying": 1
+        },
+        "efficiency": {
+          "effective": 304169,
+          "wasted": 0,
+          "ratio": 100.0
+        }
+      },
+      "fw-002": {
+        "phases": {
+          "understanding": 2,
+          "implementing": 15,
+          "verifying": 4,
+          "exploring": 5
+        },
+        "efficiency": {
+          "effective": 342681,
+          "wasted": 0,
+          "ratio": 100.0
+        }
+      },
+      "wb-001": {
+        "phases": {
+          "understanding": 3,
+          "implementing": 20,
+          "exploring": 3
+        },
+        "efficiency": {
+          "effective": 331941,
+          "wasted": 0,
+          "ratio": 100.0
+        }
+      },
+      "mem-004": {
+        "phases": {
+          "understanding": 2,
+          "implementing": 5
+        },
+        "efficiency": {
+          "effective": 97019,
+          "wasted": 0,
+          "ratio": 100.0
+        }
+      },
+      "mem-003": {
+        "phases": {
+          "understanding": 2,
+          "implementing": 12,
+          "verifying": 1,
+          "exploring": 2
+        },
+        "efficiency": {
+          "effective": 270972,
+          "wasted": 0,
+          "ratio": 100.0
+        }
+      },
+      "mem-002": {
+        "phases": {
+          "understanding": 2,
+          "implementing": 19,
+          "verifying": 2,
+          "exploring": 1
+        },
+        "efficiency": {
+          "effective": 287467,
+          "wasted": 0,
+          "ratio": 100.0
+        }
+      }
+    },
+    "total": {
+      "phases": [
+        {
+          "phase": "verifying",
+          "messages": 18,
+          "tokens": 0,
+          "ratio": 0.0
+        },
+        {
+          "phase": "implementing",
+          "messages": 115,
+          "tokens": 0,
+          "ratio": 0.0
+        },
+        {
+          "phase": "understanding",
+          "messages": 14,
+          "tokens": 0,
+          "ratio": 0.0
+        },
+        {
+          "phase": "exploring",
+          "messages": 19,
+          "tokens": 0,
+          "ratio": 0.0
+        }
+      ],
+      "efficiency": {
+        "effective_tokens": 2342833,
+        "effective_ratio": 1.0,
+        "wasted_tokens": 0,
+        "wasted_ratio": 0.0,
+        "total_tokens": 2342833
+      },
+      "timeline": [],
+      "model_comparison": {}
+    }
+  },
+  "safety": {
+    "mode": "basic",
+    "scanned_at": "2026-05-18T04:33:39Z",
+    "scope_globs": [
+      "/Users/swchen.tw/git/workspace_jarvis/connsys-jarvis/*/*/skills/*"
+    ],
+    "summary": {
+      "skills_scanned": 25,
+      "skills_passed": 25,
+      "skills_failed": 0,
+      "by_severity_effective": {
+        "critical": 0,
+        "high": 0,
+        "medium": 6,
+        "low": 40,
+        "info": 42
+      }
+    },
+    "skills": [
+      {
+        "expert": "framework-base-expert",
+        "skill": "framework-base-expert-enhance-quality-flow",
+        "skill_dir": "/Users/swchen.tw/git/workspace_jarvis/connsys-jarvis/framework/framework-base-expert/skills/framework-base-expert-enhance-quality-flow",
+        "status": "pass",
+        "severity": "info",
+        "result": "PASS",
+        "skill_allowlisted": false,
+        "skill_allowlist_reason": "",
+        "summary": {
+          "raw": {
+            "info": 1,
+            "low": 0,
+            "medium": 0,
+            "high": 0,
+            "critical": 0
+          },
+          "effective": {
+            "info": 1,
+            "low": 0,
+            "medium": 0,
+            "high": 0,
+            "critical": 0
+          }
+        },
+        "findings": [
+          {
+            "rule_id": "MANIFEST_MISSING_LICENSE",
+            "severity": "info",
+            "effective_severity": "info",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "—",
+            "owasp_apps": "—",
+            "atlas": "—",
+            "title": "Skill does not specify a license",
+            "description": "Skill manifest does not include a 'license' field. Specifying a license helps users understand usage terms.",
+            "file_path": "SKILL.md",
+            "line_number": null
+          }
+        ]
+      },
+      {
+        "expert": "framework-base-expert",
+        "skill": "framework-base-skill-craftsman-flow",
+        "skill_dir": "/Users/swchen.tw/git/workspace_jarvis/connsys-jarvis/framework/framework-base-expert/skills/framework-base-skill-craftsman-flow",
+        "status": "pass",
+        "severity": "info",
+        "result": "PASS",
+        "skill_allowlisted": false,
+        "skill_allowlist_reason": "",
+        "summary": {
+          "raw": {
+            "info": 1,
+            "low": 0,
+            "medium": 0,
+            "high": 0,
+            "critical": 0
+          },
+          "effective": {
+            "info": 1,
+            "low": 0,
+            "medium": 0,
+            "high": 0,
+            "critical": 0
+          }
+        },
+        "findings": [
+          {
+            "rule_id": "MANIFEST_MISSING_LICENSE",
+            "severity": "info",
+            "effective_severity": "info",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "—",
+            "owasp_apps": "—",
+            "atlas": "—",
+            "title": "Skill does not specify a license",
+            "description": "Skill manifest does not include a 'license' field. Specifying a license helps users understand usage terms.",
+            "file_path": "SKILL.md",
+            "line_number": null
+          }
+        ]
+      },
+      {
+        "expert": "framework-base-expert",
+        "skill": "framework-expert-create-flow",
+        "skill_dir": "/Users/swchen.tw/git/workspace_jarvis/connsys-jarvis/framework/framework-base-expert/skills/framework-expert-create-flow",
+        "status": "pass",
+        "severity": "info",
+        "result": "PASS",
+        "skill_allowlisted": false,
+        "skill_allowlist_reason": "",
+        "summary": {
+          "raw": {
+            "info": 1,
+            "low": 0,
+            "medium": 0,
+            "high": 0,
+            "critical": 0
+          },
+          "effective": {
+            "info": 1,
+            "low": 0,
+            "medium": 0,
+            "high": 0,
+            "critical": 0
+          }
+        },
+        "findings": [
+          {
+            "rule_id": "MANIFEST_MISSING_LICENSE",
+            "severity": "info",
+            "effective_severity": "info",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "—",
+            "owasp_apps": "—",
+            "atlas": "—",
+            "title": "Skill does not specify a license",
+            "description": "Skill manifest does not include a 'license' field. Specifying a license helps users understand usage terms.",
+            "file_path": "SKILL.md",
+            "line_number": null
+          }
+        ]
+      },
+      {
+        "expert": "framework-base-expert",
+        "skill": "framework-feedback-report-flow",
+        "skill_dir": "/Users/swchen.tw/git/workspace_jarvis/connsys-jarvis/framework/framework-base-expert/skills/framework-feedback-report-flow",
+        "status": "partial",
+        "severity": "medium",
+        "result": "PASS",
+        "skill_allowlisted": false,
+        "skill_allowlist_reason": "",
+        "summary": {
+          "raw": {
+            "info": 1,
+            "low": 8,
+            "medium": 2,
+            "high": 0,
+            "critical": 7
+          },
+          "effective": {
+            "info": 8,
+            "low": 8,
+            "medium": 2,
+            "high": 0,
+            "critical": 0
+          }
+        },
+        "findings": [
+          {
+            "rule_id": "HIDDEN_DATA_FILE",
+            "severity": "low",
+            "effective_severity": "low",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "#9 Skill Tampering",
+            "owasp_apps": "ASI06 Skill Provenance",
+            "atlas": "—",
+            "title": "Hidden data file detected",
+            "description": "Hidden file found: .pytest_cache/CACHEDIR.TAG. Hidden files may contain concealed configuration or data that should be reviewed.",
+            "file_path": ".pytest_cache/CACHEDIR.TAG",
+            "line_number": null
+          },
+          {
+            "rule_id": "HIDDEN_DATA_FILE",
+            "severity": "low",
+            "effective_severity": "low",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "#9 Skill Tampering",
+            "owasp_apps": "ASI06 Skill Provenance",
+            "atlas": "—",
+            "title": "Hidden data file detected",
+            "description": "Hidden file found: .pytest_cache/README.md. Hidden files may contain concealed configuration or data that should be reviewed.",
+            "file_path": ".pytest_cache/README.md",
+            "line_number": null
+          },
+          {
+            "rule_id": "HIDDEN_DATA_FILE",
+            "severity": "low",
+            "effective_severity": "low",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "#9 Skill Tampering",
+            "owasp_apps": "ASI06 Skill Provenance",
+            "atlas": "—",
+            "title": "Hidden data file detected",
+            "description": "Hidden file found: .pytest_cache/v/cache/lastfailed. Hidden files may contain concealed configuration or data that should be reviewed.",
+            "file_path": ".pytest_cache/v/cache/lastfailed",
+            "line_number": null
+          },
+          {
+            "rule_id": "HIDDEN_DATA_FILE",
+            "severity": "low",
+            "effective_severity": "low",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "#9 Skill Tampering",
+            "owasp_apps": "ASI06 Skill Provenance",
+            "atlas": "—",
+            "title": "Hidden data file detected",
+            "description": "Hidden file found: .pytest_cache/v/cache/nodeids. Hidden files may contain concealed configuration or data that should be reviewed.",
+            "file_path": ".pytest_cache/v/cache/nodeids",
+            "line_number": null
+          },
+          {
+            "rule_id": "HIDDEN_DATA_FILE",
+            "severity": "low",
+            "effective_severity": "low",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "#9 Skill Tampering",
+            "owasp_apps": "ASI06 Skill Provenance",
+            "atlas": "—",
+            "title": "Hidden data file detected",
+            "description": "Hidden file found: .pytest_cache/v/cache/stepwise. Hidden files may contain concealed configuration or data that should be reviewed.",
+            "file_path": ".pytest_cache/v/cache/stepwise",
+            "line_number": null
+          },
+          {
+            "rule_id": "ALLOWED_TOOLS_NETWORK_USAGE",
+            "severity": "medium",
+            "effective_severity": "medium",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "#7 Undeclared Capabilities",
+            "owasp_apps": "ASI02 Tool Discovery",
+            "atlas": "T0040",
+            "title": "Code makes network requests",
+            "description": "Skill code makes network requests. While not controlled by allowed-tools, network access should be documented and justified in the skill description.",
+            "file_path": "/Users/swchen.tw/git/workspace_jarvis/connsys-jarvis/framework/framework-base-expert/skills/framework-feedback-report-flow/SKILL.md",
+            "line_number": null
+          },
+          {
+            "rule_id": "TOOL_ABUSE_UNDECLARED_NETWORK",
+            "severity": "medium",
+            "effective_severity": "medium",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "#7 Undeclared Capabilities",
+            "owasp_apps": "ASI02 Tool Discovery",
+            "atlas": "T0040",
+            "title": "Undeclared network usage",
+            "description": "Skill code uses network libraries but doesn't declare network requirement",
+            "file_path": "/Users/swchen.tw/git/workspace_jarvis/connsys-jarvis/framework/framework-base-expert/skills/framework-feedback-report-flow/SKILL.md",
+            "line_number": null
+          },
+          {
+            "rule_id": "MANIFEST_MISSING_LICENSE",
+            "severity": "info",
+            "effective_severity": "info",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "—",
+            "owasp_apps": "—",
+            "atlas": "—",
+            "title": "Skill does not specify a license",
+            "description": "Skill manifest does not include a 'license' field. Specifying a license helps users understand usage terms.",
+            "file_path": "SKILL.md",
+            "line_number": null
+          },
+          {
+            "rule_id": "PYCACHE_FILES_DETECTED",
+            "severity": "low",
+            "effective_severity": "low",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "—",
+            "owasp_apps": "—",
+            "atlas": "—",
+            "title": "Python bytecode cache directory detected",
+            "description": "__pycache__ directory found at scripts/__pycache__/ containing 2 bytecode file(s). Pre-compiled bytecode should not be distributed in skill packages.",
+            "file_path": "scripts/__pycache__",
+            "line_number": null
+          },
+          {
+            "rule_id": "PYCACHE_FILES_DETECTED",
+            "severity": "low",
+            "effective_severity": "low",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "—",
+            "owasp_apps": "—",
+            "atlas": "—",
+            "title": "Python bytecode cache directory detected",
+            "description": "__pycache__ directory found at scripts/lib/__pycache__/ containing 3 bytecode file(s). Pre-compiled bytecode should not be distributed in skill packages.",
+            "file_path": "scripts/lib/__pycache__",
+            "line_number": null
+          },
+          {
+            "rule_id": "PYCACHE_FILES_DETECTED",
+            "severity": "low",
+            "effective_severity": "low",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "—",
+            "owasp_apps": "—",
+            "atlas": "—",
+            "title": "Python bytecode cache directory detected",
+            "description": "__pycache__ directory found at scripts/tests/__pycache__/ containing 6 bytecode file(s). Pre-compiled bytecode should not be distributed in skill packages.",
+            "file_path": "scripts/tests/__pycache__",
+            "line_number": null
+          },
+          {
+            "rule_id": "YARA_credential_harvesting_generic",
+            "severity": "critical",
+            "effective_severity": "info",
+            "allowlisted": true,
+            "allowlist_reason": "Python bytecode cache — derived artefact, mirrors source",
+            "owasp_skills": "—",
+            "owasp_apps": "—",
+            "atlas": "—",
+            "title": "CREDENTIAL HARVESTING detected by YARA",
+            "description": "Detects potential exposure of sensitive information like API keys, passwords, tokens, and certificates: ghp_aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "file_path": "scripts/tests/__pycache__/test_collect_auto_memory.cpython-313-pytest-8.3.5.pyc",
+            "line_number": 0
+          },
+          {
+            "rule_id": "YARA_credential_harvesting_generic",
+            "severity": "critical",
+            "effective_severity": "info",
+            "allowlisted": true,
+            "allowlist_reason": "Python bytecode cache — derived artefact, mirrors source",
+            "owasp_skills": "—",
+            "owasp_apps": "—",
+            "atlas": "—",
+            "title": "CREDENTIAL HARVESTING detected by YARA",
+            "description": "Detects potential exposure of sensitive information like API keys, passwords, tokens, and certificates: ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            "file_path": "scripts/tests/__pycache__/test_collect_auto_memory.cpython-313-pytest-8.3.5.pyc",
+            "line_number": 0
+          },
+          {
+            "rule_id": "YARA_credential_harvesting_generic",
+            "severity": "critical",
+            "effective_severity": "info",
+            "allowlisted": true,
+            "allowlist_reason": "Python bytecode cache — derived artefact, mirrors source",
+            "owasp_skills": "—",
+            "owasp_apps": "—",
+            "atlas": "—",
+            "title": "CREDENTIAL HARVESTING detected by YARA",
+            "description": "Detects potential exposure of sensitive information like API keys, passwords, tokens, and certificates: sk-ant-api03-abc123XYZ_-defGHIjkl-mnoPQR456z",
+            "file_path": "scripts/tests/__pycache__/test_collect_auto_memory.cpython-313-pytest-8.3.5.pyc",
+            "line_number": 0
+          },
+          {
+            "rule_id": "YARA_credential_harvesting_generic",
+            "severity": "critical",
+            "effective_severity": "info",
+            "allowlisted": true,
+            "allowlist_reason": "Python bytecode cache — derived artefact, mirrors source",
+            "owasp_skills": "—",
+            "owasp_apps": "—",
+            "atlas": "—",
+            "title": "CREDENTIAL HARVESTING detected by YARA",
+            "description": "Detects potential exposure of sensitive information like API keys, passwords, tokens, and certificates: -----BEGIN RSA PRIVATE KEY-----",
+            "file_path": "scripts/tests/__pycache__/test_collect_auto_memory.cpython-313-pytest-8.3.5.pyc",
+            "line_number": 0
+          },
+          {
+            "rule_id": "SECRET_GITHUB_TOKEN",
+            "severity": "critical",
+            "effective_severity": "info",
+            "allowlisted": true,
+            "allowlist_reason": "fake token fixtures",
+            "owasp_skills": "#6 Secret Leak",
+            "owasp_apps": "ASI03 Delegated Trust",
+            "atlas": "T0024",
+            "title": "GitHub token detected",
+            "description": "Pattern detected: ghp_****",
+            "file_path": "scripts/tests/test_collect_auto_memory.py",
+            "line_number": 79
+          },
+          {
+            "rule_id": "SECRET_GITHUB_TOKEN",
+            "severity": "critical",
+            "effective_severity": "info",
+            "allowlisted": true,
+            "allowlist_reason": "fake token fixtures",
+            "owasp_skills": "#6 Secret Leak",
+            "owasp_apps": "ASI03 Delegated Trust",
+            "atlas": "T0024",
+            "title": "GitHub token detected",
+            "description": "Pattern detected: gho_****",
+            "file_path": "scripts/tests/test_collect_auto_memory.py",
+            "line_number": 80
+          },
+          {
+            "rule_id": "SECRET_GITHUB_TOKEN",
+            "severity": "critical",
+            "effective_severity": "info",
+            "allowlisted": true,
+            "allowlist_reason": "fake token fixtures",
+            "owasp_skills": "#6 Secret Leak",
+            "owasp_apps": "ASI03 Delegated Trust",
+            "atlas": "T0024",
+            "title": "GitHub token detected",
+            "description": "Pattern detected: ghs_****",
+            "file_path": "scripts/tests/test_collect_auto_memory.py",
+            "line_number": 81
+          }
+        ]
+      },
+      {
+        "expert": "framework-base-expert",
+        "skill": "framework-session-analyzer-tool",
+        "skill_dir": "/Users/swchen.tw/git/workspace_jarvis/connsys-jarvis/framework/framework-base-expert/skills/framework-session-analyzer-tool",
+        "status": "partial",
+        "severity": "medium",
+        "result": "PASS",
+        "skill_allowlisted": false,
+        "skill_allowlist_reason": "",
+        "summary": {
+          "raw": {
+            "info": 1,
+            "low": 10,
+            "medium": 3,
+            "high": 1,
+            "critical": 1
+          },
+          "effective": {
+            "info": 3,
+            "low": 10,
+            "medium": 3,
+            "high": 0,
+            "critical": 0
+          }
+        },
+        "findings": [
+          {
+            "rule_id": "ALLOWED_TOOLS_NETWORK_USAGE",
+            "severity": "medium",
+            "effective_severity": "medium",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "#7 Undeclared Capabilities",
+            "owasp_apps": "ASI02 Tool Discovery",
+            "atlas": "T0040",
+            "title": "Code makes network requests",
+            "description": "Skill code makes network requests. While not controlled by allowed-tools, network access should be documented and justified in the skill description.",
+            "file_path": "/Users/swchen.tw/git/workspace_jarvis/connsys-jarvis/framework/framework-base-expert/skills/framework-session-analyzer-tool/SKILL.md",
+            "line_number": null
+          },
+          {
+            "rule_id": "TOOL_ABUSE_UNDECLARED_NETWORK",
+            "severity": "medium",
+            "effective_severity": "medium",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "#7 Undeclared Capabilities",
+            "owasp_apps": "ASI02 Tool Discovery",
+            "atlas": "T0040",
+            "title": "Undeclared network usage",
+            "description": "Skill code uses network libraries but doesn't declare network requirement",
+            "file_path": "/Users/swchen.tw/git/workspace_jarvis/connsys-jarvis/framework/framework-base-expert/skills/framework-session-analyzer-tool/SKILL.md",
+            "line_number": null
+          },
+          {
+            "rule_id": "MANIFEST_MISSING_LICENSE",
+            "severity": "info",
+            "effective_severity": "info",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "—",
+            "owasp_apps": "—",
+            "atlas": "—",
+            "title": "Skill does not specify a license",
+            "description": "Skill manifest does not include a 'license' field. Specifying a license helps users understand usage terms.",
+            "file_path": "SKILL.md",
+            "line_number": null
+          },
+          {
+            "rule_id": "PYCACHE_FILES_DETECTED",
+            "severity": "low",
+            "effective_severity": "low",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "—",
+            "owasp_apps": "—",
+            "atlas": "—",
+            "title": "Python bytecode cache directory detected",
+            "description": "__pycache__ directory found at scripts/__pycache__/ containing 3 bytecode file(s). Pre-compiled bytecode should not be distributed in skill packages.",
+            "file_path": "scripts/__pycache__",
+            "line_number": null
+          },
+          {
+            "rule_id": "HIDDEN_DATA_FILE",
+            "severity": "low",
+            "effective_severity": "low",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "#9 Skill Tampering",
+            "owasp_apps": "ASI06 Skill Provenance",
+            "atlas": "—",
+            "title": "Hidden data file detected",
+            "description": "Hidden file found: scripts/batch/.pytest_cache/CACHEDIR.TAG. Hidden files may contain concealed configuration or data that should be reviewed.",
+            "file_path": "scripts/batch/.pytest_cache/CACHEDIR.TAG",
+            "line_number": null
+          },
+          {
+            "rule_id": "HIDDEN_DATA_FILE",
+            "severity": "low",
+            "effective_severity": "low",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "#9 Skill Tampering",
+            "owasp_apps": "ASI06 Skill Provenance",
+            "atlas": "—",
+            "title": "Hidden data file detected",
+            "description": "Hidden file found: scripts/batch/.pytest_cache/README.md. Hidden files may contain concealed configuration or data that should be reviewed.",
+            "file_path": "scripts/batch/.pytest_cache/README.md",
+            "line_number": null
+          },
+          {
+            "rule_id": "HIDDEN_DATA_FILE",
+            "severity": "low",
+            "effective_severity": "low",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "#9 Skill Tampering",
+            "owasp_apps": "ASI06 Skill Provenance",
+            "atlas": "—",
+            "title": "Hidden data file detected",
+            "description": "Hidden file found: scripts/batch/.pytest_cache/v/cache/lastfailed. Hidden files may contain concealed configuration or data that should be reviewed.",
+            "file_path": "scripts/batch/.pytest_cache/v/cache/lastfailed",
+            "line_number": null
+          },
+          {
+            "rule_id": "HIDDEN_DATA_FILE",
+            "severity": "low",
+            "effective_severity": "low",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "#9 Skill Tampering",
+            "owasp_apps": "ASI06 Skill Provenance",
+            "atlas": "—",
+            "title": "Hidden data file detected",
+            "description": "Hidden file found: scripts/batch/.pytest_cache/v/cache/nodeids. Hidden files may contain concealed configuration or data that should be reviewed.",
+            "file_path": "scripts/batch/.pytest_cache/v/cache/nodeids",
+            "line_number": null
+          },
+          {
+            "rule_id": "HIDDEN_DATA_FILE",
+            "severity": "low",
+            "effective_severity": "low",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "#9 Skill Tampering",
+            "owasp_apps": "ASI06 Skill Provenance",
+            "atlas": "—",
+            "title": "Hidden data file detected",
+            "description": "Hidden file found: scripts/batch/.pytest_cache/v/cache/stepwise. Hidden files may contain concealed configuration or data that should be reviewed.",
+            "file_path": "scripts/batch/.pytest_cache/v/cache/stepwise",
+            "line_number": null
+          },
+          {
+            "rule_id": "PYCACHE_FILES_DETECTED",
+            "severity": "low",
+            "effective_severity": "low",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "—",
+            "owasp_apps": "—",
+            "atlas": "—",
+            "title": "Python bytecode cache directory detected",
+            "description": "__pycache__ directory found at scripts/batch/__pycache__/ containing 1 bytecode file(s). Pre-compiled bytecode should not be distributed in skill packages.",
+            "file_path": "scripts/batch/__pycache__",
+            "line_number": null
+          },
+          {
+            "rule_id": "PYCACHE_FILES_DETECTED",
+            "severity": "low",
+            "effective_severity": "low",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "—",
+            "owasp_apps": "—",
+            "atlas": "—",
+            "title": "Python bytecode cache directory detected",
+            "description": "__pycache__ directory found at scripts/batch/lib/__pycache__/ containing 12 bytecode file(s). Pre-compiled bytecode should not be distributed in skill packages.",
+            "file_path": "scripts/batch/lib/__pycache__",
+            "line_number": null
+          },
+          {
+            "rule_id": "DATA_EXFIL_NETWORK_REQUESTS",
+            "severity": "medium",
+            "effective_severity": "medium",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "#2 Data Exfiltration",
+            "owasp_apps": "ASI05 Persistent Memory",
+            "atlas": "T0024",
+            "title": "Outbound network request primitives that can transmit data externally",
+            "description": "Pattern detected: urllib.request.Request(",
+            "file_path": "scripts/batch/lib/source_gerrit.py",
+            "line_number": 163
+          },
+          {
+            "rule_id": "PYCACHE_FILES_DETECTED",
+            "severity": "low",
+            "effective_severity": "low",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "—",
+            "owasp_apps": "—",
+            "atlas": "—",
+            "title": "Python bytecode cache directory detected",
+            "description": "__pycache__ directory found at scripts/batch/tests/__pycache__/ containing 14 bytecode file(s). Pre-compiled bytecode should not be distributed in skill packages.",
+            "file_path": "scripts/batch/tests/__pycache__",
+            "line_number": null
+          },
+          {
+            "rule_id": "YARA_sql_injection_generic",
+            "severity": "critical",
+            "effective_severity": "info",
+            "allowlisted": true,
+            "allowlist_reason": "string 'Benchmark (...)' is HTML table header, not SQL BENCHMARK()",
+            "owasp_skills": "#4 Code Injection",
+            "owasp_apps": "ASI04 Tool Misuse",
+            "atlas": "T0051",
+            "title": "INJECTION ATTACK detected by YARA",
+            "description": "Detects SQL injection attack patterns including keywords, tautologies, and database functions: \"Benchmark (",
+            "file_path": "scripts/generate_html_report.py",
+            "line_number": 1086
+          },
+          {
+            "rule_id": "PYCACHE_FILES_DETECTED",
+            "severity": "low",
+            "effective_severity": "low",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "—",
+            "owasp_apps": "—",
+            "atlas": "—",
+            "title": "Python bytecode cache directory detected",
+            "description": "__pycache__ directory found at scripts/tests/__pycache__/ containing 3 bytecode file(s). Pre-compiled bytecode should not be distributed in skill packages.",
+            "file_path": "scripts/tests/__pycache__",
+            "line_number": null
+          },
+          {
+            "rule_id": "BYTECODE_NO_SOURCE",
+            "severity": "high",
+            "effective_severity": "info",
+            "allowlisted": true,
+            "allowlist_reason": "Python bytecode cache — derived artefact, mirrors source",
+            "owasp_skills": "—",
+            "owasp_apps": "—",
+            "atlas": "—",
+            "title": "Python bytecode without matching source",
+            "description": "Bytecode file scripts/tests/__pycache__/__init__.cpython-313.pyc has no corresponding .py source. Bytecode-only distribution hides the actual code from review.",
+            "file_path": "scripts/tests/__pycache__/__init__.cpython-313.pyc",
+            "line_number": null
+          }
+        ]
+      },
+      {
+        "expert": "framework-base-expert",
+        "skill": "framework-skill-create-flow",
+        "skill_dir": "/Users/swchen.tw/git/workspace_jarvis/connsys-jarvis/framework/framework-base-expert/skills/framework-skill-create-flow",
+        "status": "pass",
+        "severity": "info",
+        "result": "PASS",
+        "skill_allowlisted": false,
+        "skill_allowlist_reason": "",
+        "summary": {
+          "raw": {
+            "info": 1,
+            "low": 0,
+            "medium": 0,
+            "high": 0,
+            "critical": 0
+          },
+          "effective": {
+            "info": 1,
+            "low": 0,
+            "medium": 0,
+            "high": 0,
+            "critical": 0
+          }
+        },
+        "findings": [
+          {
+            "rule_id": "MANIFEST_MISSING_LICENSE",
+            "severity": "info",
+            "effective_severity": "info",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "—",
+            "owasp_apps": "—",
+            "atlas": "—",
+            "title": "Skill does not specify a license",
+            "description": "Skill manifest does not include a 'license' field. Specifying a license helps users understand usage terms.",
+            "file_path": "SKILL.md",
+            "line_number": null
+          }
+        ]
+      },
+      {
+        "expert": "framework-base-expert",
+        "skill": "framework-skill-safety-flow",
+        "skill_dir": "/Users/swchen.tw/git/workspace_jarvis/connsys-jarvis/framework/framework-base-expert/skills/framework-skill-safety-flow",
+        "status": "partial",
+        "severity": "medium",
+        "result": "PASS",
+        "skill_allowlisted": false,
+        "skill_allowlist_reason": "",
+        "summary": {
+          "raw": {
+            "info": 1,
+            "low": 10,
+            "medium": 1,
+            "high": 0,
+            "critical": 6
+          },
+          "effective": {
+            "info": 7,
+            "low": 10,
+            "medium": 1,
+            "high": 0,
+            "critical": 0
+          }
+        },
+        "findings": [
+          {
+            "rule_id": "HIDDEN_DATA_FILE",
+            "severity": "low",
+            "effective_severity": "low",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "#9 Skill Tampering",
+            "owasp_apps": "ASI06 Skill Provenance",
+            "atlas": "—",
+            "title": "Hidden data file detected",
+            "description": "Hidden file found: .pytest_cache/CACHEDIR.TAG. Hidden files may contain concealed configuration or data that should be reviewed.",
+            "file_path": ".pytest_cache/CACHEDIR.TAG",
+            "line_number": null
+          },
+          {
+            "rule_id": "HIDDEN_DATA_FILE",
+            "severity": "low",
+            "effective_severity": "low",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "#9 Skill Tampering",
+            "owasp_apps": "ASI06 Skill Provenance",
+            "atlas": "—",
+            "title": "Hidden data file detected",
+            "description": "Hidden file found: .pytest_cache/README.md. Hidden files may contain concealed configuration or data that should be reviewed.",
+            "file_path": ".pytest_cache/README.md",
+            "line_number": null
+          },
+          {
+            "rule_id": "HIDDEN_DATA_FILE",
+            "severity": "low",
+            "effective_severity": "low",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "#9 Skill Tampering",
+            "owasp_apps": "ASI06 Skill Provenance",
+            "atlas": "—",
+            "title": "Hidden data file detected",
+            "description": "Hidden file found: .pytest_cache/v/cache/nodeids. Hidden files may contain concealed configuration or data that should be reviewed.",
+            "file_path": ".pytest_cache/v/cache/nodeids",
+            "line_number": null
+          },
+          {
+            "rule_id": "HIDDEN_DATA_FILE",
+            "severity": "low",
+            "effective_severity": "low",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "#9 Skill Tampering",
+            "owasp_apps": "ASI06 Skill Provenance",
+            "atlas": "—",
+            "title": "Hidden data file detected",
+            "description": "Hidden file found: .pytest_cache/v/cache/stepwise. Hidden files may contain concealed configuration or data that should be reviewed.",
+            "file_path": ".pytest_cache/v/cache/stepwise",
+            "line_number": null
+          },
+          {
+            "rule_id": "TOOL_ABUSE_UNDECLARED_NETWORK",
+            "severity": "medium",
+            "effective_severity": "medium",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "#7 Undeclared Capabilities",
+            "owasp_apps": "ASI02 Tool Discovery",
+            "atlas": "T0040",
+            "title": "Undeclared network usage",
+            "description": "Skill code uses network libraries but doesn't declare network requirement",
+            "file_path": "/Users/swchen.tw/git/workspace_jarvis/connsys-jarvis/framework/framework-base-expert/skills/framework-skill-safety-flow/SKILL.md",
+            "line_number": null
+          },
+          {
+            "rule_id": "MANIFEST_MISSING_LICENSE",
+            "severity": "info",
+            "effective_severity": "info",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "—",
+            "owasp_apps": "—",
+            "atlas": "—",
+            "title": "Skill does not specify a license",
+            "description": "Skill manifest does not include a 'license' field. Specifying a license helps users understand usage terms.",
+            "file_path": "SKILL.md",
+            "line_number": null
+          },
+          {
+            "rule_id": "HIDDEN_DATA_FILE",
+            "severity": "low",
+            "effective_severity": "low",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "#9 Skill Tampering",
+            "owasp_apps": "ASI06 Skill Provenance",
+            "atlas": "—",
+            "title": "Hidden data file detected",
+            "description": "Hidden file found: scripts/.pytest_cache/CACHEDIR.TAG. Hidden files may contain concealed configuration or data that should be reviewed.",
+            "file_path": "scripts/.pytest_cache/CACHEDIR.TAG",
+            "line_number": null
+          },
+          {
+            "rule_id": "HIDDEN_DATA_FILE",
+            "severity": "low",
+            "effective_severity": "low",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "#9 Skill Tampering",
+            "owasp_apps": "ASI06 Skill Provenance",
+            "atlas": "—",
+            "title": "Hidden data file detected",
+            "description": "Hidden file found: scripts/.pytest_cache/README.md. Hidden files may contain concealed configuration or data that should be reviewed.",
+            "file_path": "scripts/.pytest_cache/README.md",
+            "line_number": null
+          },
+          {
+            "rule_id": "HIDDEN_DATA_FILE",
+            "severity": "low",
+            "effective_severity": "low",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "#9 Skill Tampering",
+            "owasp_apps": "ASI06 Skill Provenance",
+            "atlas": "—",
+            "title": "Hidden data file detected",
+            "description": "Hidden file found: scripts/.pytest_cache/v/cache/nodeids. Hidden files may contain concealed configuration or data that should be reviewed.",
+            "file_path": "scripts/.pytest_cache/v/cache/nodeids",
+            "line_number": null
+          },
+          {
+            "rule_id": "HIDDEN_DATA_FILE",
+            "severity": "low",
+            "effective_severity": "low",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "#9 Skill Tampering",
+            "owasp_apps": "ASI06 Skill Provenance",
+            "atlas": "—",
+            "title": "Hidden data file detected",
+            "description": "Hidden file found: scripts/.pytest_cache/v/cache/stepwise. Hidden files may contain concealed configuration or data that should be reviewed.",
+            "file_path": "scripts/.pytest_cache/v/cache/stepwise",
+            "line_number": null
+          },
+          {
+            "rule_id": "PYCACHE_FILES_DETECTED",
+            "severity": "low",
+            "effective_severity": "low",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "—",
+            "owasp_apps": "—",
+            "atlas": "—",
+            "title": "Python bytecode cache directory detected",
+            "description": "__pycache__ directory found at scripts/__pycache__/ containing 6 bytecode file(s). Pre-compiled bytecode should not be distributed in skill packages.",
+            "file_path": "scripts/__pycache__",
+            "line_number": null
+          },
+          {
+            "rule_id": "YARA_sql_injection_generic",
+            "severity": "critical",
+            "effective_severity": "info",
+            "allowlisted": true,
+            "allowlist_reason": "Python bytecode cache — derived artefact, mirrors source",
+            "owasp_skills": "#4 Code Injection",
+            "owasp_apps": "ASI04 Tool Misuse",
+            "atlas": "T0051",
+            "title": "INJECTION ATTACK detected by YARA",
+            "description": "Detects SQL injection attack patterns including keywords, tautologies, and database functions: 'Benchmark (",
+            "file_path": "scripts/__pycache__/policy.cpython-312.pyc",
+            "line_number": 0
+          },
+          {
+            "rule_id": "YARA_sql_injection_generic",
+            "severity": "critical",
+            "effective_severity": "info",
+            "allowlisted": true,
+            "allowlist_reason": "Python bytecode cache — derived artefact, mirrors source",
+            "owasp_skills": "#4 Code Injection",
+            "owasp_apps": "ASI04 Tool Misuse",
+            "atlas": "T0051",
+            "title": "INJECTION ATTACK detected by YARA",
+            "description": "Detects SQL injection attack patterns including keywords, tautologies, and database functions: 'Benchmark (",
+            "file_path": "scripts/__pycache__/policy.cpython-313.pyc",
+            "line_number": 0
+          },
+          {
+            "rule_id": "YARA_sql_injection_generic",
+            "severity": "critical",
+            "effective_severity": "info",
+            "allowlisted": true,
+            "allowlist_reason": "rule_id used as dict key in this very file — not an attack",
+            "owasp_skills": "#4 Code Injection",
+            "owasp_apps": "ASI04 Tool Misuse",
+            "atlas": "T0051",
+            "title": "INJECTION ATTACK detected by YARA",
+            "description": "Detects SQL injection attack patterns including keywords, tautologies, and database functions: 'Benchmark (",
+            "file_path": "scripts/policy.py",
+            "line_number": 40
+          },
+          {
+            "rule_id": "PYCACHE_FILES_DETECTED",
+            "severity": "low",
+            "effective_severity": "low",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "—",
+            "owasp_apps": "—",
+            "atlas": "—",
+            "title": "Python bytecode cache directory detected",
+            "description": "__pycache__ directory found at scripts/tests/__pycache__/ containing 4 bytecode file(s). Pre-compiled bytecode should not be distributed in skill packages.",
+            "file_path": "scripts/tests/__pycache__",
+            "line_number": null
+          },
+          {
+            "rule_id": "SECRET_GITHUB_TOKEN",
+            "severity": "critical",
+            "effective_severity": "info",
+            "allowlisted": true,
+            "allowlist_reason": "intentional honeypot fixture; see framework-skill-safety-flow tests",
+            "owasp_skills": "#6 Secret Leak",
+            "owasp_apps": "ASI03 Delegated Trust",
+            "atlas": "T0024",
+            "title": "GitHub token detected",
+            "description": "Pattern detected: ghp_****",
+            "file_path": "scripts/tests/fixtures/honeypot-skill/scripts/exploit.py",
+            "line_number": 9
+          },
+          {
+            "rule_id": "DATA_EXFIL_HTTP_POST",
+            "severity": "critical",
+            "effective_severity": "info",
+            "allowlisted": true,
+            "allowlist_reason": "intentional honeypot fixture; see framework-skill-safety-flow tests",
+            "owasp_skills": "—",
+            "owasp_apps": "—",
+            "atlas": "—",
+            "title": "HTTP POST request that may send data externally",
+            "description": "Pattern detected: urllib.request.urlopen(\"http://attacker",
+            "file_path": "scripts/tests/fixtures/honeypot-skill/scripts/exploit.py",
+            "line_number": 13
+          },
+          {
+            "rule_id": "COMMAND_INJECTION_EVAL",
+            "severity": "critical",
+            "effective_severity": "info",
+            "allowlisted": true,
+            "allowlist_reason": "intentional honeypot fixture; see framework-skill-safety-flow tests",
+            "owasp_skills": "—",
+            "owasp_apps": "—",
+            "atlas": "—",
+            "title": "Dangerous code execution functions that can execute arbitrary code",
+            "description": "Pattern detected: eval(",
+            "file_path": "scripts/tests/fixtures/honeypot-skill/scripts/exploit.py",
+            "line_number": 15
+          }
+        ]
+      },
+      {
+        "expert": "framework-base-expert",
+        "skill": "framework-usage-track-flow",
+        "skill_dir": "/Users/swchen.tw/git/workspace_jarvis/connsys-jarvis/framework/framework-base-expert/skills/framework-usage-track-flow",
+        "status": "partial",
+        "severity": "low",
+        "result": "PASS",
+        "skill_allowlisted": false,
+        "skill_allowlist_reason": "",
+        "summary": {
+          "raw": {
+            "info": 1,
+            "low": 12,
+            "medium": 1,
+            "high": 0,
+            "critical": 1
+          },
+          "effective": {
+            "info": 3,
+            "low": 12,
+            "medium": 0,
+            "high": 0,
+            "critical": 0
+          }
+        },
+        "findings": [
+          {
+            "rule_id": "HIDDEN_DATA_FILE",
+            "severity": "low",
+            "effective_severity": "low",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "#9 Skill Tampering",
+            "owasp_apps": "ASI06 Skill Provenance",
+            "atlas": "—",
+            "title": "Hidden data file detected",
+            "description": "Hidden file found: .pytest_cache/CACHEDIR.TAG. Hidden files may contain concealed configuration or data that should be reviewed.",
+            "file_path": ".pytest_cache/CACHEDIR.TAG",
+            "line_number": null
+          },
+          {
+            "rule_id": "HIDDEN_DATA_FILE",
+            "severity": "low",
+            "effective_severity": "low",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "#9 Skill Tampering",
+            "owasp_apps": "ASI06 Skill Provenance",
+            "atlas": "—",
+            "title": "Hidden data file detected",
+            "description": "Hidden file found: .pytest_cache/README.md. Hidden files may contain concealed configuration or data that should be reviewed.",
+            "file_path": ".pytest_cache/README.md",
+            "line_number": null
+          },
+          {
+            "rule_id": "HIDDEN_DATA_FILE",
+            "severity": "low",
+            "effective_severity": "low",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "#9 Skill Tampering",
+            "owasp_apps": "ASI06 Skill Provenance",
+            "atlas": "—",
+            "title": "Hidden data file detected",
+            "description": "Hidden file found: .pytest_cache/v/cache/nodeids. Hidden files may contain concealed configuration or data that should be reviewed.",
+            "file_path": ".pytest_cache/v/cache/nodeids",
+            "line_number": null
+          },
+          {
+            "rule_id": "HIDDEN_DATA_FILE",
+            "severity": "low",
+            "effective_severity": "low",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "#9 Skill Tampering",
+            "owasp_apps": "ASI06 Skill Provenance",
+            "atlas": "—",
+            "title": "Hidden data file detected",
+            "description": "Hidden file found: .pytest_cache/v/cache/stepwise. Hidden files may contain concealed configuration or data that should be reviewed.",
+            "file_path": ".pytest_cache/v/cache/stepwise",
+            "line_number": null
+          },
+          {
+            "rule_id": "MANIFEST_MISSING_LICENSE",
+            "severity": "info",
+            "effective_severity": "info",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "—",
+            "owasp_apps": "—",
+            "atlas": "—",
+            "title": "Skill does not specify a license",
+            "description": "Skill manifest does not include a 'license' field. Specifying a license helps users understand usage terms.",
+            "file_path": "SKILL.md",
+            "line_number": null
+          },
+          {
+            "rule_id": "PYCACHE_FILES_DETECTED",
+            "severity": "low",
+            "effective_severity": "low",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "—",
+            "owasp_apps": "—",
+            "atlas": "—",
+            "title": "Python bytecode cache directory detected",
+            "description": "__pycache__ directory found at scripts/__pycache__/ containing 6 bytecode file(s). Pre-compiled bytecode should not be distributed in skill packages.",
+            "file_path": "scripts/__pycache__",
+            "line_number": null
+          },
+          {
+            "rule_id": "COMPOUND_FETCH_EXECUTE",
+            "severity": "critical",
+            "effective_severity": "info",
+            "allowlisted": true,
+            "allowlist_reason": "curl + bash <skill>/scripts/ — both local, healthz pattern",
+            "owasp_skills": "#4 Code Injection",
+            "owasp_apps": "ASI04 Tool Misuse",
+            "atlas": "T0011",
+            "title": "Remote fetch followed by execution",
+            "description": "Content is downloaded from the network and subsequently executed. This is a classic remote code execution attack pattern.",
+            "file_path": "scripts/e2e_test.sh",
+            "line_number": 80
+          },
+          {
+            "rule_id": "PYCACHE_FILES_DETECTED",
+            "severity": "low",
+            "effective_severity": "low",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "—",
+            "owasp_apps": "—",
+            "atlas": "—",
+            "title": "Python bytecode cache directory detected",
+            "description": "__pycache__ directory found at scripts/tests/__pycache__/ containing 7 bytecode file(s). Pre-compiled bytecode should not be distributed in skill packages.",
+            "file_path": "scripts/tests/__pycache__",
+            "line_number": null
+          },
+          {
+            "rule_id": "HIDDEN_DATA_FILE",
+            "severity": "low",
+            "effective_severity": "low",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "#9 Skill Tampering",
+            "owasp_apps": "ASI06 Skill Provenance",
+            "atlas": "—",
+            "title": "Hidden data file detected",
+            "description": "Hidden file found: tools/framework_usage_server/.pytest_cache/CACHEDIR.TAG. Hidden files may contain concealed configuration or data that should be reviewed.",
+            "file_path": "tools/framework_usage_server/.pytest_cache/CACHEDIR.TAG",
+            "line_number": null
+          },
+          {
+            "rule_id": "HIDDEN_DATA_FILE",
+            "severity": "low",
+            "effective_severity": "low",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "#9 Skill Tampering",
+            "owasp_apps": "ASI06 Skill Provenance",
+            "atlas": "—",
+            "title": "Hidden data file detected",
+            "description": "Hidden file found: tools/framework_usage_server/.pytest_cache/README.md. Hidden files may contain concealed configuration or data that should be reviewed.",
+            "file_path": "tools/framework_usage_server/.pytest_cache/README.md",
+            "line_number": null
+          },
+          {
+            "rule_id": "HIDDEN_DATA_FILE",
+            "severity": "low",
+            "effective_severity": "low",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "#9 Skill Tampering",
+            "owasp_apps": "ASI06 Skill Provenance",
+            "atlas": "—",
+            "title": "Hidden data file detected",
+            "description": "Hidden file found: tools/framework_usage_server/.pytest_cache/v/cache/nodeids. Hidden files may contain concealed configuration or data that should be reviewed.",
+            "file_path": "tools/framework_usage_server/.pytest_cache/v/cache/nodeids",
+            "line_number": null
+          },
+          {
+            "rule_id": "HIDDEN_DATA_FILE",
+            "severity": "low",
+            "effective_severity": "low",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "#9 Skill Tampering",
+            "owasp_apps": "ASI06 Skill Provenance",
+            "atlas": "—",
+            "title": "Hidden data file detected",
+            "description": "Hidden file found: tools/framework_usage_server/.pytest_cache/v/cache/stepwise. Hidden files may contain concealed configuration or data that should be reviewed.",
+            "file_path": "tools/framework_usage_server/.pytest_cache/v/cache/stepwise",
+            "line_number": null
+          },
+          {
+            "rule_id": "PYCACHE_FILES_DETECTED",
+            "severity": "low",
+            "effective_severity": "low",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "—",
+            "owasp_apps": "—",
+            "atlas": "—",
+            "title": "Python bytecode cache directory detected",
+            "description": "__pycache__ directory found at tools/framework_usage_server/src/framework_usage_server/__pycache__/ containing 5 bytecode file(s). Pre-compiled bytecode should not be distributed in skill packages.",
+            "file_path": "tools/framework_usage_server/src/framework_usage_server/__pycache__",
+            "line_number": null
+          },
+          {
+            "rule_id": "DATA_EXFIL_JS_NETWORK",
+            "severity": "medium",
+            "effective_severity": "info",
+            "allowlisted": true,
+            "allowlist_reason": "self-hosted SPA fetching /api/* of same server",
+            "owasp_skills": "#2 Data Exfiltration",
+            "owasp_apps": "ASI05 Persistent Memory",
+            "atlas": "T0024",
+            "title": "Outbound network request primitives in JavaScript/TypeScript",
+            "description": "Pattern detected: fetch(",
+            "file_path": "tools/framework_usage_server/src/framework_usage_server/dashboard/assets/app.js",
+            "line_number": 82
+          },
+          {
+            "rule_id": "PYCACHE_FILES_DETECTED",
+            "severity": "low",
+            "effective_severity": "low",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "—",
+            "owasp_apps": "—",
+            "atlas": "—",
+            "title": "Python bytecode cache directory detected",
+            "description": "__pycache__ directory found at tools/framework_usage_server/tests/__pycache__/ containing 6 bytecode file(s). Pre-compiled bytecode should not be distributed in skill packages.",
+            "file_path": "tools/framework_usage_server/tests/__pycache__",
+            "line_number": null
+          }
+        ]
+      },
+      {
+        "expert": "sys-bora-preflight-expert",
+        "skill": "sys-bora-gerrit-commit-flow",
+        "skill_dir": "/Users/swchen.tw/git/workspace_jarvis/connsys-jarvis/sys-bora/sys-bora-preflight-expert/skills/sys-bora-gerrit-commit-flow",
+        "status": "pass",
+        "severity": "info",
+        "result": "PASS",
+        "skill_allowlisted": false,
+        "skill_allowlist_reason": "",
+        "summary": {
+          "raw": {
+            "info": 1,
+            "low": 0,
+            "medium": 0,
+            "high": 0,
+            "critical": 0
+          },
+          "effective": {
+            "info": 1,
+            "low": 0,
+            "medium": 0,
+            "high": 0,
+            "critical": 0
+          }
+        },
+        "findings": [
+          {
+            "rule_id": "MANIFEST_MISSING_LICENSE",
+            "severity": "info",
+            "effective_severity": "info",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "—",
+            "owasp_apps": "—",
+            "atlas": "—",
+            "title": "Skill does not specify a license",
+            "description": "Skill manifest does not include a 'license' field. Specifying a license helps users understand usage terms.",
+            "file_path": "SKILL.md",
+            "line_number": null
+          }
+        ]
+      },
+      {
+        "expert": "sys-bora-base-expert",
+        "skill": "sys-bora-gerrit-tool",
+        "skill_dir": "/Users/swchen.tw/git/workspace_jarvis/connsys-jarvis/sys-bora/sys-bora-base-expert/skills/sys-bora-gerrit-tool",
+        "status": "pass",
+        "severity": "info",
+        "result": "PASS",
+        "skill_allowlisted": false,
+        "skill_allowlist_reason": "",
+        "summary": {
+          "raw": {
+            "info": 1,
+            "low": 0,
+            "medium": 0,
+            "high": 0,
+            "critical": 0
+          },
+          "effective": {
+            "info": 1,
+            "low": 0,
+            "medium": 0,
+            "high": 0,
+            "critical": 0
+          }
+        },
+        "findings": [
+          {
+            "rule_id": "MANIFEST_MISSING_LICENSE",
+            "severity": "info",
+            "effective_severity": "info",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "—",
+            "owasp_apps": "—",
+            "atlas": "—",
+            "title": "Skill does not specify a license",
+            "description": "Skill manifest does not include a 'license' field. Specifying a license helps users understand usage terms.",
+            "file_path": "SKILL.md",
+            "line_number": null
+          }
+        ]
+      },
+      {
+        "expert": "sys-bora-preflight-expert",
+        "skill": "sys-bora-preflight-flow",
+        "skill_dir": "/Users/swchen.tw/git/workspace_jarvis/connsys-jarvis/sys-bora/sys-bora-preflight-expert/skills/sys-bora-preflight-flow",
+        "status": "pass",
+        "severity": "info",
+        "result": "PASS",
+        "skill_allowlisted": false,
+        "skill_allowlist_reason": "",
+        "summary": {
+          "raw": {
+            "info": 1,
+            "low": 0,
+            "medium": 0,
+            "high": 0,
+            "critical": 0
+          },
+          "effective": {
+            "info": 1,
+            "low": 0,
+            "medium": 0,
+            "high": 0,
+            "critical": 0
+          }
+        },
+        "findings": [
+          {
+            "rule_id": "MANIFEST_MISSING_LICENSE",
+            "severity": "info",
+            "effective_severity": "info",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "—",
+            "owasp_apps": "—",
+            "atlas": "—",
+            "title": "Skill does not specify a license",
+            "description": "Skill manifest does not include a 'license' field. Specifying a license helps users understand usage terms.",
+            "file_path": "SKILL.md",
+            "line_number": null
+          }
+        ]
+      },
+      {
+        "expert": "sys-bora-base-expert",
+        "skill": "sys-bora-repo-tool",
+        "skill_dir": "/Users/swchen.tw/git/workspace_jarvis/connsys-jarvis/sys-bora/sys-bora-base-expert/skills/sys-bora-repo-tool",
+        "status": "pass",
+        "severity": "info",
+        "result": "PASS",
+        "skill_allowlisted": false,
+        "skill_allowlist_reason": "",
+        "summary": {
+          "raw": {
+            "info": 1,
+            "low": 0,
+            "medium": 0,
+            "high": 0,
+            "critical": 0
+          },
+          "effective": {
+            "info": 1,
+            "low": 0,
+            "medium": 0,
+            "high": 0,
+            "critical": 0
+          }
+        },
+        "findings": [
+          {
+            "rule_id": "MANIFEST_MISSING_LICENSE",
+            "severity": "info",
+            "effective_severity": "info",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "—",
+            "owasp_apps": "—",
+            "atlas": "—",
+            "title": "Skill does not specify a license",
+            "description": "Skill manifest does not include a 'license' field. Specifying a license helps users understand usage terms.",
+            "file_path": "SKILL.md",
+            "line_number": null
+          }
+        ]
+      },
+      {
+        "expert": "test-no-soul-expert",
+        "skill": "test-demo-flow",
+        "skill_dir": "/Users/swchen.tw/git/workspace_jarvis/connsys-jarvis/test-team/test-no-soul-expert/skills/test-demo-flow",
+        "status": "pass",
+        "severity": "info",
+        "result": "PASS",
+        "skill_allowlisted": false,
+        "skill_allowlist_reason": "",
+        "summary": {
+          "raw": {
+            "info": 1,
+            "low": 0,
+            "medium": 0,
+            "high": 0,
+            "critical": 0
+          },
+          "effective": {
+            "info": 1,
+            "low": 0,
+            "medium": 0,
+            "high": 0,
+            "critical": 0
+          }
+        },
+        "findings": [
+          {
+            "rule_id": "MANIFEST_MISSING_LICENSE",
+            "severity": "info",
+            "effective_severity": "info",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "—",
+            "owasp_apps": "—",
+            "atlas": "—",
+            "title": "Skill does not specify a license",
+            "description": "Skill manifest does not include a 'license' field. Specifying a license helps users understand usage terms.",
+            "file_path": "SKILL.md",
+            "line_number": null
+          }
+        ]
+      },
+      {
+        "expert": "framework-base-expert",
+        "skill": "test-demo-skill",
+        "skill_dir": "/Users/swchen.tw/git/workspace_jarvis/connsys-jarvis/framework/framework-base-expert/skills/test-demo-skill",
+        "status": "pass",
+        "severity": "info",
+        "result": "PASS",
+        "skill_allowlisted": false,
+        "skill_allowlist_reason": "",
+        "summary": {
+          "raw": {
+            "info": 1,
+            "low": 0,
+            "medium": 0,
+            "high": 0,
+            "critical": 0
+          },
+          "effective": {
+            "info": 1,
+            "low": 0,
+            "medium": 0,
+            "high": 0,
+            "critical": 0
+          }
+        },
+        "findings": [
+          {
+            "rule_id": "MANIFEST_MISSING_LICENSE",
+            "severity": "info",
+            "effective_severity": "info",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "—",
+            "owasp_apps": "—",
+            "atlas": "—",
+            "title": "Skill does not specify a license",
+            "description": "Skill manifest does not include a 'license' field. Specifying a license helps users understand usage terms.",
+            "file_path": "SKILL.md",
+            "line_number": null
+          }
+        ]
+      },
+      {
+        "expert": "test-domain-base-expert",
+        "skill": "test-domain-base-expert-using-knowhow",
+        "skill_dir": "/Users/swchen.tw/git/workspace_jarvis/connsys-jarvis/test-domain/test-domain-base-expert/skills/test-domain-base-expert-using-knowhow",
+        "status": "pass",
+        "severity": "info",
+        "result": "PASS",
+        "skill_allowlisted": false,
+        "skill_allowlist_reason": "",
+        "summary": {
+          "raw": {
+            "info": 1,
+            "low": 0,
+            "medium": 0,
+            "high": 0,
+            "critical": 0
+          },
+          "effective": {
+            "info": 1,
+            "low": 0,
+            "medium": 0,
+            "high": 0,
+            "critical": 0
+          }
+        },
+        "findings": [
+          {
+            "rule_id": "MANIFEST_MISSING_LICENSE",
+            "severity": "info",
+            "effective_severity": "info",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "—",
+            "owasp_apps": "—",
+            "atlas": "—",
+            "title": "Skill does not specify a license",
+            "description": "Skill manifest does not include a 'license' field. Specifying a license helps users understand usage terms.",
+            "file_path": "SKILL.md",
+            "line_number": null
+          }
+        ]
+      },
+      {
+        "expert": "wifi-bora-base-expert",
+        "skill": "wifi-bora-arch-knowhow",
+        "skill_dir": "/Users/swchen.tw/git/workspace_jarvis/connsys-jarvis/wifi-bora/wifi-bora-base-expert/skills/wifi-bora-arch-knowhow",
+        "status": "pass",
+        "severity": "info",
+        "result": "PASS",
+        "skill_allowlisted": false,
+        "skill_allowlist_reason": "",
+        "summary": {
+          "raw": {
+            "info": 1,
+            "low": 0,
+            "medium": 0,
+            "high": 0,
+            "critical": 0
+          },
+          "effective": {
+            "info": 1,
+            "low": 0,
+            "medium": 0,
+            "high": 0,
+            "critical": 0
+          }
+        },
+        "findings": [
+          {
+            "rule_id": "MANIFEST_MISSING_LICENSE",
+            "severity": "info",
+            "effective_severity": "info",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "—",
+            "owasp_apps": "—",
+            "atlas": "—",
+            "title": "Skill does not specify a license",
+            "description": "Skill manifest does not include a 'license' field. Specifying a license helps users understand usage terms.",
+            "file_path": "SKILL.md",
+            "line_number": null
+          }
+        ]
+      },
+      {
+        "expert": "wifi-bora-memory-slim-expert",
+        "skill": "wifi-bora-ast-tool",
+        "skill_dir": "/Users/swchen.tw/git/workspace_jarvis/connsys-jarvis/wifi-bora/wifi-bora-memory-slim-expert/skills/wifi-bora-ast-tool",
+        "status": "pass",
+        "severity": "info",
+        "result": "PASS",
+        "skill_allowlisted": false,
+        "skill_allowlist_reason": "",
+        "summary": {
+          "raw": {
+            "info": 1,
+            "low": 0,
+            "medium": 0,
+            "high": 0,
+            "critical": 0
+          },
+          "effective": {
+            "info": 1,
+            "low": 0,
+            "medium": 0,
+            "high": 0,
+            "critical": 0
+          }
+        },
+        "findings": [
+          {
+            "rule_id": "MANIFEST_MISSING_LICENSE",
+            "severity": "info",
+            "effective_severity": "info",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "—",
+            "owasp_apps": "—",
+            "atlas": "—",
+            "title": "Skill does not specify a license",
+            "description": "Skill manifest does not include a 'license' field. Specifying a license helps users understand usage terms.",
+            "file_path": "SKILL.md",
+            "line_number": null
+          }
+        ]
+      },
+      {
+        "expert": "wifi-bora-base-expert",
+        "skill": "wifi-bora-base-expert-using-knowhow",
+        "skill_dir": "/Users/swchen.tw/git/workspace_jarvis/connsys-jarvis/wifi-bora/wifi-bora-base-expert/skills/wifi-bora-base-expert-using-knowhow",
+        "status": "pass",
+        "severity": "info",
+        "result": "PASS",
+        "skill_allowlisted": false,
+        "skill_allowlist_reason": "",
+        "summary": {
+          "raw": {
+            "info": 1,
+            "low": 0,
+            "medium": 0,
+            "high": 0,
+            "critical": 0
+          },
+          "effective": {
+            "info": 1,
+            "low": 0,
+            "medium": 0,
+            "high": 0,
+            "critical": 0
+          }
+        },
+        "findings": [
+          {
+            "rule_id": "MANIFEST_MISSING_LICENSE",
+            "severity": "info",
+            "effective_severity": "info",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "—",
+            "owasp_apps": "—",
+            "atlas": "—",
+            "title": "Skill does not specify a license",
+            "description": "Skill manifest does not include a 'license' field. Specifying a license helps users understand usage terms.",
+            "file_path": "SKILL.md",
+            "line_number": null
+          }
+        ]
+      },
+      {
+        "expert": "wifi-bora-base-expert",
+        "skill": "wifi-bora-build-flow",
+        "skill_dir": "/Users/swchen.tw/git/workspace_jarvis/connsys-jarvis/wifi-bora/wifi-bora-base-expert/skills/wifi-bora-build-flow",
+        "status": "pass",
+        "severity": "info",
+        "result": "PASS",
+        "skill_allowlisted": false,
+        "skill_allowlist_reason": "",
+        "summary": {
+          "raw": {
+            "info": 1,
+            "low": 0,
+            "medium": 0,
+            "high": 0,
+            "critical": 0
+          },
+          "effective": {
+            "info": 1,
+            "low": 0,
+            "medium": 0,
+            "high": 0,
+            "critical": 0
+          }
+        },
+        "findings": [
+          {
+            "rule_id": "MANIFEST_MISSING_LICENSE",
+            "severity": "info",
+            "effective_severity": "info",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "—",
+            "owasp_apps": "—",
+            "atlas": "—",
+            "title": "Skill does not specify a license",
+            "description": "Skill manifest does not include a 'license' field. Specifying a license helps users understand usage terms.",
+            "file_path": "SKILL.md",
+            "line_number": null
+          }
+        ]
+      },
+      {
+        "expert": "wifi-bora-base-expert",
+        "skill": "wifi-bora-linkerscript-knowhow",
+        "skill_dir": "/Users/swchen.tw/git/workspace_jarvis/connsys-jarvis/wifi-bora/wifi-bora-base-expert/skills/wifi-bora-linkerscript-knowhow",
+        "status": "pass",
+        "severity": "info",
+        "result": "PASS",
+        "skill_allowlisted": false,
+        "skill_allowlist_reason": "",
+        "summary": {
+          "raw": {
+            "info": 1,
+            "low": 0,
+            "medium": 0,
+            "high": 0,
+            "critical": 0
+          },
+          "effective": {
+            "info": 1,
+            "low": 0,
+            "medium": 0,
+            "high": 0,
+            "critical": 0
+          }
+        },
+        "findings": [
+          {
+            "rule_id": "MANIFEST_MISSING_LICENSE",
+            "severity": "info",
+            "effective_severity": "info",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "—",
+            "owasp_apps": "—",
+            "atlas": "—",
+            "title": "Skill does not specify a license",
+            "description": "Skill manifest does not include a 'license' field. Specifying a license helps users understand usage terms.",
+            "file_path": "SKILL.md",
+            "line_number": null
+          }
+        ]
+      },
+      {
+        "expert": "wifi-bora-memory-slim-expert",
+        "skill": "wifi-bora-lsp-tool",
+        "skill_dir": "/Users/swchen.tw/git/workspace_jarvis/connsys-jarvis/wifi-bora/wifi-bora-memory-slim-expert/skills/wifi-bora-lsp-tool",
+        "status": "pass",
+        "severity": "info",
+        "result": "PASS",
+        "skill_allowlisted": false,
+        "skill_allowlist_reason": "",
+        "summary": {
+          "raw": {
+            "info": 1,
+            "low": 0,
+            "medium": 0,
+            "high": 0,
+            "critical": 0
+          },
+          "effective": {
+            "info": 1,
+            "low": 0,
+            "medium": 0,
+            "high": 0,
+            "critical": 0
+          }
+        },
+        "findings": [
+          {
+            "rule_id": "MANIFEST_MISSING_LICENSE",
+            "severity": "info",
+            "effective_severity": "info",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "—",
+            "owasp_apps": "—",
+            "atlas": "—",
+            "title": "Skill does not specify a license",
+            "description": "Skill manifest does not include a 'license' field. Specifying a license helps users understand usage terms.",
+            "file_path": "SKILL.md",
+            "line_number": null
+          }
+        ]
+      },
+      {
+        "expert": "wifi-bora-base-expert",
+        "skill": "wifi-bora-memory-knowhow",
+        "skill_dir": "/Users/swchen.tw/git/workspace_jarvis/connsys-jarvis/wifi-bora/wifi-bora-base-expert/skills/wifi-bora-memory-knowhow",
+        "status": "pass",
+        "severity": "info",
+        "result": "PASS",
+        "skill_allowlisted": false,
+        "skill_allowlist_reason": "",
+        "summary": {
+          "raw": {
+            "info": 1,
+            "low": 0,
+            "medium": 0,
+            "high": 0,
+            "critical": 0
+          },
+          "effective": {
+            "info": 1,
+            "low": 0,
+            "medium": 0,
+            "high": 0,
+            "critical": 0
+          }
+        },
+        "findings": [
+          {
+            "rule_id": "MANIFEST_MISSING_LICENSE",
+            "severity": "info",
+            "effective_severity": "info",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "—",
+            "owasp_apps": "—",
+            "atlas": "—",
+            "title": "Skill does not specify a license",
+            "description": "Skill manifest does not include a 'license' field. Specifying a license helps users understand usage terms.",
+            "file_path": "SKILL.md",
+            "line_number": null
+          }
+        ]
+      },
+      {
+        "expert": "wifi-bora-memory-slim-expert",
+        "skill": "wifi-bora-memslim-flow",
+        "skill_dir": "/Users/swchen.tw/git/workspace_jarvis/connsys-jarvis/wifi-bora/wifi-bora-memory-slim-expert/skills/wifi-bora-memslim-flow",
+        "status": "pass",
+        "severity": "info",
+        "result": "PASS",
+        "skill_allowlisted": false,
+        "skill_allowlist_reason": "",
+        "summary": {
+          "raw": {
+            "info": 1,
+            "low": 0,
+            "medium": 0,
+            "high": 0,
+            "critical": 0
+          },
+          "effective": {
+            "info": 1,
+            "low": 0,
+            "medium": 0,
+            "high": 0,
+            "critical": 0
+          }
+        },
+        "findings": [
+          {
+            "rule_id": "MANIFEST_MISSING_LICENSE",
+            "severity": "info",
+            "effective_severity": "info",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "—",
+            "owasp_apps": "—",
+            "atlas": "—",
+            "title": "Skill does not specify a license",
+            "description": "Skill manifest does not include a 'license' field. Specifying a license helps users understand usage terms.",
+            "file_path": "SKILL.md",
+            "line_number": null
+          }
+        ]
+      },
+      {
+        "expert": "wifi-bora-base-expert",
+        "skill": "wifi-bora-protocol-knowhow",
+        "skill_dir": "/Users/swchen.tw/git/workspace_jarvis/connsys-jarvis/wifi-bora/wifi-bora-base-expert/skills/wifi-bora-protocol-knowhow",
+        "status": "pass",
+        "severity": "info",
+        "result": "PASS",
+        "skill_allowlisted": false,
+        "skill_allowlist_reason": "",
+        "summary": {
+          "raw": {
+            "info": 1,
+            "low": 0,
+            "medium": 0,
+            "high": 0,
+            "critical": 0
+          },
+          "effective": {
+            "info": 1,
+            "low": 0,
+            "medium": 0,
+            "high": 0,
+            "critical": 0
+          }
+        },
+        "findings": [
+          {
+            "rule_id": "MANIFEST_MISSING_LICENSE",
+            "severity": "info",
+            "effective_severity": "info",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "—",
+            "owasp_apps": "—",
+            "atlas": "—",
+            "title": "Skill does not specify a license",
+            "description": "Skill manifest does not include a 'license' field. Specifying a license helps users understand usage terms.",
+            "file_path": "SKILL.md",
+            "line_number": null
+          }
+        ]
+      },
+      {
+        "expert": "wifi-bora-base-expert",
+        "skill": "wifi-bora-symbolmap-knowhow",
+        "skill_dir": "/Users/swchen.tw/git/workspace_jarvis/connsys-jarvis/wifi-bora/wifi-bora-base-expert/skills/wifi-bora-symbolmap-knowhow",
+        "status": "pass",
+        "severity": "info",
+        "result": "PASS",
+        "skill_allowlisted": false,
+        "skill_allowlist_reason": "",
+        "summary": {
+          "raw": {
+            "info": 1,
+            "low": 0,
+            "medium": 0,
+            "high": 0,
+            "critical": 0
+          },
+          "effective": {
+            "info": 1,
+            "low": 0,
+            "medium": 0,
+            "high": 0,
+            "critical": 0
+          }
+        },
+        "findings": [
+          {
+            "rule_id": "MANIFEST_MISSING_LICENSE",
+            "severity": "info",
+            "effective_severity": "info",
+            "allowlisted": false,
+            "allowlist_reason": "",
+            "owasp_skills": "—",
+            "owasp_apps": "—",
+            "atlas": "—",
+            "title": "Skill does not specify a license",
+            "description": "Skill manifest does not include a 'license' field. Specifying a license helps users understand usage terms.",
+            "file_path": "SKILL.md",
+            "line_number": null
+          }
+        ]
+      }
+    ]
+  },
+  "archives": {
+    "test-log.tar.bz2": {
+      "size": 136113,
+      "files": [
+        {
+          "name": "framework-base-expert/fw-005/output.txt",
+          "description": "Session text output",
+          "size": 1831
+        },
+        {
+          "name": "framework-base-expert/fw-005/metadata.json",
+          "description": "Test case metadata (id, model, timeout)",
+          "size": 215
+        },
+        {
+          "name": "framework-base-expert/fw-005/stream.jsonl",
+          "description": "Session JSONL events",
+          "size": 125299
+        },
+        {
+          "name": "framework-base-expert/fw-001/output.txt",
+          "description": "Session text output",
+          "size": 787
+        },
+        {
+          "name": "framework-base-expert/fw-001/metadata.json",
+          "description": "Test case metadata (id, model, timeout)",
+          "size": 215
+        },
+        {
+          "name": "framework-base-expert/fw-001/stream.jsonl",
+          "description": "Session JSONL events",
+          "size": 134417
+        },
+        {
+          "name": "framework-base-expert/fw-006/output.txt",
+          "description": "Session text output",
+          "size": 837
+        },
+        {
+          "name": "framework-base-expert/fw-006/metadata.json",
+          "description": "Test case metadata (id, model, timeout)",
+          "size": 213
+        },
+        {
+          "name": "framework-base-expert/fw-006/stream.jsonl",
+          "description": "Session JSONL events",
+          "size": 85397
+        },
+        {
+          "name": "framework-base-expert/fw-002/output.txt",
+          "description": "Session text output",
+          "size": 604
+        },
+        {
+          "name": "framework-base-expert/fw-002/metadata.json",
+          "description": "Test case metadata (id, model, timeout)",
+          "size": 215
+        },
+        {
+          "name": "framework-base-expert/fw-002/stream.jsonl",
+          "description": "Session JSONL events",
+          "size": 108865
+        },
+        {
+          "name": "wifi-bora-base-expert/wb-001/output.txt",
+          "description": "Session text output",
+          "size": 1765
+        },
+        {
+          "name": "wifi-bora-base-expert/wb-001/metadata.json",
+          "description": "Test case metadata (id, model, timeout)",
+          "size": 213
+        },
+        {
+          "name": "wifi-bora-base-expert/wb-001/stream.jsonl",
+          "description": "Session JSONL events",
+          "size": 83104
+        },
+        {
+          "name": "wifi-bora-memory-slim-expert/mem-004/output.txt",
+          "description": "Session text output",
+          "size": 607
+        },
+        {
+          "name": "wifi-bora-memory-slim-expert/mem-004/metadata.json",
+          "description": "Test case metadata (id, model, timeout)",
+          "size": 215
+        },
+        {
+          "name": "wifi-bora-memory-slim-expert/mem-004/stream.jsonl",
+          "description": "Session JSONL events",
+          "size": 37513
+        },
+        {
+          "name": "wifi-bora-memory-slim-expert/mem-003/output.txt",
+          "description": "Session text output",
+          "size": 2081
+        },
+        {
+          "name": "wifi-bora-memory-slim-expert/mem-003/metadata.json",
+          "description": "Test case metadata (id, model, timeout)",
+          "size": 214
+        },
+        {
+          "name": "wifi-bora-memory-slim-expert/mem-003/stream.jsonl",
+          "description": "Session JSONL events",
+          "size": 74062
+        },
+        {
+          "name": "wifi-bora-memory-slim-expert/mem-002/output.txt",
+          "description": "Session text output",
+          "size": 3524
+        },
+        {
+          "name": "wifi-bora-memory-slim-expert/mem-002/metadata.json",
+          "description": "Test case metadata (id, model, timeout)",
+          "size": 215
+        },
+        {
+          "name": "wifi-bora-memory-slim-expert/mem-002/stream.jsonl",
+          "description": "Session JSONL events",
+          "size": 92863
+        }
+      ]
+    }
+  }
+}
