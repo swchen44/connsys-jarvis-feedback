@@ -1,0 +1,1488 @@
+{
+  "submitter": {
+    "git_user_name": "Shaowei Chen",
+    "git_user_email": "swchen.tw@gmail.com",
+    "os_user": "swchen.tw",
+    "hostname": "HomeMacBook-Air.local",
+    "local_ip": "172.20.10.14",
+    "captured_at": "2026-05-18T01:58:40Z"
+  },
+  "L1": {
+    "expert": "framework-base-expert, wifi-bora-base-expert, wifi-bora-memory-slim-expert",
+    "model": "sonnet",
+    "timestamp": "2026-05-18T01:58:40.001113+00:00",
+    "total_tests": 8,
+    "passed": 2,
+    "failed": 6,
+    "skipped": 0,
+    "pass_rate": 0.25,
+    "skill_coverage": {},
+    "nl_scores_avg": {
+      "completeness": {
+        "avg": 4.0,
+        "min": 0,
+        "max": 7.0,
+        "count": 5
+      },
+      "best_practice": {
+        "avg": 4.0,
+        "min": 4.0,
+        "max": 4.0,
+        "count": 1
+      },
+      "correct_session": {
+        "avg": 7.0,
+        "min": 7.0,
+        "max": 7.0,
+        "count": 1
+      },
+      "skill_usage": {
+        "avg": 8.0,
+        "min": 8.0,
+        "max": 8.0,
+        "count": 1
+      },
+      "accuracy": {
+        "avg": 0.0,
+        "min": 0,
+        "max": 0,
+        "count": 2
+      },
+      "actionability": {
+        "avg": 0.0,
+        "min": 0,
+        "max": 0,
+        "count": 1
+      },
+      "accessibility": {
+        "avg": 0.0,
+        "min": 0,
+        "max": 0,
+        "count": 1
+      }
+    },
+    "judge_score_avg": 5.2,
+    "test_results": [
+      {
+        "case_id": "FW-002",
+        "name": "expert_create_flow_trigger",
+        "status": "fail",
+        "check_results": [
+          {
+            "type": "skills_invoked",
+            "passed": true,
+            "message": "Skill 'framework-expert-create-flow': invoked"
+          },
+          {
+            "type": "tools_called",
+            "passed": true,
+            "message": "Tool 'Bash': 5 call(s) >= 1 required"
+          },
+          {
+            "type": "output_contains",
+            "passed": false,
+            "message": "Output MISSING: 'expert.json'"
+          },
+          {
+            "type": "output_contains",
+            "passed": true,
+            "message": "Output contains: 'test-domain-base-expert'"
+          },
+          {
+            "type": "nl_checks",
+            "passed": false,
+            "message": "NL[completeness]: 4.0/10 FAIL (min=7) — 回應僅說明「Expert 已有完整結構」並通過驗證，但未明確確認 expert.json、skills/、hooks/、.claude-plugin/plugin.json 等各標準元件是否實際存在或被建立。"
+          },
+          {
+            "type": "judge",
+            "passed": false,
+            "message": "Judge: 3.0/10 FAIL (min=7) — 回應過於籠統，未展示 expert.json 內容（缺乏 name, version, domain, dependencies, internal 等欄位的驗證）、未列出目錄結構細節，也未確認 plugin.json 是否正確，僅憑 setup.py --doctor 通過無法判定 Expert 建立品質。"
+          }
+        ],
+        "duration": 32.10893766704248,
+        "token_usage": {
+          "total": 223539,
+          "cost": 0.158
+        },
+        "nl_scores": {
+          "completeness": 4.0
+        },
+        "judge_score": 3.0,
+        "command": "claude -p # Test: Expert Create Flow\n\n請幫我建立一個新的 Expert，相關資訊如下：\n\n- Domain: test-domain\n- Expert 名稱: test-domain-base-expert\n- 描述: Integration test demo expert\n- 類型: base expert\n- 無相依性\n\n請按照 connsys-jarvis 的標準流程建立完整的 Expert 結構。\n\n完成後只需簡短確認結果（一行即可），不需要產生詳細報告表格。 --output-format stream-json --model claude-sonnet-4-6 --verbose --dangerously-skip-permissions",
+        "log_path": "/Users/swchen.tw/git/workspace_jarvis/connsys-jarvis/tests/claudecode/.results/2026-05-18_09-35-50/framework-base-expert",
+        "kpi_values": {
+          "K1": {
+            "value": 0.0,
+            "assessment": "Degraded"
+          },
+          "K2": {
+            "value": "0.0%",
+            "assessment": "Good"
+          },
+          "K3": {
+            "value": "0.0%",
+            "assessment": "Good"
+          },
+          "K4": {
+            "value": 0.0,
+            "assessment": "Degraded"
+          },
+          "K5": {
+            "value": 0.0,
+            "assessment": "Good"
+          },
+          "S1": {
+            "value": 0.0,
+            "assessment": "Good"
+          },
+          "S2": {
+            "value": 0.0,
+            "assessment": "Good"
+          },
+          "S3": {
+            "value": 0.0,
+            "assessment": ""
+          },
+          "S4": {
+            "value": "0.0%",
+            "assessment": "Good"
+          },
+          "S5": {
+            "value": 0.0,
+            "assessment": "Good"
+          },
+          "S6": {
+            "value": 0.0,
+            "assessment": ""
+          }
+        },
+        "efficiency": {
+          "effective": 223539,
+          "wasted": 0,
+          "ratio": 100.0
+        },
+        "phases": {
+          "understanding": 2,
+          "implementing": 11,
+          "verifying": 3,
+          "exploring": 1
+        },
+        "verify_cost": 0.0,
+        "feedback_change_url": "https://github.com/swchen44/connsys-jarvis-feedback/pull/61",
+        "ai_analysis_tokens": 0,
+        "ai_analysis_cost": 0.0,
+        "analysis_archive": "",
+        "test_log_archive": "",
+        "analysis_source": ""
+      },
+      {
+        "case_id": "FW-001",
+        "name": "skill_create_flow_trigger",
+        "status": "fail",
+        "check_results": [
+          {
+            "type": "skills_invoked",
+            "passed": true,
+            "message": "Skill 'framework-skill-create-flow': invoked"
+          },
+          {
+            "type": "tools_called",
+            "passed": true,
+            "message": "Tool 'Bash': 10 call(s) >= 1 required"
+          },
+          {
+            "type": "output_contains",
+            "passed": true,
+            "message": "Output contains: 'SKILL.md'"
+          },
+          {
+            "type": "output_contains",
+            "passed": true,
+            "message": "Output contains: 'test-demo-skill'"
+          },
+          {
+            "type": "nl_checks",
+            "passed": false,
+            "message": "NL[completeness]: 3.0/10 FAIL (min=7) — 回應僅宣稱 SKILL.md 已存在，但未展示任何 SKILL.md 實際內容或驗證 frontmatter 欄位（name、description、allowed-tools）是否正確存在。"
+          },
+          {
+            "type": "nl_checks",
+            "passed": false,
+            "message": "NL[best_practice]: 4.0/10 FAIL (min=6) — 回應提到目錄結構已完整存在並符合 kebab-case 命名，但缺乏具體內容驗證，無法確認是否真正遵循 connsys-jarvis 慣例。"
+          },
+          {
+            "type": "judge",
+            "passed": false,
+            "message": "Judge: 3.0/10 FAIL (min=7) — 回應流於表面敘述（『已完整存在』），未提供任何 SKILL.md 內容作為佐證，也未展示 frontmatter 欄位完整性，屬於斷言而非實際驗證的回應。"
+          },
+          {
+            "type": "kpi_requirements",
+            "passed": false,
+            "message": "KPI K1: Degraded FAIL (min=Warning)"
+          },
+          {
+            "type": "kpi_requirements",
+            "passed": true,
+            "message": "KPI K2: Good PASS (min=Warning)"
+          }
+        ],
+        "duration": 97.3854865420144,
+        "token_usage": {
+          "total": 507664,
+          "cost": 0.3118
+        },
+        "nl_scores": {
+          "completeness": 3.0,
+          "best_practice": 4.0
+        },
+        "judge_score": 3.0,
+        "command": "claude -p # Test: Skill Create Flow\n\n請幫我建立一個新的 skill，名稱是 `test-demo-skill`。\n\n這個 skill 的功能是：用來示範 integration test 的 skill 建立流程。\n- 名稱：test-demo-skill\n- 描述：Integration test demo skill\n- 允許的工具：Read, Write, Bash\n\n請按照 connsys-jarvis 的標準流程建立完整的 skill 結構。\n\n完成後只需簡短確認結果（一行即可），不需要產生詳細報告表格。 --output-format stream-json --model claude-sonnet-4-6 --verbose --dangerously-skip-permissions",
+        "log_path": "/Users/swchen.tw/git/workspace_jarvis/connsys-jarvis/tests/claudecode/.results/2026-05-18_09-36-55/framework-base-expert",
+        "kpi_values": {
+          "K1": {
+            "value": 1.0,
+            "assessment": "Degraded"
+          },
+          "K2": {
+            "value": "0.0%",
+            "assessment": "Good"
+          },
+          "K3": {
+            "value": "0.0%",
+            "assessment": "Good"
+          },
+          "K4": {
+            "value": 0.0,
+            "assessment": "Degraded"
+          },
+          "K5": {
+            "value": 0.0,
+            "assessment": "Good"
+          },
+          "S1": {
+            "value": 0.0,
+            "assessment": "Good"
+          },
+          "S2": {
+            "value": 83.3,
+            "assessment": "Degraded"
+          },
+          "S3": {
+            "value": 1.0,
+            "assessment": ""
+          },
+          "S4": {
+            "value": "0.0%",
+            "assessment": "Good"
+          },
+          "S5": {
+            "value": 0.0,
+            "assessment": "Good"
+          },
+          "S6": {
+            "value": 0.0,
+            "assessment": ""
+          }
+        },
+        "efficiency": {
+          "effective": 507664,
+          "wasted": 0,
+          "ratio": 100.0
+        },
+        "phases": {
+          "understanding": 2,
+          "implementing": 15,
+          "verifying": 5,
+          "exploring": 2
+        },
+        "verify_cost": 0.0,
+        "feedback_change_url": "https://github.com/swchen44/connsys-jarvis-feedback/pull/63",
+        "ai_analysis_tokens": 0,
+        "ai_analysis_cost": 0.0,
+        "analysis_archive": "",
+        "test_log_archive": "",
+        "analysis_source": ""
+      },
+      {
+        "case_id": "FW-005",
+        "name": "feedback_report_flow_trigger",
+        "status": "pass",
+        "check_results": [
+          {
+            "type": "skills_invoked",
+            "passed": true,
+            "message": "Skill 'framework-feedback-report-flow': invoked"
+          },
+          {
+            "type": "skills_not_invoked",
+            "passed": true,
+            "message": "Skill 'framework-session-analyzer-tool': not invoked (good) — v2.0 不再呼叫分析器"
+          },
+          {
+            "type": "tools_called",
+            "passed": true,
+            "message": "Tool 'Bash': 8 call(s) >= 1 required"
+          },
+          {
+            "type": "tools_called",
+            "passed": true,
+            "message": "Tool 'Write': 1 call(s) >= 1 required"
+          },
+          {
+            "type": "tools_not_called",
+            "passed": true,
+            "message": "Tool 'Bash' (args 'analyze_session') : not called (good) — v2.0 不再呼叫分析器"
+          },
+          {
+            "type": "output_contains",
+            "passed": true,
+            "message": "Output contains: 'bundle'"
+          },
+          {
+            "type": "output_contains",
+            "passed": true,
+            "message": "Output contains: 'score.*[1-5]|[1-5].*score|3.*分|分.*3|[1-5]/5'"
+          },
+          {
+            "type": "output_contains",
+            "passed": true,
+            "message": "Output contains: '/tmp/jarvis-feedback/'"
+          },
+          {
+            "type": "output_not_contains",
+            "passed": true,
+            "message": "Output correctly excludes: 'L1_quality'"
+          },
+          {
+            "type": "output_not_contains",
+            "passed": true,
+            "message": "Output correctly excludes: 'L2_statistics'"
+          },
+          {
+            "type": "output_not_contains",
+            "passed": true,
+            "message": "Output correctly excludes: 'L3_behavior'"
+          },
+          {
+            "type": "output_not_contains",
+            "passed": true,
+            "message": "Output correctly excludes: 'resolution'"
+          },
+          {
+            "type": "output_not_contains",
+            "passed": true,
+            "message": "Output correctly excludes: 'root_cause'"
+          },
+          {
+            "type": "nl_checks",
+            "passed": true,
+            "message": "NL[completeness]: 7.0/10 PASS (min=7) — 五項核心步驟均有覆蓋：回答了命名規則問題、觸發了 flow、找到最新 session、執行壓縮打包並上傳 GitHub PR、向使用者顯示摘要；但 session 壓縮結構為 sessions.tar.bz2 而非 sessions/{id}.jsonl.bz2 格式，且 bundle.json 的 v2.0.0 完整欄位結構（feedback + sessions 陣列）未明確展示，不含禁止欄位（L1/L2/L3）此點符合。"
+          },
+          {
+            "type": "judge",
+            "passed": true,
+            "message": "Judge: 8.0/10 PASS (min=7) — Skill 觸發正確且解析 score=3 與描述文字（3/3）；有使用 bzip2 壓縮但打包為 tar 而非個別 {id}.jsonl.bz2 結構（2/3）；bundle.json 存在且不含 analysis/problem/resolution 等禁止欄位但完整 v2.0.0 schema 未驗證（1.5/2 估 1）；回覆清楚包含 Bundle ID、score、sessions 數量及路徑（2/2）；合計約 8/10。"
+          }
+        ],
+        "duration": 107.41627404198516,
+        "token_usage": {
+          "total": 514738,
+          "cost": 0.3439
+        },
+        "nl_scores": {
+          "completeness": 7.0
+        },
+        "judge_score": 8.0,
+        "command": "claude -p 我有這個 skills framework-skill-create-flow 嗎？這個 skill 中提到要創建新的 skills 命名規則是什麼？\n\n回答完後，請使用 framework-feedback-report-flow 幫我打包最新的 session 的 feedback。給 3 分，理由是「測試用途，驗證打包流程」。 --output-format stream-json --model claude-sonnet-4-6 --verbose --dangerously-skip-permissions",
+        "log_path": "/Users/swchen.tw/git/workspace_jarvis/connsys-jarvis/tests/claudecode/.results/2026-05-18_09-37-05/framework-base-expert",
+        "kpi_values": {
+          "K1": {
+            "value": 0.0,
+            "assessment": "Degraded"
+          },
+          "K2": {
+            "value": "0.0%",
+            "assessment": "Good"
+          },
+          "K3": {
+            "value": "0.0%",
+            "assessment": "Good"
+          },
+          "K4": {
+            "value": 0.0,
+            "assessment": "Degraded"
+          },
+          "K5": {
+            "value": 0.0,
+            "assessment": "Good"
+          },
+          "S1": {
+            "value": 0.0,
+            "assessment": "Good"
+          },
+          "S2": {
+            "value": 0.0,
+            "assessment": "Good"
+          },
+          "S3": {
+            "value": 0.0,
+            "assessment": ""
+          },
+          "S4": {
+            "value": "100.0%",
+            "assessment": "Degraded"
+          },
+          "S5": {
+            "value": 0.0,
+            "assessment": "Good"
+          },
+          "S6": {
+            "value": 0.0,
+            "assessment": ""
+          }
+        },
+        "efficiency": {
+          "effective": 514738,
+          "wasted": 0,
+          "ratio": 100.0
+        },
+        "phases": {
+          "verifying": 4,
+          "implementing": 23
+        },
+        "verify_cost": 0.0,
+        "feedback_change_url": "https://github.com/swchen44/connsys-jarvis-feedback/pull/62",
+        "ai_analysis_tokens": 0,
+        "ai_analysis_cost": 0.0,
+        "analysis_archive": "",
+        "test_log_archive": "",
+        "analysis_source": ""
+      },
+      {
+        "case_id": "FW-006",
+        "name": "feedback_report_cross_session",
+        "status": "pass",
+        "check_results": [
+          {
+            "type": "skills_invoked",
+            "passed": true,
+            "message": "Skill 'framework-feedback-report-flow': invoked"
+          },
+          {
+            "type": "tools_called",
+            "passed": true,
+            "message": "Tool 'Bash': 7 call(s) >= 1 required"
+          },
+          {
+            "type": "tools_called",
+            "passed": true,
+            "message": "Tool 'Write': 1 call(s) >= 1 required"
+          },
+          {
+            "type": "output_contains",
+            "passed": true,
+            "message": "Output contains: 'bundle'"
+          },
+          {
+            "type": "output_contains",
+            "passed": true,
+            "message": "Output contains: '/tmp/jarvis-feedback/'"
+          },
+          {
+            "type": "nl_checks",
+            "passed": true,
+            "message": "NL[correct_session]: 7.0/10 PASS (min=7) — 回應正確解析了指定的 session 路徑（526aa313...），並顯示「1 session(s) packaged」表示使用了指定 session 而非當前 session，但未明確展示 bundle.json 的 sessions 陣列內容以直接確認 session_id 是否正確寫入。"
+          }
+        ],
+        "duration": 75.63090287498198,
+        "token_usage": {
+          "total": 330652,
+          "cost": 0.2316
+        },
+        "nl_scores": {
+          "correct_session": 7.0
+        },
+        "judge_score": 0.0,
+        "command": "claude -p 使用 framework-feedback-report-flow 打包以下 session 的 feedback。\n給 2 分，理由是「build-flow 沒有被觸發」。\n\nSession 路徑: /Users/swchen.tw/.claude/projects/-Users-swchen-tw-git-workspace-jarvis/526aa313-f5e5-4ad5-803b-469b7c1923d8.jsonl --output-format stream-json --model claude-sonnet-4-6 --verbose --dangerously-skip-permissions",
+        "log_path": "/Users/swchen.tw/git/workspace_jarvis/connsys-jarvis/tests/claudecode/.results/2026-05-18_09-36-56/framework-base-expert",
+        "kpi_values": {
+          "K1": {
+            "value": 0.0,
+            "assessment": "Degraded"
+          },
+          "K2": {
+            "value": "0.0%",
+            "assessment": "Good"
+          },
+          "K3": {
+            "value": "0.0%",
+            "assessment": "Good"
+          },
+          "K4": {
+            "value": 0.0,
+            "assessment": "Degraded"
+          },
+          "K5": {
+            "value": 0.0,
+            "assessment": "Good"
+          },
+          "S1": {
+            "value": 0.0,
+            "assessment": "Good"
+          },
+          "S2": {
+            "value": 0.0,
+            "assessment": "Good"
+          },
+          "S3": {
+            "value": 0.0,
+            "assessment": ""
+          },
+          "S4": {
+            "value": "100.0%",
+            "assessment": "Degraded"
+          },
+          "S5": {
+            "value": 0.0,
+            "assessment": "Good"
+          },
+          "S6": {
+            "value": 0.0,
+            "assessment": ""
+          }
+        },
+        "efficiency": {
+          "effective": 330652,
+          "wasted": 0,
+          "ratio": 100.0
+        },
+        "phases": {
+          "understanding": 2,
+          "implementing": 17
+        },
+        "verify_cost": 0.0,
+        "feedback_change_url": "",
+        "ai_analysis_tokens": 0,
+        "ai_analysis_cost": 0.0,
+        "analysis_archive": "",
+        "test_log_archive": "",
+        "analysis_source": ""
+      },
+      {
+        "case_id": "WB-001",
+        "name": "hello_world_with_size_check",
+        "status": "fail",
+        "check_results": [
+          {
+            "type": "skills_invoked",
+            "passed": true,
+            "message": "Skill 'wifi-bora-base-expert-using-knowhow': invoked"
+          },
+          {
+            "type": "skills_invoked",
+            "passed": true,
+            "message": "Skill 'wifi-bora-build-flow': invoked"
+          },
+          {
+            "type": "skills_invoked",
+            "passed": true,
+            "message": "Skill 'wifi-bora-memory-knowhow': invoked"
+          },
+          {
+            "type": "skills_invoked",
+            "passed": true,
+            "message": "Skill 'wifi-bora-arch-knowhow' (optional): not invoked"
+          },
+          {
+            "type": "skills_not_invoked",
+            "passed": true,
+            "message": "Skill 'wifi-bora-debug-flow': not invoked (good) — hello world 不需要 debug 流程"
+          },
+          {
+            "type": "tools_called",
+            "passed": true,
+            "message": "Tool 'Read': 3 call(s) >= 1 required"
+          },
+          {
+            "type": "tools_called",
+            "passed": false,
+            "message": "Tool 'Write': 0 call(s) < 1 required"
+          },
+          {
+            "type": "tools_called",
+            "passed": true,
+            "message": "Tool 'Bash': 6 call(s) >= 1 required"
+          },
+          {
+            "type": "tools_not_called",
+            "passed": true,
+            "message": "Tool 'Bash' (regex 'rm\\s+-rf') : not called (good) — 不應執行刪除指令"
+          },
+          {
+            "type": "output_contains",
+            "passed": true,
+            "message": "Output contains: 'hello'"
+          },
+          {
+            "type": "nl_checks",
+            "passed": false,
+            "message": "NL[completeness]: 6.0/10 FAIL (min=7) — Size 分析非常完整詳細，但第一子任務缺陷明顯：只提及找到現有 demo 而未展示實際代碼，也未明確說明代碼放在韌體的具體位置（如 app/ 或 user/），不符合『說明放在韌體的哪個位置』的要求。"
+          },
+          {
+            "type": "nl_checks",
+            "passed": true,
+            "message": "NL[skill_usage]: 8.0/10 PASS (min=6) — 很好地運用 build-flow 知識（ARM toolchain、-Os 優化、make 指令）和深度的 memory-knowhow 知識（ROM/RAM 分析、section 細節、dead argument elimination 優化原理），展示了專業的固件開發理解。"
+          },
+          {
+            "type": "judge",
+            "passed": true,
+            "message": "Judge: 7.0/10 PASS (min=7) — 程式碼位置只得 2 分（缺少明確說明代碼位置）、Build 流程得 3 分（toolchain 正確、build 成功）、Size 分析得 2 分（非常詳細）、分析深度得 1 分（缺少 baseline 前後對比），總分 7 分剛好達到及格線。"
+          }
+        ],
+        "duration": 72.29992445802782,
+        "token_usage": {
+          "total": 280955,
+          "cost": 0.2126
+        },
+        "nl_scores": {
+          "completeness": 6.0,
+          "skill_usage": 8.0
+        },
+        "judge_score": 7.0,
+        "command": "claude -p 寫一個 hello world 並檢查 size in wifi firmware --output-format stream-json --model claude-sonnet-4-6 --verbose --dangerously-skip-permissions",
+        "log_path": "/Users/swchen.tw/git/workspace_jarvis/connsys-jarvis/tests/claudecode/.results/2026-05-18_09-53-27/wifi-bora-base-expert",
+        "kpi_values": {
+          "K1": {
+            "value": 1.0,
+            "assessment": "Degraded"
+          },
+          "K2": {
+            "value": "0.0%",
+            "assessment": "Good"
+          },
+          "K3": {
+            "value": "0.0%",
+            "assessment": "Good"
+          },
+          "K4": {
+            "value": 0.0,
+            "assessment": "Degraded"
+          },
+          "K5": {
+            "value": 0.0,
+            "assessment": "Good"
+          },
+          "S1": {
+            "value": 0.0,
+            "assessment": "Good"
+          },
+          "S2": {
+            "value": 0.0,
+            "assessment": "Good"
+          },
+          "S3": {
+            "value": 1.0,
+            "assessment": ""
+          },
+          "S4": {
+            "value": "0.0%",
+            "assessment": "Good"
+          },
+          "S5": {
+            "value": 0.0,
+            "assessment": "Good"
+          },
+          "S6": {
+            "value": 0.0,
+            "assessment": ""
+          }
+        },
+        "efficiency": {
+          "effective": 280955,
+          "wasted": 0,
+          "ratio": 100.0
+        },
+        "phases": {
+          "understanding": 3,
+          "implementing": 14,
+          "exploring": 4,
+          "verifying": 1
+        },
+        "verify_cost": 0.0,
+        "feedback_change_url": "https://github.com/swchen44/connsys-jarvis-feedback/pull/65",
+        "ai_analysis_tokens": 0,
+        "ai_analysis_cost": 0.0,
+        "analysis_archive": "",
+        "test_log_archive": "",
+        "analysis_source": ""
+      },
+      {
+        "case_id": "MEM-002",
+        "name": "memslim_flow_trigger",
+        "status": "fail",
+        "check_results": [
+          {
+            "type": "skills_invoked",
+            "passed": true,
+            "message": "Skill 'wifi-bora-memslim-flow': invoked"
+          },
+          {
+            "type": "skills_invoked",
+            "passed": true,
+            "message": "Skill 'wifi-bora-memory-knowhow' (optional): not invoked"
+          },
+          {
+            "type": "skills_invoked",
+            "passed": true,
+            "message": "Skill 'wifi-bora-ast-tool' (optional): not invoked"
+          },
+          {
+            "type": "tools_called",
+            "passed": false,
+            "message": "Tool 'Read': 0 call(s) < 1 required"
+          },
+          {
+            "type": "tools_called",
+            "passed": true,
+            "message": "Tool 'Bash': 10 call(s) >= 1 required"
+          },
+          {
+            "type": "output_contains",
+            "passed": false,
+            "message": "Output MISSING: 'ROM'"
+          },
+          {
+            "type": "output_contains",
+            "passed": true,
+            "message": "Output contains: 'RAM'"
+          },
+          {
+            "type": "nl_checks",
+            "passed": false,
+            "message": "NL[completeness]: 0/10 FAIL (min=7) — Parse error"
+          },
+          {
+            "type": "nl_checks",
+            "passed": false,
+            "message": "NL[accuracy]: 0/10 FAIL (min=6) — Parse error"
+          },
+          {
+            "type": "nl_checks",
+            "passed": false,
+            "message": "NL[actionability]: 0/10 FAIL (min=6) — Parse error"
+          },
+          {
+            "type": "judge",
+            "passed": false,
+            "message": "Judge: 0/10 FAIL (min=7) — Parse error"
+          }
+        ],
+        "duration": 73.16826508397935,
+        "token_usage": {
+          "total": 146726,
+          "cost": 0.1398
+        },
+        "nl_scores": {
+          "completeness": 0,
+          "accuracy": 0,
+          "actionability": 0
+        },
+        "judge_score": 0,
+        "command": "claude -p # Test: Memory Slim Flow\n\n請分析目前 Wi-Fi Bora 的 ROM/RAM footprint。\n\n我需要了解：\n1. 目前 ROM 和 RAM 的整體用量分佈\n2. 各 section（.text, .rodata, .data, .bss）的大小\n3. 佔用空間最大的前 10 個 function/symbol\n4. 有哪些可以優化精簡的建議\n\n請使用 memslim 分析流程來完成這個任務。 --output-format stream-json --model claude-sonnet-4-6 --verbose --dangerously-skip-permissions",
+        "log_path": "/Users/swchen.tw/git/workspace_jarvis/connsys-jarvis/tests/claudecode/.results/2026-05-18_09-57-20/wifi-bora-memory-slim-expert",
+        "kpi_values": {
+          "K1": {
+            "value": 0.0,
+            "assessment": "Degraded"
+          },
+          "K2": {
+            "value": "0.0%",
+            "assessment": "Good"
+          },
+          "K3": {
+            "value": "0.0%",
+            "assessment": "Good"
+          },
+          "K4": {
+            "value": 0.0,
+            "assessment": "Degraded"
+          },
+          "K5": {
+            "value": 0.0,
+            "assessment": "Good"
+          },
+          "S1": {
+            "value": 0.0,
+            "assessment": "Good"
+          },
+          "S2": {
+            "value": 0.0,
+            "assessment": "Good"
+          },
+          "S3": {
+            "value": 0.0,
+            "assessment": ""
+          },
+          "S4": {
+            "value": "0.0%",
+            "assessment": "Good"
+          },
+          "S5": {
+            "value": 0.0,
+            "assessment": "Good"
+          },
+          "S6": {
+            "value": 0.0,
+            "assessment": ""
+          }
+        },
+        "efficiency": {
+          "effective": 146726,
+          "wasted": 0,
+          "ratio": 100.0
+        },
+        "phases": {
+          "understanding": 2,
+          "implementing": 19,
+          "exploring": 7
+        },
+        "verify_cost": 0.0,
+        "feedback_change_url": "",
+        "ai_analysis_tokens": 0,
+        "ai_analysis_cost": 0.0,
+        "analysis_archive": "",
+        "test_log_archive": "",
+        "analysis_source": ""
+      },
+      {
+        "case_id": "MEM-004",
+        "name": "cross_dependency_skill_access",
+        "status": "fail",
+        "check_results": [
+          {
+            "type": "skills_invoked",
+            "passed": true,
+            "message": "Skill 'sys-bora-repo-tool' (optional): invoked"
+          },
+          {
+            "type": "output_not_contains",
+            "passed": true,
+            "message": "Output correctly excludes: 'skill not found'"
+          },
+          {
+            "type": "output_not_contains",
+            "passed": true,
+            "message": "Output correctly excludes: 'unknown skill'"
+          },
+          {
+            "type": "nl_checks",
+            "passed": false,
+            "message": "NL[accessibility]: 0/10 FAIL (min=5) — Parse error"
+          }
+        ],
+        "duration": 14.880322000011802,
+        "token_usage": {
+          "total": 81210,
+          "cost": 0.0807
+        },
+        "nl_scores": {
+          "accessibility": 0
+        },
+        "judge_score": 0.0,
+        "command": "claude -p 請使用 repo 工具幫我查看目前的 manifest 狀態 --output-format stream-json --model claude-sonnet-4-6 --verbose --dangerously-skip-permissions",
+        "log_path": "/Users/swchen.tw/git/workspace_jarvis/connsys-jarvis/tests/claudecode/.results/2026-05-18_09-56-22/wifi-bora-memory-slim-expert",
+        "kpi_values": {
+          "K1": {
+            "value": 0.0,
+            "assessment": "Degraded"
+          },
+          "K2": {
+            "value": "0.0%",
+            "assessment": "Good"
+          },
+          "K3": {
+            "value": "0.0%",
+            "assessment": "Good"
+          },
+          "K4": {
+            "value": 0.0,
+            "assessment": "Degraded"
+          },
+          "K5": {
+            "value": 0.0,
+            "assessment": "Good"
+          },
+          "S1": {
+            "value": 0.0,
+            "assessment": "Good"
+          },
+          "S2": {
+            "value": 0.0,
+            "assessment": "Good"
+          },
+          "S3": {
+            "value": 0.0,
+            "assessment": ""
+          },
+          "S4": {
+            "value": "0.0%",
+            "assessment": "Good"
+          },
+          "S5": {
+            "value": 0.0,
+            "assessment": "Good"
+          },
+          "S6": {
+            "value": 0.0,
+            "assessment": ""
+          }
+        },
+        "efficiency": {
+          "effective": 81210,
+          "wasted": 0,
+          "ratio": 100.0
+        },
+        "phases": {
+          "understanding": 2,
+          "implementing": 5
+        },
+        "verify_cost": 0.0,
+        "feedback_change_url": "",
+        "ai_analysis_tokens": 0,
+        "ai_analysis_cost": 0.0,
+        "analysis_archive": "",
+        "test_log_archive": "",
+        "analysis_source": ""
+      },
+      {
+        "case_id": "MEM-003",
+        "name": "lsp_tool_trigger",
+        "status": "fail",
+        "check_results": [
+          {
+            "type": "skills_invoked",
+            "passed": true,
+            "message": "Skill 'wifi-bora-lsp-tool': invoked"
+          },
+          {
+            "type": "tools_called",
+            "passed": true,
+            "message": "Tool 'Read': 1 call(s) >= 1 required"
+          },
+          {
+            "type": "output_contains",
+            "passed": true,
+            "message": "Output contains: 'function'"
+          },
+          {
+            "type": "output_contains",
+            "passed": true,
+            "message": "Output contains: 'call'"
+          },
+          {
+            "type": "nl_checks",
+            "passed": false,
+            "message": "NL[accuracy]: 0/10 FAIL (min=6) — Parse error"
+          }
+        ],
+        "duration": 64.81349820800824,
+        "token_usage": {
+          "total": 267243,
+          "cost": 0.1907
+        },
+        "nl_scores": {
+          "accuracy": 0
+        },
+        "judge_score": 0.0,
+        "command": "claude -p # Test: LSP Tool\n\n請使用 LSP 工具分析 Wi-Fi driver 中 `wifi_init()` function 的 call graph。\n\n我想知道：\n1. `wifi_init()` 呼叫了哪些 function\n2. 這些 function 各自的大小\n3. 是否有可以精簡的呼叫鏈 --output-format stream-json --model claude-sonnet-4-6 --verbose --dangerously-skip-permissions",
+        "log_path": "/Users/swchen.tw/git/workspace_jarvis/connsys-jarvis/tests/claudecode/.results/2026-05-18_09-57-12/wifi-bora-memory-slim-expert",
+        "kpi_values": {
+          "K1": {
+            "value": 1.0,
+            "assessment": "Degraded"
+          },
+          "K2": {
+            "value": "0.0%",
+            "assessment": "Good"
+          },
+          "K3": {
+            "value": "0.0%",
+            "assessment": "Good"
+          },
+          "K4": {
+            "value": 0.0,
+            "assessment": "Degraded"
+          },
+          "K5": {
+            "value": 0.0,
+            "assessment": "Good"
+          },
+          "S1": {
+            "value": 0.0,
+            "assessment": "Good"
+          },
+          "S2": {
+            "value": 0.0,
+            "assessment": "Good"
+          },
+          "S3": {
+            "value": 1.0,
+            "assessment": ""
+          },
+          "S4": {
+            "value": "0.0%",
+            "assessment": "Good"
+          },
+          "S5": {
+            "value": 0.0,
+            "assessment": "Good"
+          },
+          "S6": {
+            "value": 0.0,
+            "assessment": ""
+          }
+        },
+        "efficiency": {
+          "effective": 267243,
+          "wasted": 0,
+          "ratio": 100.0
+        },
+        "phases": {
+          "understanding": 4,
+          "implementing": 15,
+          "exploring": 1
+        },
+        "verify_cost": 0.0,
+        "feedback_change_url": "",
+        "ai_analysis_tokens": 0,
+        "ai_analysis_cost": 0.0,
+        "analysis_archive": "",
+        "test_log_archive": "",
+        "analysis_source": ""
+      }
+    ],
+    "agent_program": "claude-code",
+    "scope": "full"
+  },
+  "L2": {
+    "by_case": {
+      "fw-002": {
+        "total_tokens": {
+          "total": 223539,
+          "cost": 0.158
+        }
+      },
+      "fw-001": {
+        "total_tokens": {
+          "total": 507664,
+          "cost": 0.3118
+        }
+      },
+      "fw-005": {
+        "total_tokens": {
+          "total": 514738,
+          "cost": 0.3439
+        }
+      },
+      "fw-006": {
+        "total_tokens": {
+          "total": 330652,
+          "cost": 0.2316
+        }
+      },
+      "wb-001": {
+        "total_tokens": {
+          "total": 280955,
+          "cost": 0.2126
+        }
+      },
+      "mem-002": {
+        "total_tokens": {
+          "total": 146726,
+          "cost": 0.1398
+        }
+      },
+      "mem-004": {
+        "total_tokens": {
+          "total": 81210,
+          "cost": 0.0807
+        }
+      },
+      "mem-003": {
+        "total_tokens": {
+          "total": 267243,
+          "cost": 0.1907
+        }
+      }
+    },
+    "total": {
+      "skills": [],
+      "tools": [],
+      "failures": [],
+      "total_tokens": {
+        "input": 96,
+        "output": 23320,
+        "cache_creation": 179777,
+        "cache_read": 2149534,
+        "total": 2352727,
+        "web_search_requests": 0,
+        "estimated_cost_usd": 1.6691,
+        "model_id": "claude-sonnet-4-6"
+      },
+      "verification_tokens": {
+        "by_model": [
+          {
+            "model_id": "unknown",
+            "calls": 17,
+            "input": 108,
+            "output": 42,
+            "cache_creation": 582036,
+            "cache_read": 213168,
+            "total": 795354,
+            "estimated_cost_usd": 0.0
+          }
+        ],
+        "total_tokens": 795354,
+        "total_cost_usd": 0.0
+      },
+      "advisor_costs": [],
+      "subagent_costs": [
+        {
+          "agent_id": "agent-a04ff90e318261eeb",
+          "model": "",
+          "tokens": 0,
+          "estimated_cost_usd": 0.0
+        }
+      ]
+    }
+  },
+  "L3": {
+    "by_case": {
+      "fw-002": {
+        "phases": {
+          "understanding": 2,
+          "implementing": 11,
+          "verifying": 3,
+          "exploring": 1
+        },
+        "efficiency": {
+          "effective": 223539,
+          "wasted": 0,
+          "ratio": 100.0
+        }
+      },
+      "fw-001": {
+        "phases": {
+          "understanding": 2,
+          "implementing": 15,
+          "verifying": 5,
+          "exploring": 2
+        },
+        "efficiency": {
+          "effective": 507664,
+          "wasted": 0,
+          "ratio": 100.0
+        }
+      },
+      "fw-005": {
+        "phases": {
+          "verifying": 4,
+          "implementing": 23
+        },
+        "efficiency": {
+          "effective": 514738,
+          "wasted": 0,
+          "ratio": 100.0
+        }
+      },
+      "fw-006": {
+        "phases": {
+          "understanding": 2,
+          "implementing": 17
+        },
+        "efficiency": {
+          "effective": 330652,
+          "wasted": 0,
+          "ratio": 100.0
+        }
+      },
+      "wb-001": {
+        "phases": {
+          "understanding": 3,
+          "implementing": 14,
+          "exploring": 4,
+          "verifying": 1
+        },
+        "efficiency": {
+          "effective": 280955,
+          "wasted": 0,
+          "ratio": 100.0
+        }
+      },
+      "mem-002": {
+        "phases": {
+          "understanding": 2,
+          "implementing": 19,
+          "exploring": 7
+        },
+        "efficiency": {
+          "effective": 146726,
+          "wasted": 0,
+          "ratio": 100.0
+        }
+      },
+      "mem-004": {
+        "phases": {
+          "understanding": 2,
+          "implementing": 5
+        },
+        "efficiency": {
+          "effective": 81210,
+          "wasted": 0,
+          "ratio": 100.0
+        }
+      },
+      "mem-003": {
+        "phases": {
+          "understanding": 4,
+          "implementing": 15,
+          "exploring": 1
+        },
+        "efficiency": {
+          "effective": 267243,
+          "wasted": 0,
+          "ratio": 100.0
+        }
+      }
+    },
+    "total": {
+      "phases": [
+        {
+          "phase": "understanding",
+          "messages": 17,
+          "tokens": 0,
+          "ratio": 0.0
+        },
+        {
+          "phase": "implementing",
+          "messages": 119,
+          "tokens": 0,
+          "ratio": 0.0
+        },
+        {
+          "phase": "verifying",
+          "messages": 13,
+          "tokens": 0,
+          "ratio": 0.0
+        },
+        {
+          "phase": "exploring",
+          "messages": 15,
+          "tokens": 0,
+          "ratio": 0.0
+        }
+      ],
+      "efficiency": {
+        "effective_tokens": 2352727,
+        "effective_ratio": 1.0,
+        "wasted_tokens": 0,
+        "wasted_ratio": 0.0,
+        "total_tokens": 2352727
+      },
+      "timeline": [],
+      "model_comparison": {}
+    }
+  },
+  "archives": {
+    "test-log.tar.bz2": {
+      "size": 130266,
+      "files": [
+        {
+          "name": "framework-base-expert/fw-002/output.txt",
+          "description": "Session text output",
+          "size": 300
+        },
+        {
+          "name": "framework-base-expert/fw-002/metadata.json",
+          "description": "Test case metadata (id, model, timeout)",
+          "size": 214
+        },
+        {
+          "name": "framework-base-expert/fw-002/stream.jsonl",
+          "description": "Session JSONL events",
+          "size": 72555
+        },
+        {
+          "name": "framework-base-expert/fw-001/output.txt",
+          "description": "Session text output",
+          "size": 546
+        },
+        {
+          "name": "framework-base-expert/fw-001/metadata.json",
+          "description": "Test case metadata (id, model, timeout)",
+          "size": 213
+        },
+        {
+          "name": "framework-base-expert/fw-001/stream.jsonl",
+          "description": "Session JSONL events",
+          "size": 125372
+        },
+        {
+          "name": "framework-base-expert/fw-005/output.txt",
+          "description": "Session text output",
+          "size": 2141
+        },
+        {
+          "name": "framework-base-expert/fw-005/metadata.json",
+          "description": "Test case metadata (id, model, timeout)",
+          "size": 215
+        },
+        {
+          "name": "framework-base-expert/fw-005/stream.jsonl",
+          "description": "Session JSONL events",
+          "size": 131238
+        },
+        {
+          "name": "framework-base-expert/fw-006/output.txt",
+          "description": "Session text output",
+          "size": 964
+        },
+        {
+          "name": "framework-base-expert/fw-006/metadata.json",
+          "description": "Test case metadata (id, model, timeout)",
+          "size": 214
+        },
+        {
+          "name": "framework-base-expert/fw-006/stream.jsonl",
+          "description": "Session JSONL events",
+          "size": 78355
+        },
+        {
+          "name": "wifi-bora-base-expert/wb-001/output.txt",
+          "description": "Session text output",
+          "size": 2047
+        },
+        {
+          "name": "wifi-bora-base-expert/wb-001/metadata.json",
+          "description": "Test case metadata (id, model, timeout)",
+          "size": 214
+        },
+        {
+          "name": "wifi-bora-base-expert/wb-001/stream.jsonl",
+          "description": "Session JSONL events",
+          "size": 87012
+        },
+        {
+          "name": "wifi-bora-memory-slim-expert/mem-002/output.txt",
+          "description": "Session text output",
+          "size": 1770
+        },
+        {
+          "name": "wifi-bora-memory-slim-expert/mem-002/metadata.json",
+          "description": "Test case metadata (id, model, timeout)",
+          "size": 214
+        },
+        {
+          "name": "wifi-bora-memory-slim-expert/mem-002/stream.jsonl",
+          "description": "Session JSONL events",
+          "size": 132542
+        },
+        {
+          "name": "wifi-bora-memory-slim-expert/mem-004/output.txt",
+          "description": "Session text output",
+          "size": 434
+        },
+        {
+          "name": "wifi-bora-memory-slim-expert/mem-004/metadata.json",
+          "description": "Test case metadata (id, model, timeout)",
+          "size": 215
+        },
+        {
+          "name": "wifi-bora-memory-slim-expert/mem-004/stream.jsonl",
+          "description": "Session JSONL events",
+          "size": 36616
+        },
+        {
+          "name": "wifi-bora-memory-slim-expert/mem-003/output.txt",
+          "description": "Session text output",
+          "size": 2361
+        },
+        {
+          "name": "wifi-bora-memory-slim-expert/mem-003/metadata.json",
+          "description": "Test case metadata (id, model, timeout)",
+          "size": 214
+        },
+        {
+          "name": "wifi-bora-memory-slim-expert/mem-003/stream.jsonl",
+          "description": "Session JSONL events",
+          "size": 69880
+        }
+      ]
+    },
+    "analysis.tar.bz2": {
+      "size": 13622,
+      "files": [
+        {
+          "name": "framework-base-expert/fw-002/report.json",
+          "description": "Machine-readable KPI report",
+          "size": 7657
+        },
+        {
+          "name": "framework-base-expert/fw-002/report.txt",
+          "description": "Human-readable analysis summary",
+          "size": 3653
+        },
+        {
+          "name": "framework-base-expert/fw-002/report.html",
+          "description": "Interactive visualization with charts",
+          "size": 28048
+        },
+        {
+          "name": "framework-base-expert/fw-001/report.json",
+          "description": "Machine-readable KPI report",
+          "size": 8975
+        },
+        {
+          "name": "framework-base-expert/fw-001/report.txt",
+          "description": "Human-readable analysis summary",
+          "size": 3760
+        },
+        {
+          "name": "framework-base-expert/fw-001/report.html",
+          "description": "Interactive visualization with charts",
+          "size": 31034
+        },
+        {
+          "name": "framework-base-expert/fw-005/report.json",
+          "description": "Machine-readable KPI report",
+          "size": 8858
+        },
+        {
+          "name": "framework-base-expert/fw-005/report.txt",
+          "description": "Human-readable analysis summary",
+          "size": 3763
+        },
+        {
+          "name": "framework-base-expert/fw-005/report.html",
+          "description": "Interactive visualization with charts",
+          "size": 29810
+        },
+        {
+          "name": "wifi-bora-base-expert/wb-001/report.json",
+          "description": "Machine-readable KPI report",
+          "size": 8317
+        },
+        {
+          "name": "wifi-bora-base-expert/wb-001/report.txt",
+          "description": "Human-readable analysis summary",
+          "size": 3763
+        },
+        {
+          "name": "wifi-bora-base-expert/wb-001/report.html",
+          "description": "Interactive visualization with charts",
+          "size": 29815
+        }
+      ]
+    }
+  }
+}
