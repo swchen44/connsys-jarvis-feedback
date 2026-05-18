@@ -1,0 +1,43 @@
+{
+  "version": "2.5.0",
+  "metadata": {
+    "bundle_id": "20260518-095413-swchen.tw-HomeMacBook-Air-wifi-bora-base-expert(wb-001)",
+    "timestamp": "2026-05-18T09:54:13Z",
+    "user_id": "swchen.tw",
+    "hostname": "HomeMacBook-Air",
+    "agent_program": "claude-code"
+  },
+  "feedback": {
+    "score": 3,
+    "description": "Integration test - wifi-bora-base-expert - WB-001",
+    "expert": "wifi-bora-base-expert"
+  },
+  "sessions": [
+    {
+      "session_id": "stream",
+      "source_path": "/Users/swchen.tw/git/workspace_jarvis/connsys-jarvis/tests/claudecode/.results/2026-05-18_09-53-27/wifi-bora-base-expert/stream.jsonl",
+      "subagents": []
+    }
+  ],
+  "sessions_archive": "sessions.tar.bz2",
+  "context_archive": "context.tar.bz2",
+  "auto_memory": {
+    "exists": true,
+    "agent_program": "claude-code",
+    "source_path": "/Users/swchen.tw/.claude/projects/-Users-swchen-tw-git-workspace-jarvis-connsys-jarvis/memory",
+    "files_count": 11,
+    "redaction_summary": {}
+  },
+  "files": {
+    "sessions.tar.bz2": [
+      {"name": "sessions/stream.jsonl", "description": "Main session JSONL (sanitized)", "size": 84285}
+    ],
+    "context.tar.bz2": [
+      {"name": "context.json", "description": "Environment metadata snapshot", "size": 47000},
+      {"name": "claude_md/", "description": "CLAUDE.md / AGENTS.md snapshot", "size": 0},
+      {"name": "dot_claude/", "description": ".claude/ settings snapshot", "size": 0},
+      {"name": "dot_connsys_jarvis/", "description": ".connsys-jarvis/ snapshot", "size": 0},
+      {"name": "auto_memory/", "description": "Auto-memory snapshot (redacted)", "size": 0}
+    ]
+  }
+}
