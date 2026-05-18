@@ -1,0 +1,32 @@
+{
+  "version": "2.5.0",
+  "metadata": {
+    "bundle_id": "20260518-093802-swchen.tw-HomeMacBook-Air-framework-base-expert(fw-005)",
+    "timestamp": "2026-05-18T09:38:02Z",
+    "user_id": "swchen.tw",
+    "hostname": "HomeMacBook-Air",
+    "agent_program": "claude-code"
+  },
+  "feedback": {
+    "score": 3,
+    "description": "Integration test - framework-base-expert - FW-005",
+    "expert": "framework-base-expert",
+    "skill": "FW-005"
+  },
+  "sessions": [
+    {
+      "session_id": "stream",
+      "source_path": "/Users/swchen.tw/git/workspace_jarvis/connsys-jarvis/tests/claudecode/.results/2026-05-18_09-37-05/framework-base-expert/stream.jsonl",
+      "subagents": []
+    }
+  ],
+  "files": [
+    {
+      "name": "sessions/stream.jsonl",
+      "description": "Primary Claude Code session JSONL for framework-base-expert FW-005 integration test",
+      "size": 131238
+    }
+  ],
+  "context_archive": "context.tar.bz2",
+  "sessions_archive": "sessions.tar.bz2"
+}
