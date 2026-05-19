@@ -1,0 +1,28 @@
+{
+  "version": "2.5.0",
+  "files": [
+    {"name": "bundle.json", "description": "Bundle metadata and feedback", "size": 0},
+    {"name": "sessions.tar.bz2", "description": "Session JSONL files (sanitized)", "size": 0},
+    {"name": "context.tar.bz2", "description": "Environment context and config", "size": 0}
+  ],
+  "metadata": {
+    "bundle_id": "20260519-112940-swchen.tw-HomeMacBook-Air",
+    "timestamp": "2026-05-19T11:29:40",
+    "user_id": "swchen.tw",
+    "hostname": "HomeMacBook-Air",
+    "agent_program": "claude-code"
+  },
+  "feedback": {
+    "score": 3,
+    "description": "測試用途，驗證打包流程"
+  },
+  "sessions": [
+    {
+      "session_id": "c0f81840-9430-419f-8f5c-dc7fa60d7363",
+      "source_path": "/Users/swchen.tw/.claude/projects/-private-var-folders-wj-3v8944vj0t714p6b5l9lmr-80000gq-T-connsys-claude-20260519-112849-0114/c0f81840-9430-419f-8f5c-dc7fa60d7363.jsonl",
+      "subagents": []
+    }
+  ],
+  "context_archive": "context.tar.bz2",
+  "sessions_archive": "sessions.tar.bz2"
+}
