@@ -1,0 +1,95 @@
+{
+  "version": "2.6.0",
+  "metadata": {
+    "bundle_id": "20260522-054921-swchen.tw-HomeMacBook-Air",
+    "timestamp": "2026-05-21T21:49:21Z",
+    "timestamp_local": "2026-05-22T05:49:21+08:00",
+    "user_id": "swchen.tw",
+    "hostname": "HomeMacBook-Air",
+    "workspace_path": "/private/var/folders/wj/3v8944vj0t714p6b5l9lmr_80000gq/T/connsys-codex-20260522-054807-5217",
+    "agent_program": "claude-code"
+  },
+  "feedback": {
+    "score": 2,
+    "description": "build-flow 沒有被觸發"
+  },
+  "sessions": [
+    {
+      "session_id": "9810ede6-38bc-494a-aba8-39b92613acb2",
+      "source_path": "/Users/swchen.tw/.claude/projects/-Users-swchen-tw-git-workspace-jarvis/9810ede6-38bc-494a-aba8-39b92613acb2.jsonl",
+      "subagents": []
+    }
+  ],
+  "sessions_archive": "sessions.tar.bz2",
+  "context_archive": "context.tar.bz2",
+  "auto_memory": {
+    "exists": false,
+    "agent_program": "claude-code"
+  },
+  "files": {
+    "sessions.tar.bz2": [
+      {
+        "name": "sessions/9810ede6-38bc-494a-aba8-39b92613acb2.jsonl",
+        "description": "Main session JSONL",
+        "size": 85399
+      }
+    ],
+    "context.tar.bz2": [
+      {
+        "name": "claude_md/connsys-codex-20260522-054807-5217_CLAUDE.md",
+        "description": "Context snapshot file",
+        "size": 263
+      },
+      {
+        "name": "context.json",
+        "description": "Environment metadata snapshot",
+        "size": 20305
+      },
+      {
+        "name": "dot_claude/hooks/framework-base-expert-mid-checkpoint-hook.sh.symlink",
+        "description": "Context snapshot file",
+        "size": 201
+      },
+      {
+        "name": "dot_claude/hooks/framework-base-expert-pre-compact-hook.sh.symlink",
+        "description": "Context snapshot file",
+        "size": 198
+      },
+      {
+        "name": "dot_claude/hooks/framework-base-expert-session-end-hook.sh.symlink",
+        "description": "Context snapshot file",
+        "size": 198
+      },
+      {
+        "name": "dot_claude/hooks/framework-base-expert-session-start-hook.sh.symlink",
+        "description": "Context snapshot file",
+        "size": 200
+      },
+      {
+        "name": "dot_claude/hooks/framework-base-expert-shared-utils.sh.symlink",
+        "description": "Context snapshot file",
+        "size": 194
+      },
+      {
+        "name": "dot_claude/settings.json",
+        "description": "Context snapshot file",
+        "size": 913
+      },
+      {
+        "name": "dot_connsys_jarvis/.env",
+        "description": "Context snapshot file",
+        "size": 1216
+      },
+      {
+        "name": "dot_connsys_jarvis/.installed-experts.json",
+        "description": "Context snapshot file",
+        "size": 1181
+      },
+      {
+        "name": "dot_connsys_jarvis/log/setup.log",
+        "description": "Context snapshot file",
+        "size": 15431
+      }
+    ]
+  }
+}
