@@ -1,0 +1,32 @@
+{
+  "version": "2.7.0",
+  "files": [
+    {"name": "bundle.json", "description": "Bundle metadata and feedback", "size": 0},
+    {"name": "sessions.tar.bz2", "description": "Session JSONL files (sanitized)", "size": 0},
+    {"name": "context.tar.bz2", "description": "Environment context snapshot", "size": 0}
+  ],
+  "metadata": {
+    "bundle_id": "20260613-130144-swchen.tw-HomeMacBook-Air",
+    "timestamp": "2026-06-13T05:01:44Z",
+    "timestamp_local": "2026-06-13T13:01:44+08:00",
+    "user_id": "swchen.tw",
+    "hostname": "HomeMacBook-Air",
+    "workspace_path": "/private/tmp/claude-503/connsys-claude-20260613-130121-0183",
+    "agent_program": "claude-code",
+    "expert": "",
+    "case_id": ""
+  },
+  "feedback": {
+    "score": 2,
+    "description": "[Issue] build-flow 沒有被觸發"
+  },
+  "sessions": [
+    {
+      "session_id": "fa52c8b9-dba8-4c62-ba83-b9e4ab09351d",
+      "source_path": "/Users/swchen.tw/.claude/projects/-Users-swchen-tw-git-workspace-jarvis/fa52c8b9-dba8-4c62-ba83-b9e4ab09351d.jsonl",
+      "subagents": []
+    }
+  ],
+  "context_archive": "context.tar.bz2",
+  "sessions_archive": "sessions.tar.bz2"
+}
