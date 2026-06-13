@@ -1,0 +1,44 @@
+{
+  "version": "2.7.0",
+  "files": [
+    {
+      "name": "bundle.json",
+      "description": "Bundle metadata and feedback",
+      "size": 1165
+    },
+    {
+      "name": "sessions.tar.bz2",
+      "description": "Session JSONL archives",
+      "size": 41473
+    },
+    {
+      "name": "context.tar.bz2",
+      "description": "Context files (CLAUDE.md, memory, config)",
+      "size": 7261
+    }
+  ],
+  "metadata": {
+    "bundle_id": "20260613-193313-swchen.tw-HomeMacBook-Air",
+    "timestamp": "2026-06-13T11:33:13Z",
+    "timestamp_local": "2026-06-13T19:33:13+08:00",
+    "user_id": "swchen.tw",
+    "hostname": "HomeMacBook-Air",
+    "workspace_path": "/private/tmp/claude-503/connsys-claude-20260613-193224-2443",
+    "agent_program": "claude-code",
+    "expert": "",
+    "case_id": ""
+  },
+  "feedback": {
+    "score": 3,
+    "description": "測試用途，驗證打包流程"
+  },
+  "sessions": [
+    {
+      "session_id": "ef4857bb-29f3-4df9-8ce2-e2ba59c7b26e",
+      "source_path": "/Users/swchen.tw/.claude/projects/-private-tmp-claude-503-connsys-claude-20260613-193224-2443/ef4857bb-29f3-4df9-8ce2-e2ba59c7b26e.jsonl",
+      "subagents": []
+    }
+  ],
+  "context_archive": "context.tar.bz2",
+  "sessions_archive": "sessions.tar.bz2"
+}
