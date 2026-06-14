@@ -1,0 +1,32 @@
+{
+  "version": "2.7.0",
+  "files": [
+    {"name": "bundle.json", "description": "Bundle metadata and feedback", "size": 0},
+    {"name": "sessions.tar.bz2", "description": "Session JSONL files", "size": 0},
+    {"name": "context.tar.bz2", "description": "Context files (CLAUDE.md, .claude/, etc.)", "size": 0}
+  ],
+  "metadata": {
+    "bundle_id": "20260614-174344-swchen.tw-HomeMacBook-Air",
+    "timestamp": "2026-06-14T09:43:44Z",
+    "timestamp_local": "2026-06-14T17:43:44+08:00",
+    "user_id": "swchen.tw",
+    "hostname": "HomeMacBook-Air",
+    "workspace_path": "/private/tmp/claude-503/connsys-claude-20260614-174301-8033",
+    "agent_program": "claude-code",
+    "expert": "",
+    "case_id": ""
+  },
+  "feedback": {
+    "score": 2,
+    "description": "build-flow 沒有被觸發"
+  },
+  "sessions": [
+    {
+      "session_id": "c8533070-6a6e-4b8a-aaf7-b5488833f184",
+      "source_path": "/Users/swchen.tw/.claude/projects/-Users-swchen-tw-git-workspace-jarvis/c8533070-6a6e-4b8a-aaf7-b5488833f184.jsonl",
+      "subagents": []
+    }
+  ],
+  "context_archive": "context.tar.bz2",
+  "sessions_archive": "sessions.tar.bz2"
+}
